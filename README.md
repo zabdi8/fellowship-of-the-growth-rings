@@ -24,6 +24,7 @@ This repository contains the R project related to my thesis titled "The Fellowsh
 -   `/code`: Contains R scripts and notebooks used for data analysis.
 -   `/results`: Contains the results of your analysis.
 -   `/docs`: Documentation related to your project.
+-   `/output`: Output of all the visualization of data analysis.
 
 ## Usage
 
