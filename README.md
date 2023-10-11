@@ -10,7 +10,7 @@
 
 ------------------------------------------------------------------------
 
-\## Introduction
+## Introduction
 
 This repository contains the R project related to my thesis titled "The Fellowship of the Growth Rings: Unveiling Betula nana's Secret Response to Climate Variability." The project explores the response of Betula nana to climate variability, and it is being conducted under the supervision of Roland Pape and Hans Rensen at the University of USN.
 

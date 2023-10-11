@@ -10,7 +10,7 @@
 
 ------------------------------------------------------------------------
   
-  \## Scripts
+## Scripts
 
 This folder contains all the R scripts related to my thesis titled "The Fellowship of the Growth Rings: Unveiling Betula nana's Secret Response to Climate Variability." 
 
