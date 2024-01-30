@@ -67,6 +67,13 @@ View(e13c_bet_n_07)
 colnames(e13c_bet_n_07)
 head(e13c_bet_n_07)
 
+write.rwl(e13c_bet_n_07, "data/ring_data/aligned/e13c/e13c.bet.n/e13c_bet_n_07/e13c_bet_n_07.rwl", 
+          format = "compact",
+          e13c_bet_n_01_rwl.hdr,
+          append = FALSE,
+          prec = 0.001
+)
+
 #reduce the names for easy view
 e13c_bet_n_07_short <- e13c_bet_n_07
 
@@ -95,7 +102,7 @@ print(e13c_bet_n_07_report)
 #graphs
 seg.plot(e13c_bet_n_07_short) #creates a segment plot
 spag.plot(e13c_bet_n_07_short, zfac=0.02, cex = 0.3) #creates a spaghetti plot
-title(main = "e13cbetn07", adj = 0.48, line = 5.5, font.main = 2, cex.main = 1.6) #add title
+title(main = "e13cbetn07", adj = 0.48, line = 5.2, font.main = 2, cex.main = 1.2) #add title
 
 #average####
 #create a Df with the average of each section for e13c_bet_n_01
@@ -283,6 +290,13 @@ e13c_bet_n_07_average <- round(e13c_bet_n_07_average, digits = 3) #round to 3 di
 
 view(e13c_bet_n_07_average)
 
+write.rwl(e13c_bet_n_07_average, "data/ring_data/aligned/e13c/e13c.bet.n/e13c_bet_n_07/e13c_bet_n_07_average.rwl", 
+          format = "compact",
+          e13c_bet_n_01_rwl.hdr,
+          append = FALSE,
+          prec = 0.001
+)
+
 #analysis####
 ##Statistics####
 e13c_bet_n_07_average_stats <- rwl.stats(e13c_bet_n_07_average) #summary and stats
@@ -300,3 +314,17 @@ print(e13c_bet_n_07_average_report)
 #graphs
 seg.plot(e13c_bet_n_07_average) #creates a segment plot
 spag.plot(e13c_bet_n_07_average, zfac=0.009,) #creates a spaghetti plot
+
+e13c_bet_n_07_ave_short <- e13c_bet_n_07_average
+
+new_colnames <- sub("^E13CBetn07", "", colnames(e13c_bet_n_07_ave_short))
+
+# Assign the new column names to the data frame
+colnames(e13c_bet_n_07_ave_short) <- new_colnames
+
+head(e13c_bet_n_07_ave_short)
+colnames(e13c_bet_n_07_ave_short)
+
+spag.plot(e13c_bet_n_07_ave_short, zfac=0.01,) #creates a spaghetti plot
+title(main = "e13cbetn07 (Average)", adj = 0.48, line = 5.2, font.main = 2, cex.main = 1.2) #add title
+

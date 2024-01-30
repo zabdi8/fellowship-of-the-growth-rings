@@ -40,11 +40,19 @@ e13c_bet_n_01 <- e13c_bet_n_01 %>%
 # View the resulting data frame
 View(e13c_bet_n_01)
 
+#export the df
+
+write.rwl(e13c_bet_n_01, "data/ring_data/aligned/e13c/e13c.bet.n/e13c_bet_n_01/e13c_bet_n_01.rwl", 
+          format = "compact",
+          e13c_bet_n_01_rwl.hdr,
+          append = FALSE,
+          prec = 0.001
+)
 
 #reduce the names for easy view
 e13c_bet_n_01_short <- e13c_bet_n_01
 
-new_colnames <- sub("^E13CBetn01", "", colnames(e13c_bet_n_01_short))
+new_colnames <- sub("^E13CBetn", "", colnames(e13c_bet_n_01_short))
 
 # Assign the new column names to the data frame
 colnames(e13c_bet_n_01_short) <- new_colnames
@@ -149,10 +157,10 @@ e13c_bet_n_01_average$E13CBetn01t04 <- rowMeans(e13c_bet_n_01[, c("E13CBetn01t04
                                                                   "E13CBetn01t04r3",
                                                                   "E13CBetn01t04r4")],
                                                 na.rm = TRUE)
-e13c_bet_n_01_average$E13CBetn01t05 <- rowMeans(e13c_bet_n_01[, c("E13CBetn01t04r1",
-                                                                  "E13CBetn01t04r2",
-                                                                  "E13CBetn01t04r3",
-                                                                  "E13CBetn01t04r4")],
+e13c_bet_n_01_average$E13CBetn01t05 <- rowMeans(e13c_bet_n_01[, c("E13CBetn01t05r1",
+                                                                  "E13CBetn01t05r2",
+                                                                  "E13CBetn01t05r3",
+                                                                  "E13CBetn01t05r4")],
                                                 na.rm = TRUE)
 
 # Replace "NaN" with NA in each column
@@ -172,6 +180,14 @@ e13c_bet_n_01_average <- round(e13c_bet_n_01_average, digits = 3) #round to 3 di
 
 view(e13c_bet_n_01_average)
 
+#export the rwl
+write.rwl(e13c_bet_n_01_average, "data/ring_data/aligned/e13c/e13c.bet.n/e13c_bet_n_01/e13c_bet_n_01_average.rwl", 
+          format = "compact",
+          e13c_bet_n_01_rwl.hdr,
+          append = FALSE,
+          prec = 0.001
+)
+
 #analysis####
 ##Statistics####
 e13c_bet_n_01_average_stats <- rwl.stats(e13c_bet_n_01_average) #summary and stats
@@ -189,3 +205,4 @@ print(e13c_bet_n_01_average_report)
 #graphs
 seg.plot(e13c_bet_n_01_average) #creates a segment plot
 spag.plot(e13c_bet_n_01_average, zfac=0.005,) #creates a spaghetti plot
+title(main = "e13cbetn01 (Average)", adj = 0.48, line = 5, font.main = 2, cex.main = 1.2) #add title

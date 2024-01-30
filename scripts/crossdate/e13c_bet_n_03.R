@@ -41,16 +41,26 @@ e13c_bet_n_03 <- e13c_bet_n_03 %>%
 View(e13c_bet_n_03)
 colnames(e13c_bet_n_03)
 
+#export the rwl
+write.rwl(e13c_bet_n_03, "data/ring_data/aligned/e13c/e13c.bet.n/e13c_bet_n_03/e13c_bet_n_03.rwl", 
+          format = "compact",
+          e13c_bet_n_01_rwl.hdr,
+          append = FALSE,
+          prec = 0.001
+)
+
+
 #reduce the names for easy view
 e13c_bet_n_03_short <- e13c_bet_n_03
 
-new_colnames <- sub("^E13CBetn03", "", colnames(e13c_bet_n_03_short))
+new_colnames <- sub("^E13CBetn", "", colnames(e13c_bet_n_03_short))
 
 # Assign the new column names to the data frame
 colnames(e13c_bet_n_03_short) <- new_colnames
 
 head(e13c_bet_n_03_short)
 colnames(e13c_bet_n_03_short)
+
 
 #Data Analysis####
 ##Statistics####
@@ -69,16 +79,16 @@ print(e13c_bet_n_03_report)
 #graphs
 seg.plot(e13c_bet_n_03) #creates a segment plot
 spag.plot(e13c_bet_n_03_short, zfac=0.02, cex = 0.3) #creates a spaghetti plot
-title(main = "e13cbetn03", adj = 0.48, line = 5.5, font.main = 2, cex.main = 1.6) #add title
+title(main = "e13cbetn03", adj = 0.48, line = 5.2, font.main = 2, cex.main = 1.2) #add title
 
-rwl <- e13c_bet_n_03_short
-serie <- "s01r1"
-e13c_bet_n_03_short_complete <- series.rwl.plot(rwl, series = serie, 
-                                            series.yrs = as.numeric(names(series)),
-                                            seg.length = 2, bin.floor = 0, n=NULL,
-                                            prewhiten = FALSE, biweight = FALSE, 
-                                            floor.plus1 = FALSE)
-title(sub= "E13CBetn01r01 (complete)", adj = 0.812, line = -4.1, font.sub = 2, cex.sub = 0.9) #add title
+# rwl <- e13c_bet_n_03_short
+# serie <- "s01r1"
+# e13c_bet_n_03_short_complete <- series.rwl.plot(rwl, series = serie, 
+#                                             series.yrs = as.numeric(names(series)),
+#                                             seg.length = 2, bin.floor = 0, n=NULL,
+#                                             prewhiten = FALSE, biweight = FALSE, 
+#                                             floor.plus1 = FALSE)
+# title(sub= "E13CBetn03r01 (complete)", adj = 0.812, line = -4.1, font.sub = 2, cex.sub = 0.9) #add title
 
 #average####
 #create a Df with the average of each section for e13c_bet_n_01
@@ -87,19 +97,19 @@ e13c_bet_n_03_average <- data.frame(RowNames = rownames(e13c_bet_n_03))
 
 # Calculate the average for each set of columns and add them to the new DataFrame
 colnames(e13c_bet_n_03)
-#E13CBetn01r
+#E13CBetn03r
 e13c_bet_n_03_average$E13CBetn03r01 <- rowMeans(e13c_bet_n_03[, c("E13CBetn03r01r1",
                                                                   "E13CBetn03r01r2", 
                                                                   "E13CBetn03r01r3",
                                                                   "E13CBetn03r01r4")], 
                                                 na.rm = TRUE)
 
-e13c_bet_n_03_average$E13CBetn01r02 <- rowMeans(e13c_bet_n_03[, c("E13CBetn03r02r1",
+e13c_bet_n_03_average$E13CBetn03r02 <- rowMeans(e13c_bet_n_03[, c("E13CBetn03r02r1",
                                                                   "E13CBetn03r02r2",
                                                                   "E13CBetn03r02r3",
                                                                   "E13CBetn03r02r4")],
                                                 na.rm = TRUE)
-e13c_bet_n_03_average$E13CBetn01r04 <- rowMeans(e13c_bet_n_03[, c("E13CBetn03r04r1",
+e13c_bet_n_03_average$E13CBetn03r04 <- rowMeans(e13c_bet_n_03[, c("E13CBetn03r04r1",
                                                                   "E13CBetn03r04r2",
                                                                   "E13CBetn03r04r3",
                                                                   "E13CBetn03r04r4")], 
@@ -118,25 +128,25 @@ e13c_bet_n_03_average$E13CBetn03s05 <- rowMeans(e13c_bet_n_03[, c("E13CBetn03s05
                                                                   "E13CBetn03s05r3",
                                                                   "E13CBetn03s05r4")],
                                                 na.rm = TRUE)
-e13c_bet_n_03_average$E13CBetn01s08 <- rowMeans(e13c_bet_n_03[, c("E13CBetn03s08r1",
+e13c_bet_n_03_average$E13CBetn03s08 <- rowMeans(e13c_bet_n_03[, c("E13CBetn03s08r1",
                                                                   "E13CBetn03s08r2",
                                                                   "E13CBetn03s08r3",
                                                                   "E13CBetn03s08r4")], 
                                                 na.rm = TRUE)
 
 #E13CBetn03t 
-e13c_bet_n_03_average$E13CBetn01t01 <- rowMeans(e13c_bet_n_03[, c("E13CBetn03t01r1",
+e13c_bet_n_03_average$E13CBetn03t01 <- rowMeans(e13c_bet_n_03[, c("E13CBetn03t01r1",
                                                                   "E13CBetn03t01r2", 
                                                                   "E13CBetn03t01r3",
                                                                   "E13CBetn03t01r4")], 
                                                 na.rm = TRUE)
 
-e13c_bet_n_03_average$E13CBetn01t03 <- rowMeans(e13c_bet_n_03[, c("E13CBetn03t03r1",
+e13c_bet_n_03_average$E13CBetn03t03 <- rowMeans(e13c_bet_n_03[, c("E13CBetn03t03r1",
                                                                   "E13CBetn03t03r2",
                                                                   "E13CBetn03t03r3",
                                                                   "E13CBetn03t03r4")],
                                                 na.rm = TRUE)
-e13c_bet_n_03_average$E13CBetn01t04 <- rowMeans(e13c_bet_n_03[, c("E13CBetn03t04r1",
+e13c_bet_n_03_average$E13CBetn03t04 <- rowMeans(e13c_bet_n_03[, c("E13CBetn03t04r1",
                                                                   "E13CBetn03t04r2",
                                                                   "E13CBetn03t04r3",
                                                                   "E13CBetn03t04r4")], 
@@ -161,6 +171,14 @@ e13c_bet_n_03_average <- round(e13c_bet_n_03_average, digits = 3) #round to 3 di
 
 view(e13c_bet_n_03_average)
 
+#export the rwl
+write.rwl(e13c_bet_n_03_average, "data/ring_data/aligned/e13c/e13c.bet.n/e13c_bet_n_03/e13c_bet_n_03_average.rwl", 
+          format = "compact",
+          e13c_bet_n_01_rwl.hdr,
+          append = FALSE,
+          prec = 0.001
+)
+
 #analysis####
 ##Statistics####
 e13c_bet_n_03_average_stats <- rwl.stats(e13c_bet_n_03_average) #summary and stats
@@ -178,3 +196,18 @@ print(e13c_bet_n_03_average_report)
 #graphs
 seg.plot(e13c_bet_n_03_average) #creates a segment plot
 spag.plot(e13c_bet_n_03_average, zfac=0.01,) #creates a spaghetti plot
+title(main = "e13cbetn03 (Average)", adj = 0.48, line = 5.2, font.main = 2, cex.main = 1.2) #add title
+
+#reduce the names for easy view
+e13c_bet_n_03_average_short <- e13c_bet_n_03_average
+
+new_colnames <- sub("^E13CBetn03", "", colnames(e13c_bet_n_03_average_short))
+
+# Assign the new column names to the data frame
+colnames(e13c_bet_n_03_average_short) <- new_colnames
+
+head(e13c_bet_n_03_average_short)
+colnames(e13c_bet_n_03_average_short)
+
+spag.plot(e13c_bet_n_03_average_short, zfac=0.01,) #creates a spaghetti plot
+title(main = "e13cbetn03 (Average)", adj = 0.48, line = 5.2, font.main = 2, cex.main = 1.2) #add title
