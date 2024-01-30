@@ -18,9 +18,9 @@ e13c_bet_n_07_r06 <- csv2rwl("data/ring_data/raw/e13c/e13c.bet.n/e13c_bet_n_07/R
 
 #remove the core year
 
-e13c_bet_n_07_r01 <- e13c_bet_n_07_q01[-1, ]
-e13c_bet_n_07_r04 <- e13c_bet_n_07_q04[-1, ]
-e13c_bet_n_07_r06 <- e13c_bet_n_07_q06[-1, ]
+e13c_bet_n_07_r01 <- e13c_bet_n_07_r01[-1, ]
+e13c_bet_n_07_r04 <- e13c_bet_n_07_r04[-1, ]
+e13c_bet_n_07_r06 <- e13c_bet_n_07_r06[-1, ]
 
 
 #merge in a single data frame:####
@@ -86,3 +86,4 @@ print(e13c_bet_n_07_r_inter)
 corr.rwl.seg(rwl = e13c_bet_n_07_r, seg.length = 8, bin.floor = 0, n = NULL, prewhiten = FALSE, pcrit = 0.05, biweight = FALSE, method = c("spearman"), make.plot = TRUE, label.cex = 1, floor.plus1 = FALSE, master = NULL) #coorelation analysis #too few observations! 
 
 title(main = "e13cbetn07r", adj = 0.48, line = 4, font.main = 2, cex.main = 1.6) #add title
+
