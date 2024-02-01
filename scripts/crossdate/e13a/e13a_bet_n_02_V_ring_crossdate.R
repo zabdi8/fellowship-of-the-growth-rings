@@ -77,7 +77,7 @@ colnames(e13a_bet_n_02_v_short)
 #graphs
 seg.plot(e13a_bet_n_02_v_short) #creates a segment plot
 spag.plot(e13a_bet_n_02_v_short, zfac=0.009,) #creates a spaghetti plot
-title(main = "e13abetn02s", adj = 0.48, line = 5.5, font.main = 2, cex.main = 1.2) #add title
+title(main = "e13abetn02v", adj = 0.48, line = 5.5, font.main = 2, cex.main = 1.2) #add title
 
 ##Analysis####
 
@@ -90,4 +90,4 @@ corr.rwl.seg(rwl = e13a_bet_n_02_v, seg.length = 8, bin.floor = 0, n = NULL, pre
              biweight = FALSE, method = c("spearman"), 
              make.plot = TRUE, label.cex = 1, floor.plus1 = FALSE, master = NULL) #coorelation analysis #too few observations! 
 
-title(main = "e13abetn02s", adj = 0.48, line = 4, font.main = 2, cex.main = 1.6) #add title
+title(main = "e13abetn02v", adj = 0.48, line = 4, font.main = 2, cex.main = 1.6) #add title
