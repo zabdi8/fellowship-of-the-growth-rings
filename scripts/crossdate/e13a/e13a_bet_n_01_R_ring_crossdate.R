@@ -101,10 +101,7 @@ colnames(e13a_bet_n_01_r_short)
 #graphs
 seg.plot(e13a_bet_n_01_r_short) #creates a segment plot
 spag.plot(e13a_bet_n_01_r_short, zfac=0.009,) #creates a spaghetti plot
-title(main = "e13abetn01r", adj = 0.48, line = 5.2, font.main = 2, cex.main = 1.2) #add title
-
-pdf("figures/spaghetti_plots/e13a/e13a_bet_n_01_r.pdf", width = 10, height = 9)
-
+title(main = "e13abetn01r", adj = 0.48, line = 5.5, font.main = 2, cex.main = 1.2) #add title
 
 ##Analysis####
 
@@ -113,7 +110,7 @@ print(e13a_bet_n_01_r_inter)
 
 ###General correlation####
 
-corr.rwl.seg(rwl = e13a_bet_n_01_r, seg.length = 6, bin.floor = 0, n = NULL, prewhiten = FALSE, pcrit = 0.05, biweight = FALSE, method = c("spearman"), make.plot = TRUE, label.cex = 1, floor.plus1 = FALSE, master = NULL) #coorelation analysis #too few observations! 
+corr.rwl.seg(rwl = e13a_bet_n_01_r, seg.length = 10, bin.floor = 0, n = NULL, prewhiten = FALSE, pcrit = 0.05, biweight = FALSE, method = c("spearman"), make.plot = TRUE, label.cex = 1, floor.plus1 = FALSE, master = NULL) #coorelation analysis #too few observations! 
 
 title(main = "e13abetn01r", adj = 0.48, line = 4, font.main = 2, cex.main = 1.6) #add title
 
