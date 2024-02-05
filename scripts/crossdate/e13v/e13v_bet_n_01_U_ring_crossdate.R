@@ -74,9 +74,9 @@ colnames(e13v_bet_n_01_u_short)
 
 #graphs
 seg.plot(e13v_bet_n_01_u_short) #creates a segment plot
-title(main = "e13vBetn03u", adj = 0.48, line = 5.2, font.main = 2, cex.main = 1.2) #add title
+title(main = "e13vBetn02u", adj = 0.48, line = 5.2, font.main = 2, cex.main = 1.2) #add title
 spag.plot(e13v_bet_n_01_u_short, zfac=0.006,) #creates a spaghetti plot
-title(main = "e13vBetn03u", adj = 0.48, line = 5.2, font.main = 2, cex.main = 1.2) #add title
+title(main = "e13vBetn02u", adj = 0.48, line = 5.2, font.main = 2, cex.main = 1.2) #add title
 
 ##Analysis####
 
@@ -89,4 +89,4 @@ corr.rwl.seg(rwl = e13v_bet_n_01_u_short, seg.length = 6, bin.floor = 0, n = NUL
              biweight = FALSE, method = c("spearman"), 
              make.plot = TRUE, label.cex = 1, floor.plus1 = FALSE, master = NULL)
 
-title(main = "e13vBetn03u", adj = 0.48, line = 4, font.main = 2, cex.main = 1.6) #add title
+title(main = "e13vBetn02u", adj = 0.48, line = 4, font.main = 2, cex.main = 1.6) #add title

@@ -1,0 +1,93 @@
+#Load packages####
+library(dplR)
+library(treeclim)
+library(ggplot2)
+
+#Load the data####
+e13v_bet_n_03_p01 <- csv2rwl("data/ring_data/raw/e13v/e13v.bet.n/e13v_bet_n_03/p/E13V.Bet.n.03.p01.csv")
+e13v_bet_n_03_p05 <- csv2rwl("data/ring_data/raw/e13v/e13v.bet.n/e13v_bet_n_03/p/E13V.Bet.n.03.p05.csv")
+e13v_bet_n_03_p10 <- csv2rwl("data/ring_data/raw/e13v/e13v.bet.n/e13v_bet_n_03/p/E13V.Bet.n.03.p10.csv")
+
+
+#remove the core year
+e13v_bet_n_03_p01 <- e13v_bet_n_03_p01[-1, ]
+e13v_bet_n_03_p05 <- e13v_bet_n_03_p05[-1, ]
+e13v_bet_n_03_p10 <- e13v_bet_n_03_p10[-1, ]
+
+
+
+#merge in a single data frame:####
+# Specify the common column for merging
+common_column <- "row_names"
+
+# Add row names as a column for each data frame
+e13v_bet_n_03_p01$row_names <- rownames(e13v_bet_n_03_p01)
+e13v_bet_n_03_p05$row_names <- rownames(e13v_bet_n_03_p05)
+e13v_bet_n_03_p10$row_names <- rownames(e13v_bet_n_03_p10)
+
+
+
+# Merge the data frames using Reduce and merge
+e13v_bet_n_03_p <- Reduce(function(x, y) merge(x, y, by = common_column, all = TRUE),
+                          list(e13v_bet_n_03_p01, 
+                               e13v_bet_n_03_p05,
+                               e13v_bet_n_03_p10)
+)
+
+# Set row names and remove the extra column
+rownames(e13v_bet_n_03_p) <- e13v_bet_n_03_p[[common_column]]
+e13v_bet_n_03_p[[common_column]] <- NULL
+
+View(e13v_bet_n_03_p)
+
+#export rwl
+
+write.rwl(e13v_bet_n_03_p, "data/ring_data/aligned/e13v/e13v.bet.n/e13v_bet_n_03/e13v_bet_n_03_p.rwl", 
+          format = "compact",
+          e13c_bet_n_01_rwl.hdr,
+          append = FALSE,
+          prec = 0.001
+)
+
+#Data Analysis####
+##Statistics####
+e13v_bet_n_03_p_stats <- rwl.stats(e13v_bet_n_03_p) #summary and stats
+print(e13v_bet_n_03_p_stats)
+
+e13v_bet_n_03_p_ms <- sens2(e13v_bet_n_03_p) #calculates the mean sensitivity
+print(e13v_bet_n_03_p_ms)
+
+e13v_bet_n_03_p_report <- rwl.report(e13v_bet_n_03_p)  #report on rwl in this case really few cases
+print(e13v_bet_n_03_p_report)
+
+##Cross-dating and alignment####
+
+#shorten the name
+e13v_bet_n_03_p_short <- e13v_bet_n_03_p
+colnames(e13v_bet_n_03_p)
+new_colnames <- sub("^E13VBetn03", "", colnames(e13v_bet_n_03_p_short))
+
+# Assign the new column names to the data frame
+colnames(e13v_bet_n_03_p_short) <- new_colnames
+
+head(e13v_bet_n_03_p_short)
+colnames(e13v_bet_n_03_p_short)
+
+#graphs
+seg.plot(e13v_bet_n_03_p_short) #creates a segment plot
+title(main = "e13vBetn03p", adj = 0.48, line = 5.2, font.main = 2, cex.main = 1.2) #add title
+spag.plot(e13v_bet_n_03_p_short, zfac=0.006,) #creates a spaghetti plot
+title(main = "e13vBetn03p", adj = 0.48, line = 5.2, font.main = 2, cex.main = 1.2) #add title
+
+##Analysis####
+
+e13v_bet_n_03_p_inter <- interseries.cor(e13v_bet_n_03_p_short, n = NULL, prewhiten = FALSE, biweight = FALSE, method = "spearman")        #correlation between series and master not enough observations
+print(e13v_bet_n_03_p_inter)
+
+###General correlation####
+
+corr.rwl.seg(rwl = e13v_bet_n_03_p_short, seg.length = 4, bin.floor = 0, n = NULL, prewhiten = FALSE, pcrit = 0.05,
+             biweight = FALSE, method = c("spearman"),
+             make.plot = TRUE, label.cex = 1, floor.plus1 = FALSE, master = NULL)
+
+title(main = "e13vBetn03p", adj = 0.48, line = 4, font.main = 2, cex.main = 1.6) #add title
