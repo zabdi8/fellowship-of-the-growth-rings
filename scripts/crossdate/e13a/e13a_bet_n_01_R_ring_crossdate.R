@@ -100,8 +100,9 @@ colnames(e13a_bet_n_01_r_short)
 
 #graphs
 seg.plot(e13a_bet_n_01_r_short) #creates a segment plot
+title(main = "e13abetn01r", adj = 0.48, line = 5.2, font.main = 2, cex.main = 1.2) #add title
 spag.plot(e13a_bet_n_01_r_short, zfac=0.009,) #creates a spaghetti plot
-title(main = "e13abetn01r", adj = 0.48, line = 5.5, font.main = 2, cex.main = 1.2) #add title
+title(main = "e13abetn01r", adj = 0.48, line = 5.2, font.main = 2, cex.main = 1.2) #add title
 
 ##Analysis####
 
