@@ -158,16 +158,16 @@ print(e13v_ave_stats)
 e13v_ave_ms <- sens2(e13v_average) #calculates the mean sensitivity
 print(e13v_ave_ms)
 
-e13v_ave_report <- rwl.report(e13v_average)  #report on rwl
-print(e13v_ave_report)
+# e13v_ave_report <- rwl.report(e13v_average)  #report on rwl missing values
+# print(e13v_ave_report)
 
 ##Cross-dating and alignment####
 
 #Check the alignment of the series
 #graphs
 #filter observations out from 2000s
-seg.plot(e13v_average) #creates a segment plot
+seg.plot(e13v_ave_short) #creates a segment plot
 title(main = "E13VBetn (Average)", adj = 0.48, line = 5.2, font.main = 2, cex.main = 1.2) #add title
 
-spag.plot(e13v_average, zfac=0.02, cex = 0.3) #creates a spaghetti plot
+spag.plot(e13v_ave_short, zfac=0.02, cex = 0.3) #creates a spaghetti plot
 title(main = "E13VBetn (Average)", adj = 0.48, line = 5.2, font.main = 2, cex.main = 1.2) #add title
