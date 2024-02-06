@@ -8,6 +8,7 @@ e13d_bet_n_02_q01 <- csv2rwl("data/ring_data/raw/e13d/e13d.bet.n/e13d_bet_n_02/q
 e13d_bet_n_02_q02 <- csv2rwl("data/ring_data/raw/e13d/e13d.bet.n/e13d_bet_n_02/q/E13D.Bet.n.02.q02.csv")
 e13d_bet_n_02_q03 <- csv2rwl("data/ring_data/raw/e13d/e13d.bet.n/e13d_bet_n_02/q/E13D.Bet.n.02.q03.csv")
 e13d_bet_n_02_q04 <- csv2rwl("data/ring_data/raw/e13d/e13d.bet.n/e13d_bet_n_02/q/E13D.Bet.n.02.q04.csv")
+e13d_bet_n_02_q05 <- csv2rwl("data/ring_data/raw/e13d/e13d.bet.n/e13d_bet_n_02/q/E13D.Bet.n.02.q05.csv")
 
 
 
@@ -16,6 +17,7 @@ e13d_bet_n_02_q01 <- e13d_bet_n_02_q01[-1, ]
 e13d_bet_n_02_q02 <- e13d_bet_n_02_q02[-1, ]
 e13d_bet_n_02_q03 <- e13d_bet_n_02_q03[-1, ]
 e13d_bet_n_02_q04 <- e13d_bet_n_02_q04[-1, ]
+e13d_bet_n_02_q05 <- e13d_bet_n_02_q05[-1, ]
 
 #merge in a single data frame:####
 # Specify the common column for merging
@@ -26,13 +28,15 @@ e13d_bet_n_02_q01$row_names <- rownames(e13d_bet_n_02_q01)
 e13d_bet_n_02_q02$row_names <- rownames(e13d_bet_n_02_q02)
 e13d_bet_n_02_q03$row_names <- rownames(e13d_bet_n_02_q03)
 e13d_bet_n_02_q04$row_names <- rownames(e13d_bet_n_02_q04)
+e13d_bet_n_02_q05$row_names <- rownames(e13d_bet_n_02_q05)
 
 # Merge the data frames using Reduce and merge
 e13d_bet_n_02_q <- Reduce(function(x, y) merge(x, y, by = common_column, all = TRUE),
                           list(e13d_bet_n_02_q01, 
                                e13d_bet_n_02_q02,
                                e13d_bet_n_02_q03,
-                               e13d_bet_n_02_q04)
+                               e13d_bet_n_02_q04,
+                               e13d_bet_n_02_q05)
 )
 
 # Set row names and remove the extra column

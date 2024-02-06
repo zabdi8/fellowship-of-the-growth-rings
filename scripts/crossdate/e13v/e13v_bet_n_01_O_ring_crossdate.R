@@ -42,6 +42,7 @@ e13v_bet_n_01_o08$row_names <- rownames(e13v_bet_n_01_o08)
 e13v_bet_n_01_o <- Reduce(function(x, y) merge(x, y, by = common_column, all = TRUE),
                           list(e13v_bet_n_01_o01, 
                                e13v_bet_n_01_o02,
+                               e13v_bet_n_01_o03,
                                e13v_bet_n_01_o04,
                                e13v_bet_n_01_o05,
                                e13v_bet_n_01_o06,
@@ -106,4 +107,3 @@ corr.rwl.seg(rwl = e13v_bet_n_01_o_short, seg.length = 2, bin.floor = 0, n = NUL
              make.plot = TRUE, label.cex = 1, floor.plus1 = FALSE, master = NULL)
 
 title(main = "e13vBetn01o", adj = 0.48, line = 4, font.main = 2, cex.main = 1.6) #add title
-
