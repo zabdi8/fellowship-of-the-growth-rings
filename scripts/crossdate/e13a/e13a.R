@@ -85,7 +85,7 @@ e13a_filtered <- subset(e13a_short, rownames(e13a_short) > 2000)
 seg.plot(e13a_filtered) #creates a segment plot
 title(main = "e13aBetn", adj = 0.48, line = 5.2, font.main = 2, cex.main = 1.2) #add title
 
-spag.plot(e13a_filtered, zfac=0.09, cex = 0.3) #creates a spaghetti plot
+spag.plot(e13a_filtered, zfac=0.05, cex = 0.3) #creates a spaghetti plot
 title(main = "e13aBetn", adj = 0.48, line = 5.2, font.main = 2, cex.main = 1.2) #add title
 
 
