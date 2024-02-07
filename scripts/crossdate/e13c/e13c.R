@@ -54,15 +54,15 @@ write.rwl(e13c_bet_n, "data/ring_data/aligned/e13c/e13c.bet.n/e13c_bet_n.rwl",
 )
 
 #reduce the names for easy view
-e13c_bet_n_short <- e13c_bet_n
+e13c_short <- e13c_bet_n
 
-new_colnames <- sub("^E13CBetn", "", colnames(e13c_bet_n_short))
+new_colnames <- sub("^E13CBetn", "", colnames(e13c_short))
 
 # Assign the new column names to the data frame
-colnames(e13c_bet_n_short) <- new_colnames
+colnames(e13c_short) <- new_colnames
 
-head(e13c_bet_n_short)
-colnames(e13c_bet_n_short)
+head(e13c_short)
+colnames(e13c_short)
 
 #Data Analysis####
 ##Statistics####
