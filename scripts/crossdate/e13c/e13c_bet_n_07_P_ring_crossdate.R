@@ -1,12 +1,6 @@
 #Load packages####
 library(dplR)
-library(ggplot2)
-library(tidyverse)
-library(wesanderson)
-library(signal)
-library(shiny)
 library(treeclim)
-library(ggplot2)
 library(reshape2)
 library(dplyr)
 

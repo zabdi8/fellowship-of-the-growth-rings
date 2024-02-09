@@ -1,4 +1,5 @@
 #Analizing all the graphs
+library(dplR)
 ##spaghetti plots####
 ###e13a####
 #full
@@ -16,7 +17,7 @@ dev.off()  # close the PDF device
 ###e13c####
 #full
 pdf("figures/spaghetti_plots/e13c/e13c.pdf", width = 11, height = 8, paper = "a4r")
-spag.plot(e13c_bet_n_short, zfac=0.02, cex = 0.3) #creates a spaghetti plot
+spag.plot(e13c_short, zfac=0.02, cex = 0.3) #creates a spaghetti plot
 title(main = "e13cbetn", adj = 0.5, line = 6, font.main = 2, cex.main = 1.2) #add title
 dev.off()  # close the PDF device
 

@@ -1,14 +1,5 @@
 #Load packages####
 library(dplR)
-library(ggplot2)
-library(tidyverse)
-library(wesanderson)
-library(signal)
-library(shiny)
-library(treeclim)
-library(ggplot2)
-library(reshape2)
-library(dplyr)
 
 #Load the data####
 e13c_bet_n_07_o01 <- csv2rwl("data/ring_data/raw/e13c/e13c.bet.n/e13c_bet_n_07/O/E13C.Bet.n.07.o01.csv")
@@ -86,3 +77,4 @@ print(e13c_bet_n_07_o_inter)
 corr.rwl.seg(rwl = e13c_bet_n_07_o, seg.length = 8, bin.floor = 0, n = NULL, prewhiten = FALSE, pcrit = 0.05, biweight = FALSE, method = c("spearman"), make.plot = TRUE, label.cex = 1, floor.plus1 = FALSE, master = NULL) #coorelation analysis #too few observations! 
 
 title(main = "e13cbetn07o", adj = 0.48, line = 4, font.main = 2, cex.main = 1.6) #add title
+
