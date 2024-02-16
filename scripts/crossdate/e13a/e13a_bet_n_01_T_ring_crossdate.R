@@ -57,7 +57,7 @@ View(e13a_bet_n_01_t)
 
 #export rwl
 
-write.rwl(e13a_bet_n_01_t, "data/ring_data/aligned/e13a/e13c.bet.n/e13a_bet_n_01/e13a_bet_n_01_t.rwl", 
+write.rwl(e13a_bet_n_01_t, "data/ring_data/aligned/e13a/e13a.bet.n/e13a_bet_n_01/e13a_bet_n_01_t.rwl", 
           format = "compact",
           e13c_bet_n_01_rwl.hdr,
           append = FALSE,

@@ -7,9 +7,9 @@ library(gridExtra)  ## required to arrange ggplot2 plots in a grid
 
 
 #load rwl files
-e13a_bet_n_01_R <- read.rwl("data/ring_data/aligned/e13a/e13c.bet.n/e13a_bet_n_01/e13a_bet_n_01_r.rwl")
-e13a_bet_n_01_S <- read.rwl("data/ring_data/aligned/e13a/e13c.bet.n/e13a_bet_n_01/e13a_bet_n_01_s.rwl")
-e13a_bet_n_01_T <- read.rwl("data/ring_data/aligned/e13a/e13c.bet.n/e13a_bet_n_01/e13a_bet_n_01_t.rwl")
+e13a_bet_n_01_R <- read.rwl("data/ring_data/aligned/e13a/e13a.bet.n/e13a_bet_n_01/e13a_bet_n_01_r.rwl")
+e13a_bet_n_01_S <- read.rwl("data/ring_data/aligned/e13a/e13a.bet.n/e13a_bet_n_01/e13a_bet_n_01_s.rwl")
+e13a_bet_n_01_T <- read.rwl("data/ring_data/aligned/e13a/e13a.bet.n/e13a_bet_n_01/e13a_bet_n_01_t.rwl")
 
 
 
@@ -50,7 +50,7 @@ View(e13a_bet_n_01)
 colnames(e13a_bet_n_01)
 head(e13a_bet_n_01)
 
-write.rwl(e13a_bet_n_01, "data/ring_data/aligned/e13a/e13c.bet.n/e13a_bet_n_01.rwl", 
+write.rwl(e13a_bet_n_01, "data/ring_data/aligned/e13a/e13a.bet.n/e13a_bet_n_01.rwl", 
           format = "compact",
           e13c_bet_n_01_rwl.hdr,
           append = FALSE,
