@@ -41,7 +41,7 @@ I would like to express my gratitude to my supervisors, Roland Pape and Hans Ren
 ## Contact
 
 -   Zabdi Moisés López Urízar
--   Email: [[230412\@usn.no](mailto:230412@usn.no){.email}]
+-   Email: [[230412\@usn.no](mailto:230412@usn.no)]
 
 ------------------------------------------------------------------------
 
