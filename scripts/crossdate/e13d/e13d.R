@@ -83,7 +83,7 @@ print(e13d_report)
 seg.plot(e13d_short) #creates a segment plot
 title(main = "E13DBetn", adj = 0.48, line = 5.2, font.main = 2, cex.main = 1.2) #add title
 
-spag.plot(e13d_short, zfac=0.09, cex = 0.3) #creates a spaghetti plot
+spag.plot(e13d_short, zfac=0.03, cex = 0.3) #creates a spaghetti plot
 title(main = "E13DBetn", adj = 0.48, line = 5.2, font.main = 2, cex.main = 1.2) #add title
 
 
@@ -166,8 +166,8 @@ print(e13d_ave_report)
 #Check the alignment of the series
 #graphs
 #filter observations out from 2000s
-seg.plot(e13d_average) #creates a segment plot
+seg.plot(e13d_ave_short) #creates a segment plot
 title(main = "E13DBetn (Average)", adj = 0.48, line = 5.2, font.main = 2, cex.main = 1.2) #add title
 
-spag.plot(e13d_average, zfac=0.01, cex = 0.3) #creates a spaghetti plot
+spag.plot(e13d_ave_short, zfac=0.01, cex = 0.3) #creates a spaghetti plot
 title(main = "E13DBetn (Average)", adj = 0.48, line = 5.2, font.main = 2, cex.main = 1.2) #add title

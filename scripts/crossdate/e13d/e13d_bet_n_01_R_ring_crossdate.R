@@ -1,7 +1,5 @@
 #Load packages####
 library(dplR)
-library(treeclim)
-library(ggplot2)
 
 #Load the data####
 e13d_bet_n_01_r01 <- csv2rwl("data/ring_data/raw/e13d/e13d.bet.n/e13d_bet_n_01/r/E13D.Bet.n.01.r01.csv")

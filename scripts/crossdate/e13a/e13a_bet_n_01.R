@@ -1,10 +1,5 @@
 #loading packages
 library(dplR)
-library(dplyr)
-library(ggplot2)
-library(ggvis)
-library(gridExtra)  ## required to arrange ggplot2 plots in a grid
-
 
 #load rwl files
 e13a_bet_n_01_R <- read.rwl("data/ring_data/aligned/e13a/e13a.bet.n/e13a_bet_n_01/e13a_bet_n_01_r.rwl")

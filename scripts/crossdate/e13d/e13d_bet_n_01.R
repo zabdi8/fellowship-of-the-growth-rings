@@ -1,10 +1,5 @@
 #loading packages
 library(dplR)
-library(dplyr)
-library(ggplot2)
-library(ggvis)
-library(gridExtra)  ## required to arrange ggplot2 plots in a grid
-
 
 #load rwl files
 e13d_bet_n_01_R <- read.rwl("data/ring_data/aligned/e13d/e13d.bet.n/e13d_bet_n_01/e13d_bet_n_01_r.rwl")
@@ -257,3 +252,4 @@ colnames(e13d_bet_n_01_ave_short)
 
 spag.plot(e13d_bet_n_01_ave_short, zfac=0.006,) #creates a spaghetti plot
 title(main = "E13DBetn01 (Average)", adj = 0.48, line = 5.2, font.main = 2, cex.main = 1.2) #add title
+
