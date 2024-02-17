@@ -1,10 +1,5 @@
 #loading packages
 library(dplR)
-library(dplyr)
-library(ggplot2)
-library(ggvis)
-library(gridExtra)  ## required to arrange ggplot2 plots in a grid
-
 
 #load rwl files
 
@@ -114,6 +109,11 @@ e13a_bet_n_02_average$E13ABetn02r02 <- rowMeans(e13a_bet_n_02[, c("E13ABetn02r02
                                                                   "E13ABetn02r02r3",
                                                                   "E13ABetn02r02r4")],
                                                 na.rm = TRUE)
+e13a_bet_n_02_average$E13ABetn02r03 <- rowMeans(e13a_bet_n_02[, c("E13ABetn02r03r1",
+                                                                  "E13ABetn02r03r2",
+                                                                  "E13ABetn02r03r3",
+                                                                  "E13ABetn02r03r4")], 
+                                                na.rm = TRUE)
 e13a_bet_n_02_average$E13ABetn02r04 <- rowMeans(e13a_bet_n_02[, c("E13ABetn02r04r1",
                                                                   "E13ABetn02r04r2",
                                                                   "E13ABetn02r04r3",
@@ -213,6 +213,12 @@ e13a_bet_n_02_average$E13ABetn02u01 <- rowMeans(e13a_bet_n_02[, c("E13ABetn02u01
                                                                   "E13ABetn02u01r4")], 
                                                 na.rm = TRUE)
 
+e13a_bet_n_02_average$E13ABetn02u03 <- rowMeans(e13a_bet_n_02[, c("E13ABetn02u03r1",
+                                                                  "E13ABetn02u03r2", 
+                                                                  "E13ABetn02u03r3",
+                                                                  "E13ABetn02u03r4")], 
+                                                na.rm = TRUE)
+
 e13a_bet_n_02_average$E13ABetn02u08 <- rowMeans(e13a_bet_n_02[, c("E13ABetn02u08r1",
                                                                   "E13ABetn02u08r2",
                                                                   "E13ABetn02u08r3",
@@ -301,4 +307,3 @@ colnames(e13a_bet_n_02_ave_short)
 
 spag.plot(e13a_bet_n_02_ave_short, zfac=0.01,) #creates a spaghetti plot
 title(main = "E13ABetn02 (Average)", adj = 0.48, line = 5.2, font.main = 2, cex.main = 1.2) #add title
-

@@ -6,6 +6,7 @@ library(ggplot2)
 #Load the data####
 e13a_bet_n_02_r01 <- csv2rwl("data/ring_data/raw/e13a/e13a.bet.n/e13a_bet_n_02/r/E13A.Bet.n.02.r01.csv")
 e13a_bet_n_02_r02 <- csv2rwl("data/ring_data/raw/e13a/e13a.bet.n/e13a_bet_n_02/r/E13A.Bet.n.02.r02.csv")
+e13a_bet_n_02_r03 <- csv2rwl("data/ring_data/raw/e13a/e13a.bet.n/e13a_bet_n_02/r/E13A.Bet.n.02.r03.csv")
 e13a_bet_n_02_r04 <- csv2rwl("data/ring_data/raw/e13a/e13a.bet.n/e13a_bet_n_02/r/E13A.Bet.n.02.r04.csv")
 
 
@@ -13,6 +14,7 @@ e13a_bet_n_02_r04 <- csv2rwl("data/ring_data/raw/e13a/e13a.bet.n/e13a_bet_n_02/r
 
 e13a_bet_n_02_r01 <- e13a_bet_n_02_r01[-1, ]
 e13a_bet_n_02_r02 <- e13a_bet_n_02_r02[-1, ]
+e13a_bet_n_02_r03 <- e13a_bet_n_02_r03[-1, ]
 e13a_bet_n_02_r04 <- e13a_bet_n_02_r04[-1, ]
 
 
@@ -25,8 +27,8 @@ common_column <- "row_names"
 # Add row names as a column for each data frame
 e13a_bet_n_02_r01$row_names <- rownames(e13a_bet_n_02_r01)
 e13a_bet_n_02_r02$row_names <- rownames(e13a_bet_n_02_r02)
+e13a_bet_n_02_r03$row_names <- rownames(e13a_bet_n_02_r03)
 e13a_bet_n_02_r04$row_names <- rownames(e13a_bet_n_02_r04)
-
 
 
 
@@ -34,6 +36,7 @@ e13a_bet_n_02_r04$row_names <- rownames(e13a_bet_n_02_r04)
 e13a_bet_n_02_r <- Reduce(function(x, y) merge(x, y, by = common_column, all = TRUE),
                           list(e13a_bet_n_02_r01, 
                                e13a_bet_n_02_r02,
+                               e13a_bet_n_02_r03,
                                e13a_bet_n_02_r04)
 )
 
@@ -45,7 +48,7 @@ View(e13a_bet_n_02_r)
 
 #export rwl
 
-write.rwl(e13a_bet_n_02_r, "data/ring_data/aligned/e13a/e13c.bet.n/e13a_bet_n_02/e13a_bet_n_02_r.rwl", 
+write.rwl(e13a_bet_n_02_r, "data/ring_data/aligned/e13a/e13a.bet.n/e13a_bet_n_02/e13a_bet_n_02_r.rwl", 
           format = "compact",
           e13c_bet_n_01_rwl.hdr,
           append = FALSE,
