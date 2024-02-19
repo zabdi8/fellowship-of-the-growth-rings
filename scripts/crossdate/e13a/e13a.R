@@ -1,7 +1,5 @@
 #loading packages
 library(dplR)
-library(dplyr)
-
 
 #load rwl files
 e13a_bet_n_01 <- read.rwl("data/ring_data/aligned/e13a/e13a.bet.n/e13a_bet_n_01.rwl")
