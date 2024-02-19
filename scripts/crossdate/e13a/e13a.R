@@ -173,3 +173,4 @@ title(main = "e13aBetn (Average)", adj = 0.48, line = 5.2, font.main = 2, cex.ma
 
 spag.plot(e13a_ave_filtered, zfac=0.02, cex = 0.3) #creates a spaghetti plot
 title(main = "e13aBetn (Average)", adj = 0.48, line = 5.2, font.main = 2, cex.main = 1.2) #add title
+
