@@ -76,7 +76,7 @@ print(e13c_bet_n_report)
 #Check the alignment of the series
 #graphs
 seg.plot(e13c_short) #creates a segment plot
-spag.plot(e13c_bet_n_short, zfac=0.05, cex = 0.3) #creates a spaghetti plot
+spag.plot(e13c_bet_n_short, zfac=0.03, cex = 0.3) #creates a spaghetti plot
 title(main = "e13cbetn old", adj = 0.48, line = 5.2, font.main = 2, cex.main = 1.2) #add title
 
 #average####

@@ -113,11 +113,36 @@ e13c_bet_n_07_average$E13CBetn07o01 <- rowMeans(e13c_bet_n_07[, c("E13CBetn07o01
                                                                   "E13CBetn07o01r3",
                                                                   "E13CBetn07o01r4")], 
                                                 na.rm = TRUE)
+e13c_bet_n_07_average$E13CBetn07o02 <- rowMeans(e13c_bet_n_07[, c("E13CBetn07o02r1",
+                                                                  "E13CBetn07o02r2", 
+                                                                  "E13CBetn07o02r3",
+                                                                  "E13CBetn07o02r4")], 
+                                                na.rm = TRUE)
+e13c_bet_n_07_average$E13CBetn07o03 <- rowMeans(e13c_bet_n_07[, c("E13CBetn07o03r1",
+                                                                  "E13CBetn07o03r2", 
+                                                                  "E13CBetn07o03r3",
+                                                                  "E13CBetn07o03r4")], 
+                                                na.rm = TRUE)
+e13c_bet_n_07_average$E13CBetn07o04 <- rowMeans(e13c_bet_n_07[, c("E13CBetn07o04r1",
+                                                                  "E13CBetn07o04r2", 
+                                                                  "E13CBetn07o04r3",
+                                                                  "E13CBetn07o04r4")], 
+                                                na.rm = TRUE)
 
 e13c_bet_n_07_average$E13CBetn07o05 <- rowMeans(e13c_bet_n_07[, c("E13CBetn07o05r1",
                                                                   "E13CBetn07o05r2",
                                                                   "E13CBetn07o05r3",
                                                                   "E13CBetn07o05r4")],
+                                                na.rm = TRUE)
+e13c_bet_n_07_average$E13CBetn07o06 <- rowMeans(e13c_bet_n_07[, c("E13CBetn07o06r1",
+                                                                  "E13CBetn07o06r2", 
+                                                                  "E13CBetn07o06r3",
+                                                                  "E13CBetn07o06r4")], 
+                                                na.rm = TRUE)
+e13c_bet_n_07_average$E13CBetn07o07 <- rowMeans(e13c_bet_n_07[, c("E13CBetn07o07r1",
+                                                                  "E13CBetn07o07r2", 
+                                                                  "E13CBetn07o07r3",
+                                                                  "E13CBetn07o07r4")], 
                                                 na.rm = TRUE)
 e13c_bet_n_07_average$E13CBetn07o08 <- rowMeans(e13c_bet_n_07[, c("E13CBetn07o08r1",
                                                                   "E13CBetn07o08r2",
