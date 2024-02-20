@@ -239,6 +239,12 @@ e13c_bet_n_07_average$E13CBetn07t01 <- rowMeans(e13c_bet_n_07[, c("E13CBetn07t01
                                                                   "E13CBetn07t01r4")], 
                                                 na.rm = TRUE)
 
+e13c_bet_n_07_average$E13CBetn07t02 <- rowMeans(e13c_bet_n_07[, c("E13CBetn07t02r1",
+                                                                  "E13CBetn07t02r2", 
+                                                                  "E13CBetn07t02r3",
+                                                                  "E13CBetn07t02r4")], 
+                                                na.rm = TRUE)
+
 e13c_bet_n_07_average$E13CBetn07t04 <- rowMeans(e13c_bet_n_07[, c("E13CBetn07t04r1",
                                                                   "E13CBetn07t04r2",
                                                                   "E13CBetn07t04r3",
