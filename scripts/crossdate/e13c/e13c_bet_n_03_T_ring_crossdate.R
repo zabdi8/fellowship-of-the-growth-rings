@@ -1,14 +1,5 @@
 #Load packages####
 library(dplR)
-library(ggplot2)
-library(tidyverse)
-library(wesanderson)
-library(signal)
-library(shiny)
-library(treeclim)
-library(ggplot2)
-library(reshape2)
-library(dplyr)
 
 #Load the data####
 e13c_bet_n_03_t01 <- csv2rwl("data/ring_data/raw/e13c/e13c.bet.n/e13c_bet_n_03/T/E13C.Bet.n.03.t01.csv")

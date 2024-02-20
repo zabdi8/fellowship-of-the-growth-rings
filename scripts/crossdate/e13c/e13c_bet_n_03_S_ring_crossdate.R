@@ -1,18 +1,11 @@
 #Load packages####
 library(dplR)
-library(ggplot2)
-library(tidyverse)
-library(wesanderson)
-library(signal)
-library(shiny)
-library(treeclim)
-library(ggplot2)
-library(reshape2)
-library(dplyr)
 
 #Load the data####
 e13c_bet_n_03_s01 <- csv2rwl("data/ring_data/raw/e13c/e13c.bet.n/e13c_bet_n_03/S/E13C.Bet.n.03.s01.csv")
 e13c_bet_n_03_s05 <- csv2rwl("data/ring_data/raw/e13c/e13c.bet.n/e13c_bet_n_03/S/E13C.Bet.n.03.s05.csv")
+e13c_bet_n_03_s06 <- csv2rwl("data/ring_data/raw/e13c/e13c.bet.n/e13c_bet_n_03/S/E13C.Bet.n.03.s06.csv")
+e13c_bet_n_03_s07 <- csv2rwl("data/ring_data/raw/e13c/e13c.bet.n/e13c_bet_n_03/S/E13C.Bet.n.03.s07.csv")
 e13c_bet_n_03_s08 <- csv2rwl("data/ring_data/raw/e13c/e13c.bet.n/e13c_bet_n_03/S/E13C.Bet.n.03.s08.csv")
 
 
@@ -20,6 +13,8 @@ e13c_bet_n_03_s08 <- csv2rwl("data/ring_data/raw/e13c/e13c.bet.n/e13c_bet_n_03/S
 
 e13c_bet_n_03_s01 <- e13c_bet_n_03_s01[-1, ]
 e13c_bet_n_03_s05 <- e13c_bet_n_03_s05[-1, ]
+e13c_bet_n_03_s06 <- e13c_bet_n_03_s06[-1, ]
+e13c_bet_n_03_s07 <- e13c_bet_n_03_s07[-1, ]
 e13c_bet_n_03_s08 <- e13c_bet_n_03_s08[-1, ]
 
 
@@ -33,6 +28,8 @@ common_column <- "row_names"
 # Add row names as a column for each data frame
 e13c_bet_n_03_s01$row_names <- rownames(e13c_bet_n_03_s01)
 e13c_bet_n_03_s05$row_names <- rownames(e13c_bet_n_03_s05)
+e13c_bet_n_03_s06$row_names <- rownames(e13c_bet_n_03_s06)
+e13c_bet_n_03_s07$row_names <- rownames(e13c_bet_n_03_s07)
 e13c_bet_n_03_s08$row_names <- rownames(e13c_bet_n_03_s08)
 
 
@@ -40,7 +37,9 @@ e13c_bet_n_03_s08$row_names <- rownames(e13c_bet_n_03_s08)
 # Merge the data frames using Reduce and merge
 e13c_bet_n_03_s <- Reduce(function(x, y) merge(x, y, by = common_column, all = TRUE),
                           list(e13c_bet_n_03_s01, 
-                               e13c_bet_n_03_s05, 
+                               e13c_bet_n_03_s05,
+                               e13c_bet_n_03_s06,
+                               e13c_bet_n_03_s07, 
                                e13c_bet_n_03_s08)
 )
 

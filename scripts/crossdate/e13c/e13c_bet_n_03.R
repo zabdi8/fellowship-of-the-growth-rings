@@ -1,10 +1,5 @@
 #loading packages
 library(dplR)
-library(dplyr)
-library(ggplot2)
-library(ggvis)
-library(gridExtra)  ## required to arrange ggplot2 plots in a grid
-
 
 #load rwl files
 e13c_bet_n_03_R <- read.rwl("data/ring_data/aligned/e13c/e13c.bet.n/e13c_bet_n_03/r/e13c_bet_n_03_r")
@@ -109,6 +104,11 @@ e13c_bet_n_03_average$E13CBetn03r02 <- rowMeans(e13c_bet_n_03[, c("E13CBetn03r02
                                                                   "E13CBetn03r02r3",
                                                                   "E13CBetn03r02r4")],
                                                 na.rm = TRUE)
+e13c_bet_n_03_average$E13CBetn03r03 <- rowMeans(e13c_bet_n_03[, c("E13CBetn03r03r1",
+                                                                  "E13CBetn03r03r2",
+                                                                  "E13CBetn03r03r3",
+                                                                  "E13CBetn03r03r4")],
+                                                na.rm = TRUE)
 e13c_bet_n_03_average$E13CBetn03r04 <- rowMeans(e13c_bet_n_03[, c("E13CBetn03r04r1",
                                                                   "E13CBetn03r04r2",
                                                                   "E13CBetn03r04r3",
@@ -127,6 +127,16 @@ e13c_bet_n_03_average$E13CBetn03s05 <- rowMeans(e13c_bet_n_03[, c("E13CBetn03s05
                                                                   "E13CBetn03s05r2",
                                                                   "E13CBetn03s05r3",
                                                                   "E13CBetn03s05r4")],
+                                                na.rm = TRUE)
+e13c_bet_n_03_average$E13CBetn03s06 <- rowMeans(e13c_bet_n_03[, c("E13CBetn03s06r1",
+                                                                  "E13CBetn03s06r2",
+                                                                  "E13CBetn03s06r3",
+                                                                  "E13CBetn03s06r4")],
+                                                na.rm = TRUE)
+e13c_bet_n_03_average$E13CBetn03s07 <- rowMeans(e13c_bet_n_03[, c("E13CBetn03s07r1",
+                                                                  "E13CBetn03s07r2",
+                                                                  "E13CBetn03s07r3",
+                                                                  "E13CBetn03s07r4")],
                                                 na.rm = TRUE)
 e13c_bet_n_03_average$E13CBetn03s08 <- rowMeans(e13c_bet_n_03[, c("E13CBetn03s08r1",
                                                                   "E13CBetn03s08r2",
