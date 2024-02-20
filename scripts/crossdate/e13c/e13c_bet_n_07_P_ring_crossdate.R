@@ -6,6 +6,7 @@ library(dplyr)
 
 #Load the data####
 e13c_bet_n_07_p01 <- csv2rwl("data/ring_data/raw/e13c/e13c.bet.n/e13c_bet_n_07/P/E13C.Bet.n.07.p01.csv")
+e13c_bet_n_07_p02 <- csv2rwl("data/ring_data/raw/e13c/e13c.bet.n/e13c_bet_n_07/P/E13C.Bet.n.07.p02.csv")
 e13c_bet_n_07_p03 <- csv2rwl("data/ring_data/raw/e13c/e13c.bet.n/e13c_bet_n_07/P/E13C.Bet.n.07.p03.csv")
 e13c_bet_n_07_p04 <- csv2rwl("data/ring_data/raw/e13c/e13c.bet.n/e13c_bet_n_07/P/E13C.Bet.n.07.p04.csv")
 
@@ -13,6 +14,7 @@ e13c_bet_n_07_p04 <- csv2rwl("data/ring_data/raw/e13c/e13c.bet.n/e13c_bet_n_07/P
 #remove the core year
 
 e13c_bet_n_07_p01 <- e13c_bet_n_07_p01[-1, ]
+e13c_bet_n_07_p02 <- e13c_bet_n_07_p02[-1, ]
 e13c_bet_n_07_p03 <- e13c_bet_n_07_p03[-1, ]
 e13c_bet_n_07_p04 <- e13c_bet_n_07_p04[-1, ]
 
@@ -24,6 +26,7 @@ common_column <- "row_names"
 
 # Add row names as a column for each data frame
 e13c_bet_n_07_p01$row_names <- rownames(e13c_bet_n_07_p01)
+e13c_bet_n_07_p02$row_names <- rownames(e13c_bet_n_07_p02)
 e13c_bet_n_07_p03$row_names <- rownames(e13c_bet_n_07_p03)
 e13c_bet_n_07_p04$row_names <- rownames(e13c_bet_n_07_p04)
 
@@ -31,7 +34,8 @@ e13c_bet_n_07_p04$row_names <- rownames(e13c_bet_n_07_p04)
 
 # Merge the data frames using Reduce and merge
 e13c_bet_n_07_p <- Reduce(function(x, y) merge(x, y, by = common_column, all = TRUE),
-                          list(e13c_bet_n_07_p01, 
+                          list(e13c_bet_n_07_p01,
+                               e13c_bet_n_07_p02, 
                                e13c_bet_n_07_p03, 
                                e13c_bet_n_07_p04)
 )
@@ -80,3 +84,4 @@ print(e13c_bet_n_07_p_inter)
 corr.rwl.seg(rwl = e13c_bet_n_07_p, seg.length = 6, bin.floor = 0, n = NULL, prewhiten = FALSE, pcrit = 0.05, biweight = FALSE, method = c("spearman"), make.plot = TRUE, label.cex = 1, floor.plus1 = FALSE, master = NULL) #coorelation analysis #too few observations! 
 
 title(main = "e13cbetn07p", adj = 0.48, line = 4, font.main = 2, cex.main = 1.6) #add title
+

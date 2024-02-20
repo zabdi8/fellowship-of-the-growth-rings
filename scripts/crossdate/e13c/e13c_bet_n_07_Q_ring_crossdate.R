@@ -1,11 +1,10 @@
 #Load packages####
 library(dplR)
-library(treeclim)
-library(dplyr)
 
 #Load the data####
 e13c_bet_n_07_q01 <- csv2rwl("data/ring_data/raw/e13c/e13c.bet.n/e13c_bet_n_07/Q/E13C.Bet.n.07.q01.csv")
 e13c_bet_n_07_q02 <- csv2rwl("data/ring_data/raw/e13c/e13c.bet.n/e13c_bet_n_07/Q/E13C.Bet.n.07.q02.csv")
+e13c_bet_n_07_q03 <- csv2rwl("data/ring_data/raw/e13c/e13c.bet.n/e13c_bet_n_07/Q/E13C.Bet.n.07.q03.csv")
 e13c_bet_n_07_q04 <- csv2rwl("data/ring_data/raw/e13c/e13c.bet.n/e13c_bet_n_07/Q/E13C.Bet.n.07.q04.csv")
 
 
@@ -13,6 +12,7 @@ e13c_bet_n_07_q04 <- csv2rwl("data/ring_data/raw/e13c/e13c.bet.n/e13c_bet_n_07/Q
 
 e13c_bet_n_07_q01 <- e13c_bet_n_07_q01[-1, ]
 e13c_bet_n_07_q02 <- e13c_bet_n_07_q02[-1, ]
+e13c_bet_n_07_q03 <- e13c_bet_n_07_q03[-1, ]
 e13c_bet_n_07_q04 <- e13c_bet_n_07_q04[-1, ]
 
 
@@ -24,6 +24,7 @@ common_column <- "row_names"
 # Add row names as a column for each data frame
 e13c_bet_n_07_q01$row_names <- rownames(e13c_bet_n_07_q01)
 e13c_bet_n_07_q02$row_names <- rownames(e13c_bet_n_07_q02)
+e13c_bet_n_07_q03$row_names <- rownames(e13c_bet_n_07_q03)
 e13c_bet_n_07_q04$row_names <- rownames(e13c_bet_n_07_q04)
 
 
@@ -31,7 +32,8 @@ e13c_bet_n_07_q04$row_names <- rownames(e13c_bet_n_07_q04)
 # Merge the data frames using Reduce and merge
 e13c_bet_n_07_q <- Reduce(function(x, y) merge(x, y, by = common_column, all = TRUE),
                           list(e13c_bet_n_07_q01, 
-                               e13c_bet_n_07_q02, 
+                               e13c_bet_n_07_q02,
+                               e13c_bet_n_07_q03, 
                                e13c_bet_n_07_q04)
 )
 
