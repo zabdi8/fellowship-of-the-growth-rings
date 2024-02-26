@@ -157,3 +157,4 @@ spag.plot(e13c_bet_n_ave, zfac=0.009,) #creates a spaghetti plot
 
 spag.plot(e13c_bet_n_ave_short, zfac=0.009,) #creates a spaghetti plot
 title(main = "e13cbetn (Average)", adj = 0.7, line = 5.2, font.main = 2, cex.main = 1.2) #add title
+

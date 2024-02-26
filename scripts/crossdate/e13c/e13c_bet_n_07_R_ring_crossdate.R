@@ -3,6 +3,8 @@ library(dplR)
 
 #Load the data####
 e13c_bet_n_07_r01 <- csv2rwl("data/ring_data/raw/e13c/e13c.bet.n/e13c_bet_n_07/R/E13C.Bet.n.07.r01.csv")
+e13c_bet_n_07_r02 <- csv2rwl("data/ring_data/raw/e13c/e13c.bet.n/e13c_bet_n_07/R/E13C.Bet.n.07.r02.csv")
+e13c_bet_n_07_r03 <- csv2rwl("data/ring_data/raw/e13c/e13c.bet.n/e13c_bet_n_07/R/E13C.Bet.n.07.r03.csv")
 e13c_bet_n_07_r04 <- csv2rwl("data/ring_data/raw/e13c/e13c.bet.n/e13c_bet_n_07/R/E13C.Bet.n.07.r04.csv")
 e13c_bet_n_07_r06 <- csv2rwl("data/ring_data/raw/e13c/e13c.bet.n/e13c_bet_n_07/R/E13C.Bet.n.07.r06.csv")
 
@@ -10,6 +12,8 @@ e13c_bet_n_07_r06 <- csv2rwl("data/ring_data/raw/e13c/e13c.bet.n/e13c_bet_n_07/R
 #remove the core year
 
 e13c_bet_n_07_r01 <- e13c_bet_n_07_r01[-1, ]
+e13c_bet_n_07_r02 <- e13c_bet_n_07_r02[-1, ]
+e13c_bet_n_07_r03 <- e13c_bet_n_07_r03[-1, ]
 e13c_bet_n_07_r04 <- e13c_bet_n_07_r04[-1, ]
 e13c_bet_n_07_r06 <- e13c_bet_n_07_r06[-1, ]
 
@@ -21,6 +25,8 @@ common_column <- "row_names"
 
 # Add row names as a column for each data frame
 e13c_bet_n_07_r01$row_names <- rownames(e13c_bet_n_07_r01)
+e13c_bet_n_07_r02$row_names <- rownames(e13c_bet_n_07_r02)
+e13c_bet_n_07_r03$row_names <- rownames(e13c_bet_n_07_r03)
 e13c_bet_n_07_r04$row_names <- rownames(e13c_bet_n_07_r04)
 e13c_bet_n_07_r06$row_names <- rownames(e13c_bet_n_07_r06)
 
@@ -28,7 +34,9 @@ e13c_bet_n_07_r06$row_names <- rownames(e13c_bet_n_07_r06)
 
 # Merge the data frames using Reduce and merge
 e13c_bet_n_07_r <- Reduce(function(x, y) merge(x, y, by = common_column, all = TRUE),
-                          list(e13c_bet_n_07_r01, 
+                          list(e13c_bet_n_07_r01,
+                               e13c_bet_n_07_r02,
+                               e13c_bet_n_07_r03, 
                                e13c_bet_n_07_r04, 
                                e13c_bet_n_07_r06)
 )

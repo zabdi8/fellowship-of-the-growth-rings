@@ -280,11 +280,26 @@ e13c_bet_n_07_average$E13CBetn07v01 <- rowMeans(e13c_bet_n_07[, c("E13CBetn07v01
                                                                   "E13CBetn07v01r3",
                                                                   "E13CBetn07v01r4")], 
                                                 na.rm = TRUE)
+e13c_bet_n_07_average$E13CBetn07v02 <- rowMeans(e13c_bet_n_07[, c("E13CBetn07v02r1",
+                                                                  "E13CBetn07v02r2", 
+                                                                  "E13CBetn07v02r3",
+                                                                  "E13CBetn07v02r4")], 
+                                                na.rm = TRUE)
 
 e13c_bet_n_07_average$E13CBetn07v03 <- rowMeans(e13c_bet_n_07[, c("E13CBetn07v03r1",
                                                                   "E13CBetn07v03r2",
                                                                   "E13CBetn07v03r3",
                                                                   "E13CBetn07v03r4")],
+                                                na.rm = TRUE)
+e13c_bet_n_07_average$E13CBetn07v04 <- rowMeans(e13c_bet_n_07[, c("E13CBetn07v04r1",
+                                                                  "E13CBetn07v04r2", 
+                                                                  "E13CBetn07v04r3",
+                                                                  "E13CBetn07v04r4")], 
+                                                na.rm = TRUE)
+e13c_bet_n_07_average$E13CBetn07v05 <- rowMeans(e13c_bet_n_07[, c("E13CBetn07v05r1",
+                                                                  "E13CBetn07v05r2", 
+                                                                  "E13CBetn07v05r3",
+                                                                  "E13CBetn07v05r4")], 
                                                 na.rm = TRUE)
 e13c_bet_n_07_average$E13CBetn07v06 <- rowMeans(e13c_bet_n_07[, c("E13CBetn07v06r1",
                                                                   "E13CBetn07v06r2",
