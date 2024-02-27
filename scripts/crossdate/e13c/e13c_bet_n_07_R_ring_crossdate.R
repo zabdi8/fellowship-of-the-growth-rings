@@ -6,6 +6,7 @@ e13c_bet_n_07_r01 <- csv2rwl("data/ring_data/raw/e13c/e13c.bet.n/e13c_bet_n_07/R
 e13c_bet_n_07_r02 <- csv2rwl("data/ring_data/raw/e13c/e13c.bet.n/e13c_bet_n_07/R/E13C.Bet.n.07.r02.csv")
 e13c_bet_n_07_r03 <- csv2rwl("data/ring_data/raw/e13c/e13c.bet.n/e13c_bet_n_07/R/E13C.Bet.n.07.r03.csv")
 e13c_bet_n_07_r04 <- csv2rwl("data/ring_data/raw/e13c/e13c.bet.n/e13c_bet_n_07/R/E13C.Bet.n.07.r04.csv")
+e13c_bet_n_07_r05 <- csv2rwl("data/ring_data/raw/e13c/e13c.bet.n/e13c_bet_n_07/R/E13C.Bet.n.07.r05.csv")
 e13c_bet_n_07_r06 <- csv2rwl("data/ring_data/raw/e13c/e13c.bet.n/e13c_bet_n_07/R/E13C.Bet.n.07.r06.csv")
 
 
@@ -15,6 +16,7 @@ e13c_bet_n_07_r01 <- e13c_bet_n_07_r01[-1, ]
 e13c_bet_n_07_r02 <- e13c_bet_n_07_r02[-1, ]
 e13c_bet_n_07_r03 <- e13c_bet_n_07_r03[-1, ]
 e13c_bet_n_07_r04 <- e13c_bet_n_07_r04[-1, ]
+e13c_bet_n_07_r05 <- e13c_bet_n_07_r05[-1, ]
 e13c_bet_n_07_r06 <- e13c_bet_n_07_r06[-1, ]
 
 
@@ -28,6 +30,7 @@ e13c_bet_n_07_r01$row_names <- rownames(e13c_bet_n_07_r01)
 e13c_bet_n_07_r02$row_names <- rownames(e13c_bet_n_07_r02)
 e13c_bet_n_07_r03$row_names <- rownames(e13c_bet_n_07_r03)
 e13c_bet_n_07_r04$row_names <- rownames(e13c_bet_n_07_r04)
+e13c_bet_n_07_r05$row_names <- rownames(e13c_bet_n_07_r05)
 e13c_bet_n_07_r06$row_names <- rownames(e13c_bet_n_07_r06)
 
 
@@ -37,7 +40,8 @@ e13c_bet_n_07_r <- Reduce(function(x, y) merge(x, y, by = common_column, all = T
                           list(e13c_bet_n_07_r01,
                                e13c_bet_n_07_r02,
                                e13c_bet_n_07_r03, 
-                               e13c_bet_n_07_r04, 
+                               e13c_bet_n_07_r04,
+                               e13c_bet_n_07_r05, 
                                e13c_bet_n_07_r06)
 )
 
