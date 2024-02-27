@@ -6,6 +6,7 @@ library(ggplot2)
 #Load the data####
 e13d_bet_n_03_o01 <- csv2rwl("data/ring_data/raw/e13d/e13d.bet.n/e13d_bet_n_03/o/E13D.Bet.n.03.o01.csv")
 e13d_bet_n_03_o02 <- csv2rwl("data/ring_data/raw/e13d/e13d.bet.n/e13d_bet_n_03/o/E13D.Bet.n.03.o02.csv")
+e13d_bet_n_03_o03 <- csv2rwl("data/ring_data/raw/e13d/e13d.bet.n/e13d_bet_n_03/o/E13D.Bet.n.03.o03.csv")
 e13d_bet_n_03_o04 <- csv2rwl("data/ring_data/raw/e13d/e13d.bet.n/e13d_bet_n_03/o/E13D.Bet.n.03.o04.csv")
 
 
@@ -14,6 +15,7 @@ e13d_bet_n_03_o04 <- csv2rwl("data/ring_data/raw/e13d/e13d.bet.n/e13d_bet_n_03/o
 #remove the core year
 e13d_bet_n_03_o01 <- e13d_bet_n_03_o01[-1, ]
 e13d_bet_n_03_o02 <- e13d_bet_n_03_o02[-1, ]
+e13d_bet_n_03_o03 <- e13d_bet_n_03_o03[-1, ]
 e13d_bet_n_03_o04 <- e13d_bet_n_03_o04[-1, ]
 
 #merge in a single data frame:####
@@ -23,12 +25,14 @@ common_column <- "row_names"
 # Add row names as a column for each data frame
 e13d_bet_n_03_o01$row_names <- rownames(e13d_bet_n_03_o01)
 e13d_bet_n_03_o02$row_names <- rownames(e13d_bet_n_03_o02)
+e13d_bet_n_03_o03$row_names <- rownames(e13d_bet_n_03_o03)
 e13d_bet_n_03_o04$row_names <- rownames(e13d_bet_n_03_o04)
 
 # Merge the data frames using Reduce and merge
 e13d_bet_n_03_o <- Reduce(function(x, y) merge(x, y, by = common_column, all = TRUE),
                           list(e13d_bet_n_03_o01, 
                                e13d_bet_n_03_o02,
+                               e13d_bet_n_03_o03,
                                e13d_bet_n_03_o04)
                           )
 
@@ -74,7 +78,7 @@ colnames(e13d_bet_n_03_o_short)
 #graphs
 seg.plot(e13d_bet_n_03_o_short) #creates a segment plot
 title(main = "E13DBetn03o", adj = 0.48, line = 5.2, font.main = 2, cex.main = 1.2) #add title
-spag.plot(e13d_bet_n_03_o_short, zfac=0.004,) #creates a spaghetti plot
+spag.plot(e13d_bet_n_03_o_short, zfac=0.01,) #creates a spaghetti plot
 title(main = "E13DBetn03o", adj = 0.48, line = 5.2, font.main = 2, cex.main = 1.2) #add title
 
 ##Analysis####
