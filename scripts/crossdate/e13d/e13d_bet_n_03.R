@@ -1,7 +1,5 @@
 #loading packages
 library(dplR)
-library(dplyr)
-
 
 #load rwl files
 e13d_bet_n_03_O <- read.rwl("data/ring_data/aligned/e13d/e13d.bet.n/e13d_bet_n_03/e13d_bet_n_03_o.rwl")
@@ -11,12 +9,7 @@ e13d_bet_n_03_T <- read.rwl("data/ring_data/aligned/e13d/e13d.bet.n/e13d_bet_n_0
 e13d_bet_n_03_U <- read.rwl("data/ring_data/aligned/e13d/e13d.bet.n/e13d_bet_n_03/e13d_bet_n_03_u.rwl")
 e13d_bet_n_03_V <- read.rwl("data/ring_data/aligned/e13d/e13d.bet.n/e13d_bet_n_03/e13d_bet_n_03_v.rwl")
 
-
-
-
-
 # merge the data
-
 
 # Specify the common column for merging
 common_column <- "row_names"
@@ -118,6 +111,11 @@ e13d_bet_n_03_average$E13DBetn03o02 <- rowMeans(e13d_bet_n_03[, c("E13DBetn03o02
                                                                   "E13DBetn03o02r3",
                                                                   "E13DBetn03o02r4")], 
                                                 na.rm = TRUE)
+e13d_bet_n_03_average$E13DBetn03o03 <- rowMeans(e13d_bet_n_03[, c("E13DBetn03o03r1",
+                                                                  "E13DBetn03o03r2", 
+                                                                  "E13DBetn03o03r3",
+                                                                  "E13DBetn03o03r4")], 
+                                                na.rm = TRUE)
 e13d_bet_n_03_average$E13DBetn03o04 <- rowMeans(e13d_bet_n_03[, c("E13DBetn03o04r1",
                                                                   "E13DBetn03o04r2", 
                                                                   "E13DBetn03o04r3",
@@ -187,10 +185,21 @@ e13d_bet_n_03_average$E13DBetn03u01 <- rowMeans(e13d_bet_n_03[, c("E13DBetn03u01
                                                                   "E13DBetn03u01r4")], 
                                                 na.rm = TRUE)
 
+e13d_bet_n_03_average$E13DBetn03u02 <- rowMeans(e13d_bet_n_03[, c("E13DBetn03u02r1",
+                                                                  "E13DBetn03u02r2", 
+                                                                  "E13DBetn03u02r3",
+                                                                  "E13DBetn03u02r4")], 
+                                                na.rm = TRUE)
+
 e13d_bet_n_03_average$E13DBetn03u03 <- rowMeans(e13d_bet_n_03[, c("E13DBetn03u03r1",
                                                                   "E13DBetn03u03r2", 
                                                                   "E13DBetn03u03r3",
                                                                   "E13DBetn03u03r4")], 
+                                                na.rm = TRUE)
+e13d_bet_n_03_average$E13DBetn03u04 <- rowMeans(e13d_bet_n_03[, c("E13DBetn03u04r1",
+                                                                  "E13DBetn03u04r2", 
+                                                                  "E13DBetn03u04r3",
+                                                                  "E13DBetn03u04r4")], 
                                                 na.rm = TRUE)
 e13d_bet_n_03_average$E13DBetn03u05 <- rowMeans(e13d_bet_n_03[, c("E13DBetn03u05r1",
                                                                   "E13DBetn03u05r2", 
@@ -209,6 +218,13 @@ e13d_bet_n_03_average$E13DBetn03v02 <- rowMeans(e13d_bet_n_03[, c("E13DBetn03v02
                                                                   "E13DBetn03v02r3",
                                                                   "E13DBetn03v02r4")], 
                                                 na.rm = TRUE)
+
+e13d_bet_n_03_average$E13DBetn03v03 <- rowMeans(e13d_bet_n_03[, c("E13DBetn03v03r1",
+                                                                  "E13DBetn03v03r2", 
+                                                                  "E13DBetn03v03r3",
+                                                                  "E13DBetn03v03r4")], 
+                                                na.rm = TRUE)
+
 e13d_bet_n_03_average$E13DBetn03v04 <- rowMeans(e13d_bet_n_03[, c("E13DBetn03v04r1",
                                                                   "E13DBetn03v04r2", 
                                                                   "E13DBetn03v04r3",

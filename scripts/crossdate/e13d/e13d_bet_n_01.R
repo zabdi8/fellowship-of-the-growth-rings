@@ -8,11 +8,7 @@ e13d_bet_n_01_T <- read.rwl("data/ring_data/aligned/e13d/e13d.bet.n/e13d_bet_n_0
 e13d_bet_n_01_U <- read.rwl("data/ring_data/aligned/e13d/e13d.bet.n/e13d_bet_n_01/e13d_bet_n_01_u.rwl")
 e13d_bet_n_01_V <- read.rwl("data/ring_data/aligned/e13d/e13d.bet.n/e13d_bet_n_01/e13d_bet_n_01_v.rwl")
 
-
-
-
 # merge the data
-
 
 # Specify the common column for merging
 common_column <- "row_names"
@@ -23,9 +19,6 @@ e13d_bet_n_01_S$row_names <- rownames(e13d_bet_n_01_S)
 e13d_bet_n_01_T$row_names <- rownames(e13d_bet_n_01_T)
 e13d_bet_n_01_U$row_names <- rownames(e13d_bet_n_01_U)
 e13d_bet_n_01_V$row_names <- rownames(e13d_bet_n_01_V)
-
-
-
 
 # Merge the data frames using Reduce and merge
 e13d_bet_n_01 <- Reduce(function(x, y) merge(x, y, by = common_column, all = TRUE),
@@ -149,6 +142,17 @@ e13d_bet_n_01_average$E13DBetn01t01 <- rowMeans(e13d_bet_n_01[, c("E13DBetn01t01
                                                                   "E13DBetn01t01r4")], 
                                                 na.rm = TRUE)
 
+e13d_bet_n_01_average$E13DBetn01t02 <- rowMeans(e13d_bet_n_01[, c("E13DBetn01t02r1",
+                                                                  "E13DBetn01t02r2", 
+                                                                  "E13DBetn01t02r3",
+                                                                  "E13DBetn01t02r4")], 
+                                                na.rm = TRUE)
+e13d_bet_n_01_average$E13DBetn01t03 <- rowMeans(e13d_bet_n_01[, c("E13DBetn01t03r1",
+                                                                  "E13DBetn01t03r2", 
+                                                                  "E13DBetn01t03r3",
+                                                                  "E13DBetn01t03r4")], 
+                                                na.rm = TRUE)
+
 e13d_bet_n_01_average$E13DBetn01t04 <- rowMeans(e13d_bet_n_01[, c("E13DBetn01t04r1",
                                                                   "E13DBetn01t04r2",
                                                                   "E13DBetn01t04r3",
@@ -166,10 +170,25 @@ e13d_bet_n_01_average$E13DBetn01u01 <- rowMeans(e13d_bet_n_01[, c("E13DBetn01u01
                                                                   "E13DBetn01u01r3",
                                                                   "E13DBetn01u01r4")], 
                                                 na.rm = TRUE)
+e13d_bet_n_01_average$E13DBetn01u02 <- rowMeans(e13d_bet_n_01[, c("E13DBetn01u02r1",
+                                                                  "E13DBetn01u02r2", 
+                                                                  "E13DBetn01u02r3",
+                                                                  "E13DBetn01u02r4")], 
+                                                na.rm = TRUE)
 e13d_bet_n_01_average$E13DBetn01u03 <- rowMeans(e13d_bet_n_01[, c("E13DBetn01u03r1",
                                                                   "E13DBetn01u03r2", 
                                                                   "E13DBetn01u03r3",
                                                                   "E13DBetn01u03r4")], 
+                                                na.rm = TRUE)
+e13d_bet_n_01_average$E13DBetn01u04 <- rowMeans(e13d_bet_n_01[, c("E13DBetn01u04r1",
+                                                                  "E13DBetn01u04r2", 
+                                                                  "E13DBetn01u04r3",
+                                                                  "E13DBetn01u04r4")], 
+                                                na.rm = TRUE)
+e13d_bet_n_01_average$E13DBetn01u05 <- rowMeans(e13d_bet_n_01[, c("E13DBetn01u05r1",
+                                                                  "E13DBetn01u05r2", 
+                                                                  "E13DBetn01u05r3",
+                                                                  "E13DBetn01u05r4")], 
                                                 na.rm = TRUE)
 e13d_bet_n_01_average$E13DBetn01u06 <- rowMeans(e13d_bet_n_01[, c("E13DBetn01u06r1",
                                                                   "E13DBetn01u06r2", 
@@ -250,6 +269,6 @@ colnames(e13d_bet_n_01_ave_short) <- new_colnames
 head(e13d_bet_n_01_ave_short)
 colnames(e13d_bet_n_01_ave_short)
 
-spag.plot(e13d_bet_n_01_ave_short, zfac=0.006,) #creates a spaghetti plot
+spag.plot(e13d_bet_n_01_ave_short, zfac=0.005,) #creates a spaghetti plot
 title(main = "E13DBetn01 (Average)", adj = 0.48, line = 5.2, font.main = 2, cex.main = 1.2) #add title
 

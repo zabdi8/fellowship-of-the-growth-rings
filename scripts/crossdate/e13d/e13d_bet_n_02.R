@@ -1,7 +1,5 @@
 #loading packages
 library(dplR)
-library(dplyr)
-
 
 #load rwl files
 e13d_bet_n_02_O <- read.rwl("data/ring_data/aligned/e13d/e13d.bet.n/e13d_bet_n_02/e13d_bet_n_02_o.rwl")
@@ -12,12 +10,7 @@ e13d_bet_n_02_S <- read.rwl("data/ring_data/aligned/e13d/e13d.bet.n/e13d_bet_n_0
 e13d_bet_n_02_T <- read.rwl("data/ring_data/aligned/e13d/e13d.bet.n/e13d_bet_n_02/e13d_bet_n_02_t.rwl")
 e13d_bet_n_02_U <- read.rwl("data/ring_data/aligned/e13d/e13d.bet.n/e13d_bet_n_02/e13d_bet_n_02_u.rwl")
 
-
-
-
-
 # merge the data
-
 
 # Specify the common column for merging
 common_column <- "row_names"
@@ -138,6 +131,17 @@ e13d_bet_n_02_average$E13DBetn02p01 <- rowMeans(e13d_bet_n_02[, c("E13DBetn02p01
                                                                   "E13DBetn02p01r3",
                                                                   "E13DBetn02p01r4")], 
                                                 na.rm = TRUE)
+e13d_bet_n_02_average$E13DBetn02p02 <- rowMeans(e13d_bet_n_02[, c("E13DBetn02p02r1",
+                                                                  "E13DBetn02p02r2", 
+                                                                  "E13DBetn02p02r3",
+                                                                  "E13DBetn02p02r4")], 
+                                                na.rm = TRUE)
+e13d_bet_n_02_average$E13DBetn02p03 <- rowMeans(e13d_bet_n_02[, c("E13DBetn02p03r1",
+                                                                  "E13DBetn02p03r2", 
+                                                                  "E13DBetn02p03r3",
+                                                                  "E13DBetn02p03r4")], 
+                                                na.rm = TRUE)
+
 e13d_bet_n_02_average$E13DBetn02p04 <- rowMeans(e13d_bet_n_02[, c("E13DBetn02p04r1",
                                                                   "E13DBetn02p04r2", 
                                                                   "E13DBetn02p04r3",

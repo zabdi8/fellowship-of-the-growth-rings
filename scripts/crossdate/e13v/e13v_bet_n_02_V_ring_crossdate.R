@@ -6,12 +6,14 @@ library(ggplot2)
 #Load the data####
 e13v_bet_n_02_v01 <- csv2rwl("data/ring_data/raw/e13v/e13v.bet.n/e13v_bet_n_02/v/E13V.Bet.n.02.v01.csv")
 e13v_bet_n_02_v02 <- csv2rwl("data/ring_data/raw/e13v/e13v.bet.n/e13v_bet_n_02/v/E13V.Bet.n.02.v02.csv")
+e13v_bet_n_02_v03 <- csv2rwl("data/ring_data/raw/e13v/e13v.bet.n/e13v_bet_n_02/v/E13V.Bet.n.02.v03.csv")
 e13v_bet_n_02_v04 <- csv2rwl("data/ring_data/raw/e13v/e13v.bet.n/e13v_bet_n_02/v/E13V.Bet.n.02.v04.csv")
 
 
 #remove the core year
 e13v_bet_n_02_v01 <- e13v_bet_n_02_v01[-1, ]
 e13v_bet_n_02_v02 <- e13v_bet_n_02_v02[-1, ]
+e13v_bet_n_02_v03 <- e13v_bet_n_02_v03[-1, ]
 e13v_bet_n_02_v04 <- e13v_bet_n_02_v04[-1, ]
 
 
@@ -23,6 +25,7 @@ common_column <- "row_names"
 # Add row names as a column for each data frame
 e13v_bet_n_02_v01$row_names <- rownames(e13v_bet_n_02_v01)
 e13v_bet_n_02_v02$row_names <- rownames(e13v_bet_n_02_v02)
+e13v_bet_n_02_v03$row_names <- rownames(e13v_bet_n_02_v03)
 e13v_bet_n_02_v04$row_names <- rownames(e13v_bet_n_02_v04)
 
 
@@ -31,6 +34,7 @@ e13v_bet_n_02_v04$row_names <- rownames(e13v_bet_n_02_v04)
 e13v_bet_n_02_v <- Reduce(function(x, y) merge(x, y, by = common_column, all = TRUE),
                           list(e13v_bet_n_02_v01, 
                                e13v_bet_n_02_v02,
+                               e13v_bet_n_02_v03,
                                e13v_bet_n_02_v04)
 )
 

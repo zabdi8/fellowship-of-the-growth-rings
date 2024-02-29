@@ -1,16 +1,20 @@
 #Load packages####
 library(dplR)
-library(treeclim)
-library(ggplot2)
 
 #Load the data####
 e13v_bet_n_02_o01 <- csv2rwl("data/ring_data/raw/e13v/e13v.bet.n/e13v_bet_n_02/o/E13V.Bet.n.02.o01.csv")
+e13v_bet_n_02_o02 <- csv2rwl("data/ring_data/raw/e13v/e13v.bet.n/e13v_bet_n_02/o/E13V.Bet.n.02.o02.csv")
+e13v_bet_n_02_o03 <- csv2rwl("data/ring_data/raw/e13v/e13v.bet.n/e13v_bet_n_02/o/E13V.Bet.n.02.o03.csv")
 e13v_bet_n_02_o04 <- csv2rwl("data/ring_data/raw/e13v/e13v.bet.n/e13v_bet_n_02/o/E13V.Bet.n.02.o04.csv")
+e13v_bet_n_02_o05 <- csv2rwl("data/ring_data/raw/e13v/e13v.bet.n/e13v_bet_n_02/o/E13V.Bet.n.02.o05.csv")
 e13v_bet_n_02_o06 <- csv2rwl("data/ring_data/raw/e13v/e13v.bet.n/e13v_bet_n_02/o/E13V.Bet.n.02.o06.csv")
 
 #remove the core year
 e13v_bet_n_02_o01 <- e13v_bet_n_02_o01[-1, ]
+e13v_bet_n_02_o02 <- e13v_bet_n_02_o02[-1, ]
+e13v_bet_n_02_o03 <- e13v_bet_n_02_o03[-1, ]
 e13v_bet_n_02_o04 <- e13v_bet_n_02_o04[-1, ]
+e13v_bet_n_02_o05 <- e13v_bet_n_02_o05[-1, ]
 e13v_bet_n_02_o06 <- e13v_bet_n_02_o06[-1, ]
 
 
@@ -20,14 +24,20 @@ common_column <- "row_names"
 
 # Add row names as a column for each data frame
 e13v_bet_n_02_o01$row_names <- rownames(e13v_bet_n_02_o01)
+e13v_bet_n_02_o02$row_names <- rownames(e13v_bet_n_02_o02)
+e13v_bet_n_02_o03$row_names <- rownames(e13v_bet_n_02_o03)
 e13v_bet_n_02_o04$row_names <- rownames(e13v_bet_n_02_o04)
+e13v_bet_n_02_o05$row_names <- rownames(e13v_bet_n_02_o05)
 e13v_bet_n_02_o06$row_names <- rownames(e13v_bet_n_02_o06)
 
 
 # Merge the data frames using Reduce and merge
 e13v_bet_n_02_o <- Reduce(function(x, y) merge(x, y, by = common_column, all = TRUE),
-                          list(e13v_bet_n_02_o01, 
+                          list(e13v_bet_n_02_o01,
+                               e13v_bet_n_02_o02,
+                               e13v_bet_n_02_o03, 
                                e13v_bet_n_02_o04,
+                               e13v_bet_n_02_o05,
                                e13v_bet_n_02_o06)
                           )
 
@@ -88,3 +98,4 @@ print(e13v_bet_n_02_o_inter)
 #              make.plot = TRUE, label.cex = 1, floor.plus1 = FALSE, master = NULL)
 # 
 # title(main = "e13vBetn02o", adj = 0.48, line = 4, font.main = 2, cex.main = 1.6) #add title
+

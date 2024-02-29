@@ -1,7 +1,5 @@
 #loading packages
 library(dplR)
-library(dplyr)
-
 
 #load rwl files
 e13v_bet_n_02_O <- read.rwl("data/ring_data/aligned/e13v/e13v.bet.n/e13v_bet_n_02/e13v_bet_n_02_o.rwl")
@@ -120,10 +118,27 @@ e13v_bet_n_02_average$E13VBetn02o01 <- rowMeans(e13v_bet_n_02[, c("E13VBetn02o01
                                                                   "E13VBetn02o01r4")], 
                                                 na.rm = TRUE)
 
+e13v_bet_n_02_average$E13VBetn02o02 <- rowMeans(e13v_bet_n_02[, c("E13VBetn02o02r1",
+                                                                  "E13VBetn02o02r2", 
+                                                                  "E13VBetn02o02r3",
+                                                                  "E13VBetn02o02r4")], 
+                                                na.rm = TRUE)
+
+e13v_bet_n_02_average$E13VBetn02o03 <- rowMeans(e13v_bet_n_02[, c("E13VBetn02o03r1",
+                                                                  "E13VBetn02o03r2", 
+                                                                  "E13VBetn02o03r3",
+                                                                  "E13VBetn02o03r4")], 
+                                                na.rm = TRUE)
+
 e13v_bet_n_02_average$E13VBetn02o04 <- rowMeans(e13v_bet_n_02[, c("E13VBetn02o04r1",
                                                                   "E13VBetn02o04r2", 
                                                                   "E13VBetn02o04r3",
                                                                   "E13VBetn02o04r4")], 
+                                                na.rm = TRUE)
+e13v_bet_n_02_average$E13VBetn02o05 <- rowMeans(e13v_bet_n_02[, c("E13VBetn02o05r1",
+                                                                  "E13VBetn02o05r2", 
+                                                                  "E13VBetn02o05r3",
+                                                                  "E13VBetn02o05r4")], 
                                                 na.rm = TRUE)
 
 e13v_bet_n_02_average$E13VBetn02o06 <- rowMeans(e13v_bet_n_02[, c("E13VBetn02o06r1",
@@ -139,10 +154,33 @@ e13v_bet_n_02_average$E13VBetn02p01 <- rowMeans(e13v_bet_n_02[, c("E13VBetn02p01
                                                                   "E13VBetn02p01r4")], 
                                                 na.rm = TRUE)
 
+e13v_bet_n_02_average$E13VBetn02p02 <- rowMeans(e13v_bet_n_02[, c("E13VBetn02p02r1",
+                                                                  "E13VBetn02p02r2", 
+                                                                  "E13VBetn02p02r3",
+                                                                  "E13VBetn02p02r4")], 
+                                                na.rm = TRUE)
+e13v_bet_n_02_average$E13VBetn02p03 <- rowMeans(e13v_bet_n_02[, c("E13VBetn02p03r1",
+                                                                  "E13VBetn02p03r2", 
+                                                                  "E13VBetn02p03r3",
+                                                                  "E13VBetn02p03r4")], 
+                                                na.rm = TRUE)
+
 e13v_bet_n_02_average$E13VBetn02p04 <- rowMeans(e13v_bet_n_02[, c("E13VBetn02p04r1",
                                                                   "E13VBetn02p04r2", 
                                                                   "E13VBetn02p04r3",
                                                                   "E13VBetn02p04r4")], 
+                                                na.rm = TRUE)
+
+e13v_bet_n_02_average$E13VBetn02p06 <- rowMeans(e13v_bet_n_02[, c("E13VBetn02p06r1",
+                                                                  "E13VBetn02p06r2", 
+                                                                  "E13VBetn02p06r3",
+                                                                  "E13VBetn02p06r4")], 
+                                                na.rm = TRUE)
+
+e13v_bet_n_02_average$E13VBetn02p07 <- rowMeans(e13v_bet_n_02[, c("E13VBetn02p07r1",
+                                                                  "E13VBetn02p07r2", 
+                                                                  "E13VBetn02p07r3",
+                                                                  "E13VBetn02p07r4")], 
                                                 na.rm = TRUE)
 
 e13v_bet_n_02_average$E13VBetn02p08 <- rowMeans(e13v_bet_n_02[, c("E13VBetn02p08r1",
@@ -157,6 +195,12 @@ e13v_bet_n_02_average$E13VBetn02q01 <- rowMeans(e13v_bet_n_02[, c("E13VBetn02q01
                                                                   "E13VBetn02q01r4")], 
                                                 na.rm = TRUE)
 
+e13v_bet_n_02_average$E13VBetn02q02 <- rowMeans(e13v_bet_n_02[, c("E13VBetn02q02r1",
+                                                                  "E13VBetn02q02r2", 
+                                                                  "E13VBetn02q02r3",
+                                                                  "E13VBetn02q02r4")], 
+                                                na.rm = TRUE)
+
 e13v_bet_n_02_average$E13VBetn02q03 <- rowMeans(e13v_bet_n_02[, c("E13VBetn02q03r1",
                                                                   "E13VBetn02q03r2", 
                                                                   "E13VBetn02q03r3",
@@ -167,6 +211,12 @@ e13v_bet_n_02_average$E13VBetn02q04 <- rowMeans(e13v_bet_n_02[, c("E13VBetn02q04
                                                                   "E13VBetn02q04r2", 
                                                                   "E13VBetn02q04r3",
                                                                   "E13VBetn02q04r4")], 
+                                                na.rm = TRUE)
+
+e13v_bet_n_02_average$E13VBetn02q05 <- rowMeans(e13v_bet_n_02[, c("E13VBetn02q05r1",
+                                                                  "E13VBetn02q05r2", 
+                                                                  "E13VBetn02q05r3",
+                                                                  "E13VBetn02q05r4")], 
                                                 na.rm = TRUE)
 
 e13v_bet_n_02_average$E13VBetn02q06 <- rowMeans(e13v_bet_n_02[, c("E13VBetn02q06r1",
@@ -202,11 +252,30 @@ e13v_bet_n_02_average$E13VBetn02s01 <- rowMeans(e13v_bet_n_02[, c("E13VBetn02s01
                                                                   "E13VBetn02s01r4")], 
                                                 na.rm = TRUE)
 
+e13v_bet_n_02_average$E13VBetn02s02 <- rowMeans(e13v_bet_n_02[, c("E13VBetn02s02r1",
+                                                                  "E13VBetn02s02r2", 
+                                                                  "E13VBetn02s02r3",
+                                                                  "E13VBetn02s02r4")], 
+                                                na.rm = TRUE)
+
+e13v_bet_n_02_average$E13VBetn02s03 <- rowMeans(e13v_bet_n_02[, c("E13VBetn02s03r1",
+                                                                  "E13VBetn02s03r2", 
+                                                                  "E13VBetn02s03r3",
+                                                                  "E13VBetn02s03r4")], 
+                                                na.rm = TRUE)
+
 e13v_bet_n_02_average$E13VBetn02s04 <- rowMeans(e13v_bet_n_02[, c("E13VBetn02s04r1",
                                                                   "E13VBetn02s04r2",
                                                                   "E13VBetn02s04r3",
                                                                   "E13VBetn02s04r4")],
                                                 na.rm = TRUE)
+
+e13v_bet_n_02_average$E13VBetn02s05 <- rowMeans(e13v_bet_n_02[, c("E13VBetn02s05r1",
+                                                                  "E13VBetn02s05r2", 
+                                                                  "E13VBetn02s05r3",
+                                                                  "E13VBetn02s05r4")], 
+                                                na.rm = TRUE)
+
 e13v_bet_n_02_average$E13VBetn02s06 <- rowMeans(e13v_bet_n_02[, c("E13VBetn02s06r1",
                                                                   "E13VBetn02s06r2", 
                                                                   "E13VBetn02s06r3",
@@ -220,10 +289,28 @@ e13v_bet_n_02_average$E13VBetn02t01 <- rowMeans(e13v_bet_n_02[, c("E13VBetn02t01
                                                                   "E13VBetn02t01r4")], 
                                                 na.rm = TRUE)
 
+e13v_bet_n_02_average$E13VBetn02t02 <- rowMeans(e13v_bet_n_02[, c("E13VBetn02t02r1",
+                                                                  "E13VBetn02t02r2", 
+                                                                  "E13VBetn02t02r3",
+                                                                  "E13VBetn02t02r4")], 
+                                                na.rm = TRUE)
+
 e13v_bet_n_02_average$E13VBetn02t03 <- rowMeans(e13v_bet_n_02[, c("E13VBetn02t03r1",
                                                                   "E13VBetn02t03r2", 
                                                                   "E13VBetn02t03r3",
                                                                   "E13VBetn02t03r4")], 
+                                                na.rm = TRUE)
+
+e13v_bet_n_02_average$E13VBetn02t04 <- rowMeans(e13v_bet_n_02[, c("E13VBetn02t04r1",
+                                                                  "E13VBetn02t04r2", 
+                                                                  "E13VBetn02t04r3",
+                                                                  "E13VBetn02t04r4")], 
+                                                na.rm = TRUE)
+
+e13v_bet_n_02_average$E13VBetn02t05 <- rowMeans(e13v_bet_n_02[, c("E13VBetn02t05r1",
+                                                                  "E13VBetn02t05r2", 
+                                                                  "E13VBetn02t05r3",
+                                                                  "E13VBetn02t05r4")], 
                                                 na.rm = TRUE)
 
 e13v_bet_n_02_average$E13VBetn02t06 <- rowMeans(e13v_bet_n_02[, c("E13VBetn02t06r1",
@@ -239,10 +326,40 @@ e13v_bet_n_02_average$E13VBetn02u01 <- rowMeans(e13v_bet_n_02[, c("E13VBetn02u01
                                                                   "E13VBetn02u01r4")], 
                                                 na.rm = TRUE)
 
+e13v_bet_n_02_average$E13VBetn02u02 <- rowMeans(e13v_bet_n_02[, c("E13VBetn02u02r1",
+                                                                  "E13VBetn02u02r2", 
+                                                                  "E13VBetn02u02r3",
+                                                                  "E13VBetn02u02r4")], 
+                                                na.rm = TRUE)
+
+e13v_bet_n_02_average$E13VBetn02u03 <- rowMeans(e13v_bet_n_02[, c("E13VBetn02u03r1",
+                                                                  "E13VBetn02u03r2", 
+                                                                  "E13VBetn02u03r3",
+                                                                  "E13VBetn02u03r4")], 
+                                                na.rm = TRUE)
+
 e13v_bet_n_02_average$E13VBetn02u04 <- rowMeans(e13v_bet_n_02[, c("E13VBetn02u04r1",
                                                                   "E13VBetn02u04r2", 
                                                                   "E13VBetn02u04r3",
                                                                   "E13VBetn02u04r4")], 
+                                                na.rm = TRUE)
+
+e13v_bet_n_02_average$E13VBetn02u05 <- rowMeans(e13v_bet_n_02[, c("E13VBetn02u05r1",
+                                                                  "E13VBetn02u05r2", 
+                                                                  "E13VBetn02u05r3",
+                                                                  "E13VBetn02u05r4")], 
+                                                na.rm = TRUE)
+
+e13v_bet_n_02_average$E13VBetn02u06 <- rowMeans(e13v_bet_n_02[, c("E13VBetn02u06r1",
+                                                                  "E13VBetn02u06r2", 
+                                                                  "E13VBetn02u06r3",
+                                                                  "E13VBetn02u06r4")], 
+                                                na.rm = TRUE)
+
+e13v_bet_n_02_average$E13VBetn02u07 <- rowMeans(e13v_bet_n_02[, c("E13VBetn02u07r1",
+                                                                  "E13VBetn02u07r2", 
+                                                                  "E13VBetn02u07r3",
+                                                                  "E13VBetn02u07r4")], 
                                                 na.rm = TRUE)
 
 e13v_bet_n_02_average$E13VBetn02u08 <- rowMeans(e13v_bet_n_02[, c("E13VBetn02u08r1",
@@ -250,6 +367,7 @@ e13v_bet_n_02_average$E13VBetn02u08 <- rowMeans(e13v_bet_n_02[, c("E13VBetn02u08
                                                                   "E13VBetn02u08r3",
                                                                   "E13VBetn02u08r4")], 
                                                 na.rm = TRUE)
+
 #E13VBetn02v
 e13v_bet_n_02_average$E13VBetn02v01 <- rowMeans(e13v_bet_n_02[, c("E13VBetn02v01r1",
                                                                   "E13VBetn02v01r2", 
@@ -262,6 +380,13 @@ e13v_bet_n_02_average$E13VBetn02v02 <- rowMeans(e13v_bet_n_02[, c("E13VBetn02v02
                                                                   "E13VBetn02v02r3",
                                                                   "E13VBetn02v02r4")], 
                                                 na.rm = TRUE)
+
+e13v_bet_n_02_average$E13VBetn02v03 <- rowMeans(e13v_bet_n_02[, c("E13VBetn02v03r1",
+                                                                  "E13VBetn02v03r2", 
+                                                                  "E13VBetn02v03r3",
+                                                                  "E13VBetn02v03r4")], 
+                                                na.rm = TRUE)
+
 e13v_bet_n_02_average$E13VBetn02v04 <- rowMeans(e13v_bet_n_02[, c("E13VBetn02v04r1",
                                                                   "E13VBetn02v04r2", 
                                                                   "E13VBetn02v04r3",

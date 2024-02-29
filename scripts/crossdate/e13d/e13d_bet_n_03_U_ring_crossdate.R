@@ -5,6 +5,7 @@ library(dplR)
 e13d_bet_n_03_u01 <- csv2rwl("data/ring_data/raw/e13d/e13d.bet.n/e13d_bet_n_03/u/E13D.Bet.n.03.u01.csv")
 e13d_bet_n_03_u02 <- csv2rwl("data/ring_data/raw/e13d/e13d.bet.n/e13d_bet_n_03/u/E13D.Bet.n.03.u02.csv")
 e13d_bet_n_03_u03 <- csv2rwl("data/ring_data/raw/e13d/e13d.bet.n/e13d_bet_n_03/u/E13D.Bet.n.03.u03.csv")
+e13d_bet_n_03_u04 <- csv2rwl("data/ring_data/raw/e13d/e13d.bet.n/e13d_bet_n_03/u/E13D.Bet.n.03.u04.csv")
 e13d_bet_n_03_u05 <- csv2rwl("data/ring_data/raw/e13d/e13d.bet.n/e13d_bet_n_03/u/E13D.Bet.n.03.u05.csv")
 
 
@@ -14,6 +15,7 @@ e13d_bet_n_03_u05 <- csv2rwl("data/ring_data/raw/e13d/e13d.bet.n/e13d_bet_n_03/u
 e13d_bet_n_03_u01 <- e13d_bet_n_03_u01[-1, ]
 e13d_bet_n_03_u02 <- e13d_bet_n_03_u02[-1, ]
 e13d_bet_n_03_u03 <- e13d_bet_n_03_u03[-1, ]
+e13d_bet_n_03_u04 <- e13d_bet_n_03_u04[-1, ]
 e13d_bet_n_03_u05 <- e13d_bet_n_03_u05[-1, ]
 
 #merge in a single data frame:####
@@ -24,6 +26,7 @@ common_column <- "row_names"
 e13d_bet_n_03_u01$row_names <- rownames(e13d_bet_n_03_u01)
 e13d_bet_n_03_u02$row_names <- rownames(e13d_bet_n_03_u02)
 e13d_bet_n_03_u03$row_names <- rownames(e13d_bet_n_03_u03)
+e13d_bet_n_03_u04$row_names <- rownames(e13d_bet_n_03_u04)
 e13d_bet_n_03_u05$row_names <- rownames(e13d_bet_n_03_u05)
 
 # Merge the data frames using Reduce and merge
@@ -31,6 +34,7 @@ e13d_bet_n_03_u <- Reduce(function(x, y) merge(x, y, by = common_column, all = T
                           list(e13d_bet_n_03_u01,
                                e13d_bet_n_03_u02, 
                                e13d_bet_n_03_u03,
+                               e13d_bet_n_03_u04,
                                e13d_bet_n_03_u05)
 )
 
