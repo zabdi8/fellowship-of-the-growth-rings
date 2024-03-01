@@ -1,16 +1,16 @@
 #Load packages####
 library(dplR)
-library(treeclim)
-library(ggplot2)
 
 #Load the data####
 e13v_bet_n_03_o01 <- csv2rwl("data/ring_data/raw/e13v/e13v.bet.n/e13v_bet_n_03/o/E13V.Bet.n.03.o01.csv")
+e13v_bet_n_03_o02 <- csv2rwl("data/ring_data/raw/e13v/e13v.bet.n/e13v_bet_n_03/o/E13V.Bet.n.03.o02.csv")
 e13v_bet_n_03_o03 <- csv2rwl("data/ring_data/raw/e13v/e13v.bet.n/e13v_bet_n_03/o/E13V.Bet.n.03.o03.csv")
 e13v_bet_n_03_o04 <- csv2rwl("data/ring_data/raw/e13v/e13v.bet.n/e13v_bet_n_03/o/E13V.Bet.n.03.o04.csv")
 
 
 #remove the core year
 e13v_bet_n_03_o01 <- e13v_bet_n_03_o01[-1, ]
+e13v_bet_n_03_o02 <- e13v_bet_n_03_o02[-1, ]
 e13v_bet_n_03_o03 <- e13v_bet_n_03_o03[-1, ]
 e13v_bet_n_03_o04 <- e13v_bet_n_03_o04[-1, ]
 
@@ -22,6 +22,7 @@ common_column <- "row_names"
 
 # Add row names as a column for each data frame
 e13v_bet_n_03_o01$row_names <- rownames(e13v_bet_n_03_o01)
+e13v_bet_n_03_o02$row_names <- rownames(e13v_bet_n_03_o02)
 e13v_bet_n_03_o03$row_names <- rownames(e13v_bet_n_03_o03)
 e13v_bet_n_03_o04$row_names <- rownames(e13v_bet_n_03_o04)
 
@@ -29,7 +30,8 @@ e13v_bet_n_03_o04$row_names <- rownames(e13v_bet_n_03_o04)
 
 # Merge the data frames using Reduce and merge
 e13v_bet_n_03_o <- Reduce(function(x, y) merge(x, y, by = common_column, all = TRUE),
-                          list(e13v_bet_n_03_o01, 
+                          list(e13v_bet_n_03_o01,
+                               e13v_bet_n_03_o02, 
                                e13v_bet_n_03_o03,
                                e13v_bet_n_03_o04)
 )
@@ -76,7 +78,7 @@ colnames(e13v_bet_n_03_o_short)
 #graphs
 seg.plot(e13v_bet_n_03_o_short) #creates a segment plot
 title(main = "e13vBetn03o", adj = 0.48, line = 5.2, font.main = 2, cex.main = 1.2) #add title
-spag.plot(e13v_bet_n_03_o_short, zfac=0.006,) #creates a spaghetti plot
+spag.plot(e13v_bet_n_03_o_short, zfac=0.02,) #creates a spaghetti plot
 title(main = "e13vBetn03o", adj = 0.48, line = 5.2, font.main = 2, cex.main = 1.2) #add title
 
 ##Analysis####
