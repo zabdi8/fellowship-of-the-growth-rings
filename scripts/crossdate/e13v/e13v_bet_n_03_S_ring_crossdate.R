@@ -1,17 +1,29 @@
 #Load packages####
 library(dplR)
-library(treeclim)
-library(ggplot2)
 
 #Load the data####
 e13v_bet_n_03_s01 <- csv2rwl("data/ring_data/raw/e13v/e13v.bet.n/e13v_bet_n_03/s/E13V.Bet.n.03.s01.csv")
+e13v_bet_n_03_s02 <- csv2rwl("data/ring_data/raw/e13v/e13v.bet.n/e13v_bet_n_03/s/E13V.Bet.n.03.s02.csv")
+e13v_bet_n_03_s03 <- csv2rwl("data/ring_data/raw/e13v/e13v.bet.n/e13v_bet_n_03/s/E13V.Bet.n.03.s03.csv")
+e13v_bet_n_03_s04 <- csv2rwl("data/ring_data/raw/e13v/e13v.bet.n/e13v_bet_n_03/s/E13V.Bet.n.03.s04.csv")
 e13v_bet_n_03_s05 <- csv2rwl("data/ring_data/raw/e13v/e13v.bet.n/e13v_bet_n_03/s/E13V.Bet.n.03.s05.csv")
+e13v_bet_n_03_s06 <- csv2rwl("data/ring_data/raw/e13v/e13v.bet.n/e13v_bet_n_03/s/E13V.Bet.n.03.s06.csv")
+e13v_bet_n_03_s07 <- csv2rwl("data/ring_data/raw/e13v/e13v.bet.n/e13v_bet_n_03/s/E13V.Bet.n.03.s07.csv")
+e13v_bet_n_03_s08 <- csv2rwl("data/ring_data/raw/e13v/e13v.bet.n/e13v_bet_n_03/s/E13V.Bet.n.03.s08.csv")
+e13v_bet_n_03_s09 <- csv2rwl("data/ring_data/raw/e13v/e13v.bet.n/e13v_bet_n_03/s/E13V.Bet.n.03.s09.csv")
 e13v_bet_n_03_s10 <- csv2rwl("data/ring_data/raw/e13v/e13v.bet.n/e13v_bet_n_03/s/E13V.Bet.n.03.s10.csv")
 
 
 #remove the core year
 e13v_bet_n_03_s01 <- e13v_bet_n_03_s01[-1, ]
+e13v_bet_n_03_s02 <- e13v_bet_n_03_s02[-1, ]
+e13v_bet_n_03_s03 <- e13v_bet_n_03_s03[-1, ]
+e13v_bet_n_03_s04 <- e13v_bet_n_03_s04[-1, ]
 e13v_bet_n_03_s05 <- e13v_bet_n_03_s05[-1, ]
+e13v_bet_n_03_s06 <- e13v_bet_n_03_s06[-1, ]
+e13v_bet_n_03_s07 <- e13v_bet_n_03_s07[-1, ]
+e13v_bet_n_03_s08 <- e13v_bet_n_03_s08[-1, ]
+e13v_bet_n_03_s09 <- e13v_bet_n_03_s09[-1, ]
 e13v_bet_n_03_s10 <- e13v_bet_n_03_s10[-1, ]
 
 
@@ -22,17 +34,31 @@ common_column <- "row_names"
 
 # Add row names as a column for each data frame
 e13v_bet_n_03_s01$row_names <- rownames(e13v_bet_n_03_s01)
+e13v_bet_n_03_s02$row_names <- rownames(e13v_bet_n_03_s02)
+e13v_bet_n_03_s03$row_names <- rownames(e13v_bet_n_03_s03)
+e13v_bet_n_03_s04$row_names <- rownames(e13v_bet_n_03_s04)
 e13v_bet_n_03_s05$row_names <- rownames(e13v_bet_n_03_s05)
+e13v_bet_n_03_s06$row_names <- rownames(e13v_bet_n_03_s06)
+e13v_bet_n_03_s07$row_names <- rownames(e13v_bet_n_03_s07)
+e13v_bet_n_03_s08$row_names <- rownames(e13v_bet_n_03_s08)
+e13v_bet_n_03_s09$row_names <- rownames(e13v_bet_n_03_s09)
 e13v_bet_n_03_s10$row_names <- rownames(e13v_bet_n_03_s10)
 
 
 
 # Merge the data frames using Reduce and merge
 e13v_bet_n_03_s <- Reduce(function(x, y) merge(x, y, by = common_column, all = TRUE),
-                          list(e13v_bet_n_03_s01, 
+                          list(e13v_bet_n_03_s01,
+                               e13v_bet_n_03_s02,
+                               e13v_bet_n_03_s03,
+                               e13v_bet_n_03_s04, 
                                e13v_bet_n_03_s05,
+                               e13v_bet_n_03_s06,
+                               e13v_bet_n_03_s07,
+                               e13v_bet_n_03_s08,
+                               e13v_bet_n_03_s09,
                                e13v_bet_n_03_s10)
-)
+                          )
 
 # Set row names and remove the extra column
 rownames(e13v_bet_n_03_s) <- e13v_bet_n_03_s[[common_column]]
@@ -47,7 +73,7 @@ write.rwl(e13v_bet_n_03_s, "data/ring_data/aligned/e13v/e13v.bet.n/e13v_bet_n_03
           e13c_bet_n_01_rwl.hdr,
           append = FALSE,
           prec = 0.001
-)
+          )
 
 #Data Analysis####
 ##Statistics####
@@ -76,7 +102,7 @@ colnames(e13v_bet_n_03_s_short)
 #graphs
 seg.plot(e13v_bet_n_03_s_short) #creates a segment plot
 title(main = "e13vBetn03s", adj = 0.48, line = 5.2, font.main = 2, cex.main = 1.2) #add title
-spag.plot(e13v_bet_n_03_s_short, zfac=0.006,) #creates a spaghetti plot
+spag.plot(e13v_bet_n_03_s_short, zfac=0.02,) #creates a spaghetti plot
 title(main = "e13vBetn03s", adj = 0.48, line = 5.2, font.main = 2, cex.main = 1.2) #add title
 
 ##Analysis####
