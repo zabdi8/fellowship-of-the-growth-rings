@@ -86,7 +86,7 @@ title(main = "e13abetn01", adj = 0.48, line = 5.2, font.main = 2, cex.main = 1.2
 
 # remove all data previous to 2000s
 e13a_bet_n_01_filtered <- subset(e13a_bet_n_01_short, rownames(e13a_bet_n_01_short) > 1999)
-spag.plot(e13a_bet_n_01_filtered, zfac=0.02, cex = 0.3) #creates a spaghetti plot
+spag.plot(e13a_bet_n_01_filtered, zfac=0.04, cex = 0.3) #creates a spaghetti plot
 title(main = "e13abetn01", adj = 0.48, line = 5.2, font.main = 2, cex.main = 1.2) #add title
 
 #average####

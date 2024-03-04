@@ -93,7 +93,7 @@ print(e13v_bet_n_01_p_inter)
 
 ###General correlation####
 
-corr.rwl.seg(rwl = e13v_bet_n_01_p_short, seg.length = 2, bin.floor = 0, n = NULL, prewhiten = FALSE, pcrit = 0.05, 
+corr.rwl.seg(rwl = e13v_bet_n_01_p_short, seg.length = 6, bin.floor = 0, n = NULL, prewhiten = FALSE, pcrit = 0.05, 
              biweight = FALSE, method = c("spearman"), 
              make.plot = TRUE, label.cex = 1, floor.plus1 = FALSE, master = NULL)
 
