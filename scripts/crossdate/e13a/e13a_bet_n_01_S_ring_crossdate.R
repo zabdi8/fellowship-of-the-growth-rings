@@ -1,7 +1,6 @@
 #Load packages####
 library(dplR)
-library(treeclim)
-library(ggplot2)
+
 
 #Load the data####
 e13a_bet_n_01_s01 <- csv2rwl("data/ring_data/raw/e13a/e13a.bet.n/e13a_bet_n_01/s/E13A.Bet.n.01.s01.csv")
@@ -53,12 +52,12 @@ View(e13a_bet_n_01_s)
 
 #export rwl
 
-write.rwl(e13a_bet_n_01_s, "data/ring_data/aligned/e13a/e13c.bet.n/e13a_bet_n_01/e13a_bet_n_01_s.rwl", 
+write.rwl(e13a_bet_n_01_s, "data/ring_data/aligned/e13a/e13a.bet.n/e13a_bet_n_01/e13a_bet_n_01_s.rwl", 
           format = "compact",
           e13c_bet_n_01_rwl.hdr,
           append = FALSE,
           prec = 0.001
-)
+          )
 
 #Data Analysis####
 ##Statistics####

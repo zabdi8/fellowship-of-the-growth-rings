@@ -1,7 +1,5 @@
 #Load packages####
 library(dplR)
-library(treeclim)
-library(ggplot2)
 
 #Load the data####
 e13a_bet_n_03_r01 <- csv2rwl("data/ring_data/raw/e13a/e13a.bet.n/e13a_bet_n_03/r/E13A.Bet.n.03.r01.csv")
@@ -39,7 +37,7 @@ e13a_bet_n_03_r <- Reduce(function(x, y) merge(x, y, by = common_column, all = T
                                e13a_bet_n_03_r04,
                                e13a_bet_n_03_r05,
                                e13a_bet_n_03_r06)
-)
+                          )
 
 # Set row names and remove the extra column
 rownames(e13a_bet_n_03_r) <- e13a_bet_n_03_r[[common_column]]
@@ -49,12 +47,12 @@ View(e13a_bet_n_03_r)
 
 #export rwl
 
-write.rwl(e13a_bet_n_03_r, "data/ring_data/aligned/e13a/e13c.bet.n/e13a_bet_n_03/e13a_bet_n_03_r.rwl", 
+write.rwl(e13a_bet_n_03_r, "data/ring_data/aligned/e13a/e13a.bet.n/e13a_bet_n_03/e13a_bet_n_03_r.rwl", 
           format = "compact",
           e13c_bet_n_01_rwl.hdr,
           append = FALSE,
           prec = 0.001
-)
+          )
 
 #Data Analysis####
 ##Statistics####
@@ -97,3 +95,4 @@ corr.rwl.seg(rwl = e13a_bet_n_03_r, seg.length = 8, bin.floor = 0, n = NULL, pre
              make.plot = TRUE, label.cex = 1, floor.plus1 = FALSE, master = NULL) #coorelation analysis #too few observations! 
 
 title(main = "e13abetn03r", adj = 0.48, line = 4, font.main = 2, cex.main = 1.6) #add title
+

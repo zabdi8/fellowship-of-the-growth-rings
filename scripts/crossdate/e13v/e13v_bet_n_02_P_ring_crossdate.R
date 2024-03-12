@@ -19,7 +19,6 @@ e13v_bet_n_02_p06 <- e13v_bet_n_02_p06[-1, ]
 e13v_bet_n_02_p07 <- e13v_bet_n_02_p07[-1, ]
 e13v_bet_n_02_p08 <- e13v_bet_n_02_p08[-1, ]
 
-
 #merge in a single data frame:####
 # Specify the common column for merging
 common_column <- "row_names"
@@ -43,7 +42,7 @@ e13v_bet_n_02_p <- Reduce(function(x, y) merge(x, y, by = common_column, all = T
                                e13v_bet_n_02_p06,
                                e13v_bet_n_02_p07,
                                e13v_bet_n_02_p08)
-)
+                          )
 
 # Set row names and remove the extra column
 rownames(e13v_bet_n_02_p) <- e13v_bet_n_02_p[[common_column]]

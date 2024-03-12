@@ -2,22 +2,15 @@
 library(dplR)
 
 #load rwl files
-
 e13a_bet_n_02_R <- read.rwl("data/ring_data/aligned/e13a/e13a.bet.n/e13a_bet_n_02/e13a_bet_n_02_r.rwl")
 e13a_bet_n_02_S <- read.rwl("data/ring_data/aligned/e13a/e13a.bet.n/e13a_bet_n_02/e13a_bet_n_02_s.rwl")
 e13a_bet_n_02_T <- read.rwl("data/ring_data/aligned/e13a/e13a.bet.n/e13a_bet_n_02/e13a_bet_n_02_t.rwl")
 e13a_bet_n_02_U <- read.rwl("data/ring_data/aligned/e13a/e13a.bet.n/e13a_bet_n_02/e13a_bet_n_02_u.rwl")
 e13a_bet_n_02_V <- read.rwl("data/ring_data/aligned/e13a/e13a.bet.n/e13a_bet_n_02/e13a_bet_n_02_v.rwl")
 
-
-
-
 # merge the data
-
-
 # Specify the common column for merging
 common_column <- "row_names"
-
 # Add row names as a column for each data frame
 e13a_bet_n_02_R$row_names <- rownames(e13a_bet_n_02_R)
 e13a_bet_n_02_S$row_names <- rownames(e13a_bet_n_02_S)
@@ -54,7 +47,7 @@ write.rwl(e13a_bet_n_02, "data/ring_data/aligned/e13a/e13a.bet.n/e13a_bet_n_02.r
           e13c_bet_n_01_rwl.hdr,
           append = FALSE,
           prec = 0.001
-)
+          )
 
 #reduce the names for easy view
 e13a_bet_n_02_short <- e13a_bet_n_02
@@ -68,24 +61,25 @@ head(e13a_bet_n_02_short)
 colnames(e13a_bet_n_02_short)
 
 #Data Analysis####
+e13a_bet_n_02_filtered <- subset(e13a_bet_n_02_short, rownames(e13a_bet_n_02_short) > 1999)
 ##Statistics####
-e13a_bet_n_02_stats <- rwl.stats(e13a_bet_n_02) #summary and stats
+e13a_bet_n_02_stats <- rwl.stats(e13a_bet_n_02_filtered) #summary and stats
 print(e13a_bet_n_02_stats)
 
-e13a_bet_n_02_ms <- sens2(e13a_bet_n_02) #calculates the mean sensitivity
+e13a_bet_n_02_ms <- sens2(e13a_bet_n_02_filtered) #calculates the mean sensitivity
 print(e13a_bet_n_02_ms)
 
-e13a_bet_n_02_report <- rwl.report(e13a_bet_n_02)  #report on rwl
+e13a_bet_n_02_report <- rwl.report(e13a_bet_n_02_filtered)  #report on rwl
 print(e13a_bet_n_02_report)
 
 ##Cross-dating and alignment####
 
 #Check the alignment of the series
 #graphs
-seg.plot(e13a_bet_n_02_short) #creates a segment plot
+seg.plot(e13a_bet_n_02_filtered) #creates a segment plot
 title(main = "e13abetn02", adj = 0.48, line = 5.2, font.main = 2, cex.main = 1.2) #add title
 
-spag.plot(e13a_bet_n_02_short, zfac=0.02, cex = 1000) #creates a spaghetti plot
+spag.plot(e13a_bet_n_02_filtered, zfac=0.02, cex = 1000) #creates a spaghetti plot
 title(main = "e13abetn02", adj = 0.48, line = 5.2, font.main = 2, cex.main = 1.2) #add title
 
 #average####
@@ -283,17 +277,18 @@ write.rwl(e13a_bet_n_02_average, "data/ring_data/aligned/e13a/e13a.bet.n/e13a_be
           e13c_bet_n_01_rwl.hdr,
           append = FALSE,
           prec = 0.001
-)
+          )
 
 #analysis####
+e13a_bet_n_02_ave_filtered <- subset(e13a_bet_n_02_average, rownames(e13a_bet_n_02_average) > 1999)
 ##Statistics####
-e13a_bet_n_02_average_stats <- rwl.stats(e13a_bet_n_02_average) #summary and stats
+e13a_bet_n_02_average_stats <- rwl.stats(e13a_bet_n_02_ave_filtered) #summary and stats
 print(e13a_bet_n_02_average_stats)
 
-e13a_bet_n_02_average_ms <- sens2(e13a_bet_n_02_average) #calculates the mean sensitivity
+e13a_bet_n_02_average_ms <- sens2(e13a_bet_n_02_ave_filtered) #calculates the mean sensitivity
 print(e13a_bet_n_02_average_ms)
 
-e13a_bet_n_02_average_report <- rwl.report(e13a_bet_n_02_average)  #report on rwl
+e13a_bet_n_02_average_report <- rwl.report(e13a_bet_n_02_ave_filtered)  #report on rwl
 print(e13a_bet_n_02_average_report)
 
 ##Cross-dating and alignment####
@@ -316,5 +311,8 @@ colnames(e13a_bet_n_02_ave_short) <- new_colnames
 head(e13a_bet_n_02_ave_short)
 colnames(e13a_bet_n_02_ave_short)
 
-spag.plot(e13a_bet_n_02_ave_short, zfac=0.01,) #creates a spaghetti plot
+e13a_bet_n_02_ave_filtered_short <- subset(e13a_bet_n_02_ave_short, rownames(e13a_bet_n_02_ave_short) > 1999)
+
+
+spag.plot(e13a_bet_n_02_ave_filtered_short, zfac=0.01,) #creates a spaghetti plot
 title(main = "E13ABetn02 (Average)", adj = 0.48, line = 5.2, font.main = 2, cex.main = 1.2) #add title

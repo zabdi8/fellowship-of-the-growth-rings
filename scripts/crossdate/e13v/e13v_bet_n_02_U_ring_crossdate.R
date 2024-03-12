@@ -11,7 +11,6 @@ e13v_bet_n_02_u06 <- csv2rwl("data/ring_data/raw/e13v/e13v.bet.n/e13v_bet_n_02/u
 e13v_bet_n_02_u07 <- csv2rwl("data/ring_data/raw/e13v/e13v.bet.n/e13v_bet_n_02/u/E13V.Bet.n.02.u07.csv")
 e13v_bet_n_02_u08 <- csv2rwl("data/ring_data/raw/e13v/e13v.bet.n/e13v_bet_n_02/u/E13V.Bet.n.02.u08.csv")
 
-
 #remove the core year
 e13v_bet_n_02_u01 <- e13v_bet_n_02_u01[-1, ]
 e13v_bet_n_02_u02 <- e13v_bet_n_02_u02[-1, ]
@@ -21,8 +20,6 @@ e13v_bet_n_02_u05 <- e13v_bet_n_02_u05[-1, ]
 e13v_bet_n_02_u06 <- e13v_bet_n_02_u06[-1, ]
 e13v_bet_n_02_u07 <- e13v_bet_n_02_u07[-1, ]
 e13v_bet_n_02_u08 <- e13v_bet_n_02_u08[-1, ]
-
-
 
 #merge in a single data frame:####
 # Specify the common column for merging
@@ -37,8 +34,6 @@ e13v_bet_n_02_u05$row_names <- rownames(e13v_bet_n_02_u05)
 e13v_bet_n_02_u06$row_names <- rownames(e13v_bet_n_02_u06)
 e13v_bet_n_02_u07$row_names <- rownames(e13v_bet_n_02_u07)
 e13v_bet_n_02_u08$row_names <- rownames(e13v_bet_n_02_u08)
-
-
 
 # Merge the data frames using Reduce and merge
 e13v_bet_n_02_u <- Reduce(function(x, y) merge(x, y, by = common_column, all = TRUE),
@@ -65,7 +60,7 @@ write.rwl(e13v_bet_n_02_u, "data/ring_data/aligned/e13v/e13v.bet.n/e13v_bet_n_02
           e13c_bet_n_01_rwl.hdr,
           append = FALSE,
           prec = 0.001
-)
+          )
 
 #Data Analysis####
 ##Statistics####
@@ -75,8 +70,8 @@ print(e13v_bet_n_02_u_stats)
 e13v_bet_n_02_u_ms <- sens2(e13v_bet_n_02_u) #calculates the mean sensitivity
 print(e13v_bet_n_02_u_ms)
 
-e13v_bet_n_02_u_report <- rwl.report(e13v_bet_n_02_u)  #report on rwl in this case really few cases
-print(e13v_bet_n_02_u_report)
+# e13v_bet_n_02_u_report <- rwl.report(e13v_bet_n_02_u)  #report on rwl in this case really few cases
+# print(e13v_bet_n_02_u_report)
 
 ##Cross-dating and alignment####
 

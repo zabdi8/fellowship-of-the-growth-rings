@@ -18,8 +18,6 @@ e13v_bet_n_02_s04 <- e13v_bet_n_02_s04[-1, ]
 e13v_bet_n_02_s05 <- e13v_bet_n_02_s05[-1, ]
 e13v_bet_n_02_s06 <- e13v_bet_n_02_s06[-1, ]
 
-
-
 #merge in a single data frame:####
 # Specify the common column for merging
 common_column <- "row_names"
@@ -32,8 +30,6 @@ e13v_bet_n_02_s04$row_names <- rownames(e13v_bet_n_02_s04)
 e13v_bet_n_02_s05$row_names <- rownames(e13v_bet_n_02_s05)
 e13v_bet_n_02_s06$row_names <- rownames(e13v_bet_n_02_s06)
 
-
-
 # Merge the data frames using Reduce and merge
 e13v_bet_n_02_s <- Reduce(function(x, y) merge(x, y, by = common_column, all = TRUE),
                           list(e13v_bet_n_02_s01,
@@ -42,7 +38,7 @@ e13v_bet_n_02_s <- Reduce(function(x, y) merge(x, y, by = common_column, all = T
                                e13v_bet_n_02_s04,
                                e13v_bet_n_02_s05,
                                e13v_bet_n_02_s06)
-)
+                          )
 
 # Set row names and remove the extra column
 rownames(e13v_bet_n_02_s) <- e13v_bet_n_02_s[[common_column]]
@@ -57,7 +53,7 @@ write.rwl(e13v_bet_n_02_s, "data/ring_data/aligned/e13v/e13v.bet.n/e13v_bet_n_02
           e13c_bet_n_01_rwl.hdr,
           append = FALSE,
           prec = 0.001
-)
+          )
 
 #Data Analysis####
 ##Statistics####

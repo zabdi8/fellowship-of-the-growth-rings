@@ -21,7 +21,7 @@ e13v <- Reduce(function(x, y) merge(x, y, by = common_column, all = TRUE),
                list(e13v_bet_n_01,
                     e13v_bet_n_02,
                     e13v_bet_n_03)
-)
+               )
 
 # Set row names and remove the extra column
 rownames(e13v) <- e13v[[common_column]]
@@ -43,7 +43,7 @@ write.rwl(e13v, "data/ring_data/aligned/e13v/e13v.rwl",
           e13c_bet_n_01_rwl.hdr,
           append = FALSE,
           prec = 0.001
-)
+          )
 
 #reduce the names for easy view
 e13v_short <- e13v
@@ -70,8 +70,16 @@ print(e13v_stats)
 e13v_ms <- sens2(e13v) #calculates the mean sensitivity
 print(e13v_ms)
 
-e13v_report <- rwl.report(e13v)  #report on rwl
+#remove values columns with only row with values
+# Check which columns have only one non-NA value
+cols_to_keep <- colSums(!is.na(e13v)) > 1
+
+# Subset the dataframe to keep only the columns with more than one non-NA value
+e13v_filtered <- e13v[, cols_to_keep]
+
+e13v_report <- rwl.report(e13v_filtered)  #report on rwl
 print(e13v_report)
+
 
 ##Cross-dating and alignment####
 

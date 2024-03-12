@@ -3,6 +3,135 @@
 library(ggplot2)
 library(dplR)
 
+#E13a####
+##E13a1####
+#first load data
+e13a_bet_n_01 <- read.rwl("data/ring_data/aligned/e13a/e13a.bet.n/e13a_bet_n_01.rwl")
+
+#Roots##
+extract_a13a_01_roots <- grep("^E13ABetn01[o0o1p0p1q0q1r0r1]", names(e13a_bet_n_01), value = TRUE)
+e13a_01_roots <- e13a_bet_n_01[, extract_a13a_01_roots]
+colnames(e13a_01_roots)
+
+#Stem##
+extract_a13a_01_stem <- grep("^E13ABetn01[s0s1]", names(e13a_bet_n_01), value = TRUE)
+e13a_01_stem <- e13a_bet_n_01[, extract_a13a_01_stem]
+colnames(e13a_01_stem)
+
+#Branches##
+extract_a13a_01_branch <- grep("^E13ABetn01[t0t1u0u1v0v1w0w1]", names(e13a_bet_n_01), value = TRUE)
+e13a_01_branch <- e13a_bet_n_01[, extract_a13a_01_branch]
+colnames(e13a_01_branch)
+
+#stats
+e13a_01_base_inter <- interseries.cor(e13a_bet_n_01_s01[,1:4])
+e13a_01_inter <- interseries.cor(e13a_bet_n_01)
+e13a_01_roots_inter <- interseries.cor(e13a_01_roots)
+e13a_01_stem_inter <- interseries.cor(e13a_01_stem)
+e13a_01_branch_inter <- interseries.cor(e13a_01_branch)
+
+mean(e13a_01_inter[,1])
+mean(e13a_01_base_inter[,1])
+mean(e13a_01_roots_inter[, 1])
+mean(e13a_01_stem_inter[, 1])
+mean(e13a_01_branch_inter[, 1])
+
+##E13a2####
+#first load data
+e13a_bet_n_02 <- read.rwl("data/ring_data/aligned/e13a/e13a.bet.n/e13a_bet_n_02.rwl")
+
+#Roots##
+extract_a13a_02_roots <- grep("^E13ABetn02[o0o1p0p1q0q1r0r1]", names(e13a_bet_n_02), value = TRUE)
+e13a_02_roots <- e13a_bet_n_02[, extract_a13a_02_roots]
+colnames(e13a_02_roots)
+
+#Stem##
+extract_a13a_02_stem <- grep("^E13ABetn02[s0s1]", names(e13a_bet_n_02), value = TRUE)
+e13a_02_stem <- e13a_bet_n_02[, extract_a13a_02_stem]
+colnames(e13a_02_stem)
+
+#Branches##
+extract_a13a_02_branch <- grep("^E13ABetn02[t0t1u0u1v0v1w0w1]", names(e13a_bet_n_02), value = TRUE)
+e13a_02_branch <- e13a_bet_n_02[, extract_a13a_02_branch]
+colnames(e13a_02_branch)
+
+#stats
+e13a_02_base_inter <- interseries.cor(e13a_bet_n_02_s01[,1:4])
+e13a_02_inter <- interseries.cor(e13a_bet_n_02)
+e13a_02_roots_inter <- interseries.cor(e13a_02_roots)
+e13a_02_stem_inter <- interseries.cor(e13a_02_stem)
+e13a_02_branch_inter <- interseries.cor(e13a_02_branch)
+
+mean(e13a_02_inter[,1])
+mean(e13a_02_base_inter[,1])
+mean(e13a_02_roots_inter[, 1])
+mean(e13a_02_stem_inter[, 1])
+mean(e13a_02_branch_inter[, 1])
+
+##E13a3####
+#first load data
+e13a_bet_n_03 <- read.rwl("data/ring_data/aligned/e13a/e13a.bet.n/e13a_bet_n_03.rwl")
+
+#Roots##
+extract_a13a_03_roots <- grep("^E13ABetn03[o0o1p0p1q0q1r0r1]", names(e13a_bet_n_03), value = TRUE)
+e13a_03_roots <- e13a_bet_n_03[, extract_a13a_03_roots]
+colnames(e13a_03_roots)
+
+#Stem##
+extract_a13a_03_stem <- grep("^E13ABetn03[s0s1]", names(e13a_bet_n_03), value = TRUE)
+e13a_03_stem <- e13a_bet_n_03[, extract_a13a_03_stem]
+colnames(e13a_03_stem)
+
+#Branches##
+extract_a13a_03_branch <- grep("^E13ABetn03[t0t1u0u1v0v1w0w1]", names(e13a_bet_n_03), value = TRUE)
+e13a_03_branch <- e13a_bet_n_03[, extract_a13a_03_branch]
+colnames(e13a_03_branch)
+
+#stats
+e13a_03_base_inter <- interseries.cor(e13a_bet_n_03[,1:4])
+e13a_03_inter <- interseries.cor(e13a_bet_n_03)
+e13a_03_roots_inter <- interseries.cor(e13a_03_roots)
+e13a_03_stem_inter <- interseries.cor(e13a_03_stem)
+e13a_03_branch_inter <- interseries.cor(e13a_03_branch)
+
+mean(e13a_03_inter[,1])
+mean(e13a_03_base_inter[,1])
+mean(e13a_03_roots_inter[, 1])
+mean(e13a_03_stem_inter[, 1])
+mean(e13a_03_branch_inter[, 1])
+
+##E13a####
+#first load data
+e13a <- read.rwl("data/ring_data/aligned/e13a/e13a.rwl")
+
+#Roots##
+extract_a13a_roots <- grep("^E13ABetn0[123][o0o1p0p1q0q1r0r1]", names(e13a), value = TRUE)
+e13a_roots <- e13a[, extract_a13a_roots]
+colnames(e13a_roots)
+
+#Stem##
+extract_a13a_stem <- grep("^E13ABetn0[123][s0s1]", names(e13a), value = TRUE)
+e13a_stem <- e13a[, extract_a13a_stem]
+colnames(e13a_stem)
+
+#Branches##
+extract_a13a_branch <- grep("^E13ABetn0[123][t0t1u0u1v0v1w0w1]", names(e13a), value = TRUE)
+e13a_branch <- e13a[, extract_a13a_branch]
+colnames(e13a_branch)
+
+#stats
+e13a_base_inter <- interseries.cor(e13a[,1:4])
+e13a_inter <- interseries.cor(e13a)
+e13a_roots_inter <- interseries.cor(e13a_roots)
+e13a_stem_inter <- interseries.cor(e13a_stem)
+e13a_branch_inter <- interseries.cor(e13a_branch)
+
+mean(e13a_inter[,1])
+mean(e13a_base_inter[,1])
+mean(e13a_roots_inter[, 1])
+mean(e13a_stem_inter[, 1])
+mean(e13a_branch_inter[, 1])
+
 #E13v####
 #first load data
 e13v_bet_n_01 <- read.rwl("data/ring_data/aligned/e13v/e13v.bet.n/e13v_bet_n_01.rwl")
@@ -122,3 +251,10 @@ test <- series.rwl.plot(e13d_bet_n_01, series = "E13DBetn01s01r2",
                                    seg.length = 2, bin.floor = 0, n=NULL,
                                    prewhiten = FALSE, biweight = FALSE, 
                                    floor.plus1 = FALSE)
+
+
+#reports
+print(e13a_report)
+print(e13v_report)
+
+spag.plot(e13v_bet_n_01_short, zfac = 0.03)

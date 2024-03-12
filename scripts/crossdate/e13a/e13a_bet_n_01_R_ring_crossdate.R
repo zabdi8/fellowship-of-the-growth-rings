@@ -1,8 +1,6 @@
 #Load packages####
 library(dplR)
-library(treeclim)
-library(ggplot2)
-E13A.Bet.n.01.r01
+
 #Load the data####
 e13a_bet_n_01_r01 <- csv2rwl("data/ring_data/raw/e13a/e13a.bet.n/e13a_bet_n_01/r/E13A.Bet.n.01.r01.csv")
 e13a_bet_n_01_r02 <- csv2rwl("data/ring_data/raw/e13a/e13a.bet.n/e13a_bet_n_01/r/E13A.Bet.n.01.r02.csv")
@@ -67,12 +65,12 @@ View(e13a_bet_n_01_r)
 
 #export rwl
 
-write.rwl(e13a_bet_n_01_r, "data/ring_data/aligned/e13a/e13c.bet.n/e13a_bet_n_01/e13a_bet_n_01_r.rwl", 
+write.rwl(e13a_bet_n_01_r, "data/ring_data/aligned/e13a/e13a.bet.n/e13a_bet_n_01/e13a_bet_n_01_r.rwl", 
           format = "compact",
           e13c_bet_n_01_rwl.hdr,
           append = FALSE,
           prec = 0.001
-)
+          )
 
 #Data Analysis####
 ##Statistics####
@@ -84,7 +82,7 @@ print(e13a_bet_n_01_r_ms)
 
 e13a_bet_n_01_r_report <- rwl.report(e13a_bet_n_01_r)  #report on rwl
 print(e13a_bet_n_01_r_report)
-
+summary(e13a_bet_n_01_r_report)
 ##Cross-dating and alignment####
 
 #shorten the name
@@ -114,4 +112,3 @@ print(e13a_bet_n_01_r_inter)
 corr.rwl.seg(rwl = e13a_bet_n_01_r, seg.length = 10, bin.floor = 0, n = NULL, prewhiten = FALSE, pcrit = 0.05, biweight = FALSE, method = c("spearman"), make.plot = TRUE, label.cex = 1, floor.plus1 = FALSE, master = NULL) #coorelation analysis #too few observations! 
 
 title(main = "e13abetn01r", adj = 0.48, line = 4, font.main = 2, cex.main = 1.6) #add title
-

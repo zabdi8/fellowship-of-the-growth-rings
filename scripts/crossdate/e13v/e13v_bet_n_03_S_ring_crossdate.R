@@ -26,8 +26,6 @@ e13v_bet_n_03_s08 <- e13v_bet_n_03_s08[-1, ]
 e13v_bet_n_03_s09 <- e13v_bet_n_03_s09[-1, ]
 e13v_bet_n_03_s10 <- e13v_bet_n_03_s10[-1, ]
 
-
-
 #merge in a single data frame:####
 # Specify the common column for merging
 common_column <- "row_names"
@@ -43,8 +41,6 @@ e13v_bet_n_03_s07$row_names <- rownames(e13v_bet_n_03_s07)
 e13v_bet_n_03_s08$row_names <- rownames(e13v_bet_n_03_s08)
 e13v_bet_n_03_s09$row_names <- rownames(e13v_bet_n_03_s09)
 e13v_bet_n_03_s10$row_names <- rownames(e13v_bet_n_03_s10)
-
-
 
 # Merge the data frames using Reduce and merge
 e13v_bet_n_03_s <- Reduce(function(x, y) merge(x, y, by = common_column, all = TRUE),

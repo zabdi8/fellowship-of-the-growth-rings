@@ -11,7 +11,6 @@ e13v_bet_n_03_t06 <- csv2rwl("data/ring_data/raw/e13v/e13v.bet.n/e13v_bet_n_03/t
 e13v_bet_n_03_t07 <- csv2rwl("data/ring_data/raw/e13v/e13v.bet.n/e13v_bet_n_03/t/E13V.Bet.n.03.t07.csv")
 e13v_bet_n_03_t08 <- csv2rwl("data/ring_data/raw/e13v/e13v.bet.n/e13v_bet_n_03/t/E13V.Bet.n.03.t08.csv")
 
-
 #remove the core year
 e13v_bet_n_03_t01 <- e13v_bet_n_03_t01[-1, ]
 e13v_bet_n_03_t02 <- e13v_bet_n_03_t02[-1, ]

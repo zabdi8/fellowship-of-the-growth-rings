@@ -1,7 +1,5 @@
 #Load packages####
 library(dplR)
-library(treeclim)
-library(ggplot2)
 
 #Load the data####
 e13a_bet_n_03_o01 <- csv2rwl("data/ring_data/raw/e13a/e13a.bet.n/e13a_bet_n_03/o/E13A.Bet.n.03.o01.csv")
@@ -9,16 +7,12 @@ e13a_bet_n_03_o02 <- csv2rwl("data/ring_data/raw/e13a/e13a.bet.n/e13a_bet_n_03/o
 e13a_bet_n_03_o03 <- csv2rwl("data/ring_data/raw/e13a/e13a.bet.n/e13a_bet_n_03/o/E13A.Bet.n.03.o03.csv")
 e13a_bet_n_03_o04 <- csv2rwl("data/ring_data/raw/e13a/e13a.bet.n/e13a_bet_n_03/o/E13A.Bet.n.03.o04.csv")
 
-
-
 #remove the core year
 
 e13a_bet_n_03_o01 <- e13a_bet_n_03_o01[-1, ]
 e13a_bet_n_03_o02 <- e13a_bet_n_03_o02[-1, ]
 e13a_bet_n_03_o03 <- e13a_bet_n_03_o03[-1, ]
 e13a_bet_n_03_o04 <- e13a_bet_n_03_o04[-1, ]
-
-
 
 #merge in a single data frame:####
 
@@ -37,7 +31,7 @@ e13a_bet_n_03_o <- Reduce(function(x, y) merge(x, y, by = common_column, all = T
                                e13a_bet_n_03_o02,
                                e13a_bet_n_03_o03,
                                e13a_bet_n_03_o04)
-)
+                          )
 
 # Set row names and remove the extra column
 rownames(e13a_bet_n_03_o) <- e13a_bet_n_03_o[[common_column]]
@@ -52,7 +46,7 @@ write.rwl(e13a_bet_n_03_o, "data/ring_data/aligned/e13a/e13c.bet.n/e13a_bet_n_03
           e13c_bet_n_01_rwl.hdr,
           append = FALSE,
           prec = 0.001
-)
+          )
 
 #Data Analysis####
 ##Statistics####
@@ -80,7 +74,7 @@ colnames(e13a_bet_n_03_o_short)
 
 #graphs
 seg.plot(e13a_bet_n_03_o_short) #creates a segment plot
-spag.plot(e13a_bet_n_03_o_short, zfac=0.009,) #creates a spaghetti plot
+spag.plot(e13a_bet_n_03_o_short, zfac=0.03,) #creates a spaghetti plot
 title(main = "e13abetn03o", adj = 0.48, line = 5.5, font.main = 2, cex.main = 1.2) #add title
 
 ##Analysis####
@@ -95,3 +89,4 @@ corr.rwl.seg(rwl = e13a_bet_n_03_o, seg.length = 8, bin.floor = 0, n = NULL, pre
              make.plot = TRUE, label.cex = 1, floor.plus1 = FALSE, master = NULL) #coorelation analysis #too few observations! 
 
 title(main = "e13abetn03o", adj = 0.48, line = 4, font.main = 2, cex.main = 1.6) #add title
+

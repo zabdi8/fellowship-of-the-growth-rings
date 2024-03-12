@@ -1,13 +1,7 @@
 #loading packages
 library(dplR)
-library(dplyr)
-library(ggplot2)
-library(ggvis)
-library(gridExtra)  ## required to arrange ggplot2 plots in a grid
-
 
 #load rwl files
-
 e13a_bet_n_03_O <- read.rwl("data/ring_data/aligned/e13a/e13a.bet.n/e13a_bet_n_03/e13a_bet_n_03_o.rwl")
 e13a_bet_n_03_P <- read.rwl("data/ring_data/aligned/e13a/e13a.bet.n/e13a_bet_n_03/e13a_bet_n_03_p.rwl")
 e13a_bet_n_03_R <- read.rwl("data/ring_data/aligned/e13a/e13a.bet.n/e13a_bet_n_03/e13a_bet_n_03_r.rwl")
@@ -15,9 +9,6 @@ e13a_bet_n_03_S <- read.rwl("data/ring_data/aligned/e13a/e13a.bet.n/e13a_bet_n_0
 e13a_bet_n_03_T <- read.rwl("data/ring_data/aligned/e13a/e13a.bet.n/e13a_bet_n_03/e13a_bet_n_03_t.rwl")
 e13a_bet_n_03_U <- read.rwl("data/ring_data/aligned/e13a/e13a.bet.n/e13a_bet_n_03/e13a_bet_n_03_u.rwl")
 e13a_bet_n_03_V <- read.rwl("data/ring_data/aligned/e13a/e13a.bet.n/e13a_bet_n_03/e13a_bet_n_03_v.rwl")
-
-
-
 
 # merge the data
 

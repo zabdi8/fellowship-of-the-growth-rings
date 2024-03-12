@@ -1,7 +1,5 @@
 #Load packages####
 library(dplR)
-library(treeclim)
-library(ggplot2)
 
 #Load the data####
 e13v_bet_n_01_o01 <- csv2rwl("data/ring_data/raw/e13v/e13v.bet.n/e13v_bet_n_01/o/E13V.Bet.n.01.o01.csv")
@@ -12,7 +10,6 @@ e13v_bet_n_01_o05 <- csv2rwl("data/ring_data/raw/e13v/e13v.bet.n/e13v_bet_n_01/o
 e13v_bet_n_01_o06 <- csv2rwl("data/ring_data/raw/e13v/e13v.bet.n/e13v_bet_n_01/o/e13v.Bet.n.01.o06.csv")
 e13v_bet_n_01_o07 <- csv2rwl("data/ring_data/raw/e13v/e13v.bet.n/e13v_bet_n_01/o/e13v.Bet.n.01.o07.csv")
 e13v_bet_n_01_o08 <- csv2rwl("data/ring_data/raw/e13v/e13v.bet.n/e13v_bet_n_01/o/e13v.Bet.n.01.o08.csv")
-
 
 #remove the core year
 e13v_bet_n_01_o01 <- e13v_bet_n_01_o01[-1, ]
@@ -63,7 +60,7 @@ write.rwl(e13v_bet_n_01_o, "data/ring_data/aligned/e13v/e13v.bet.n/e13v_bet_n_01
           e13c_bet_n_01_rwl.hdr,
           append = FALSE,
           prec = 0.001
-)
+          )
 
 #Data Analysis####
 ##Statistics####

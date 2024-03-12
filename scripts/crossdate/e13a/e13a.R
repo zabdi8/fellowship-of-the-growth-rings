@@ -78,7 +78,8 @@ print(e13a_report)
 #Check the alignment of the series
 #graphs
 #filter observations out from 2000s
-e13a_filtered <- subset(e13a_short, rownames(e13a_short) > 2000)
+e13a_filtered <- subset(e13a, rownames(e13a) > 2000)
+e13a_short_filtered <- subset(e13a_short, rownames(e13a_short) > 2000)
 
 seg.plot(e13a_filtered) #creates a segment plot
 title(main = "e13aBetn", adj = 0.48, line = 5.2, font.main = 2, cex.main = 1.2) #add title
@@ -131,7 +132,7 @@ write.rwl(e13a_average, "data/ring_data/aligned/e13a/e13a_average.rwl",
           e13c_bet_n_01_rwl.hdr,
           append = FALSE,
           prec = 0.001
-)
+          )
 
 #reduce the names for easy view
 e13a_ave_short <- e13a_average

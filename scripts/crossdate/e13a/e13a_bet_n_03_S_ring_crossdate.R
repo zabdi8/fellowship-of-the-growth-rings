@@ -1,7 +1,5 @@
 #Load packages####
 library(dplR)
-library(treeclim)
-library(ggplot2)
 
 #Load the data####
 e13a_bet_n_03_s01 <- csv2rwl("data/ring_data/raw/e13a/e13a.bet.n/e13a_bet_n_03/s/E13A.Bet.n.03.s01.csv")
@@ -39,7 +37,7 @@ e13a_bet_n_03_s <- Reduce(function(x, y) merge(x, y, by = common_column, all = T
                                e13a_bet_n_03_s04,
                                e13a_bet_n_03_s05,
                                e13a_bet_n_03_s06)
-)
+                          )
 
 # Set row names and remove the extra column
 rownames(e13a_bet_n_03_s) <- e13a_bet_n_03_s[[common_column]]
@@ -49,12 +47,12 @@ View(e13a_bet_n_03_s)
 
 #export rwl
 
-write.rwl(e13a_bet_n_03_s, "data/ring_data/aligned/e13a/e13c.bet.n/e13a_bet_n_03/e13a_bet_n_03_s.rwl", 
+write.rwl(e13a_bet_n_03_s, "data/ring_data/aligned/e13a/e13a.bet.n/e13a_bet_n_03/e13a_bet_n_03_s.rwl", 
           format = "compact",
           e13c_bet_n_01_rwl.hdr,
           append = FALSE,
           prec = 0.001
-)
+          )
 
 #Data Analysis####
 ##Statistics####

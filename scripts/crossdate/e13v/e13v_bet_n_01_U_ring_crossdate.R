@@ -1,7 +1,5 @@
 #Load packages####
 library(dplR)
-library(treeclim)
-library(ggplot2)
 
 #Load the data####
 e13v_bet_n_01_u01 <- csv2rwl("data/ring_data/raw/e13v/e13v.bet.n/e13v_bet_n_01/u/E13V.Bet.n.01.u01.csv")
@@ -46,7 +44,7 @@ write.rwl(e13v_bet_n_01_u, "data/ring_data/aligned/e13v/e13v.bet.n/e13v_bet_n_01
           e13c_bet_n_01_rwl.hdr,
           append = FALSE,
           prec = 0.001
-)
+          )
 
 #Data Analysis####
 ##Statistics####
@@ -90,3 +88,4 @@ corr.rwl.seg(rwl = e13v_bet_n_01_u_short, seg.length = 6, bin.floor = 0, n = NUL
              make.plot = TRUE, label.cex = 1, floor.plus1 = FALSE, master = NULL)
 
 title(main = "e13vBetn02u", adj = 0.48, line = 4, font.main = 2, cex.main = 1.6) #add title
+

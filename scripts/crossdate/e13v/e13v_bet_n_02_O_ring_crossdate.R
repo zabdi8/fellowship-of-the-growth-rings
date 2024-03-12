@@ -54,7 +54,7 @@ write.rwl(e13v_bet_n_02_o, "data/ring_data/aligned/e13v/e13v.bet.n/e13v_bet_n_02
           e13c_bet_n_01_rwl.hdr,
           append = FALSE,
           prec = 0.001
-)
+          )
 
 #Data Analysis####
 ##Statistics####

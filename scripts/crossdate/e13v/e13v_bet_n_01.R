@@ -1,7 +1,5 @@
 #loading packages
 library(dplR)
-library(dplyr)
-
 
 #load rwl files
 e13v_bet_n_01_O <- read.rwl("data/ring_data/aligned/e13v/e13v.bet.n/e13v_bet_n_01/e13v_bet_n_01_o.rwl")
@@ -11,10 +9,6 @@ e13v_bet_n_01_R <- read.rwl("data/ring_data/aligned/e13v/e13v.bet.n/e13v_bet_n_0
 e13v_bet_n_01_S <- read.rwl("data/ring_data/aligned/e13v/e13v.bet.n/e13v_bet_n_01/e13v_bet_n_01_s.rwl")
 e13v_bet_n_01_T <- read.rwl("data/ring_data/aligned/e13v/e13v.bet.n/e13v_bet_n_01/e13v_bet_n_01_t.rwl")
 e13v_bet_n_01_U <- read.rwl("data/ring_data/aligned/e13v/e13v.bet.n/e13v_bet_n_01/e13v_bet_n_01_u.rwl")
-
-
-
-
 
 # merge the data
 
@@ -62,7 +56,7 @@ write.rwl(e13v_bet_n_01, "data/ring_data/aligned/e13v/e13v.bet.n/e13v_bet_n_01.r
           e13c_bet_n_01_rwl.hdr,
           append = FALSE,
           prec = 0.001
-)
+          )
 
 #reduce the names for easy view
 e13v_bet_n_01_short <- e13v_bet_n_01

@@ -15,10 +15,7 @@ e13a_bet_n_02_s09 <- csv2rwl("data/ring_data/raw/e13a/e13a.bet.n/e13a_bet_n_02/s
 e13a_bet_n_02_s10 <- csv2rwl("data/ring_data/raw/e13a/e13a.bet.n/e13a_bet_n_02/s/E13A.Bet.n.02.s10.csv")
 e13a_bet_n_02_s20 <- csv2rwl("data/ring_data/raw/e13a/e13a.bet.n/e13a_bet_n_02/s/E13A.Bet.n.02.s20.csv")
 
-
-
 #remove the core year
-
 e13a_bet_n_02_s00 <- e13a_bet_n_02_s00[-1, ]
 e13a_bet_n_02_s01 <- e13a_bet_n_02_s01[-1, ]
 e13a_bet_n_02_s02 <- e13a_bet_n_02_s02[-1, ]
@@ -31,8 +28,6 @@ e13a_bet_n_02_s08 <- e13a_bet_n_02_s08[-1, ]
 e13a_bet_n_02_s09 <- e13a_bet_n_02_s09[-1, ]
 e13a_bet_n_02_s10 <- e13a_bet_n_02_s10[-1, ]
 e13a_bet_n_02_s20 <- e13a_bet_n_02_s20[-1, ]
-
-
 
 #merge in a single data frame:####
 
@@ -53,9 +48,6 @@ e13a_bet_n_02_s09$row_names <- rownames(e13a_bet_n_02_s09)
 e13a_bet_n_02_s10$row_names <- rownames(e13a_bet_n_02_s10)
 e13a_bet_n_02_s20$row_names <- rownames(e13a_bet_n_02_s20)
 
-
-
-
 # Merge the data frames using Reduce and merge
 e13a_bet_n_02_s <- Reduce(function(x, y) merge(x, y, by = common_column, all = TRUE),
                           list(e13a_bet_n_02_s00,
@@ -70,7 +62,7 @@ e13a_bet_n_02_s <- Reduce(function(x, y) merge(x, y, by = common_column, all = T
                                e13a_bet_n_02_s09,
                                e13a_bet_n_02_s10,
                                e13a_bet_n_02_s20)
-)
+                          )
 
 # Set row names and remove the extra column
 rownames(e13a_bet_n_02_s) <- e13a_bet_n_02_s[[common_column]]
@@ -85,7 +77,7 @@ write.rwl(e13a_bet_n_02_s, "data/ring_data/aligned/e13a/e13a.bet.n/e13a_bet_n_02
           e13c_bet_n_01_rwl.hdr,
           append = FALSE,
           prec = 0.001
-)
+          )
 
 #Data Analysis####
 ##Statistics####
@@ -113,7 +105,7 @@ colnames(e13a_bet_n_02_s_short)
 
 #graphs
 seg.plot(e13a_bet_n_02_s_short) #creates a segment plot
-spag.plot(e13a_bet_n_02_s_short, zfac=0.05,) #creates a spaghetti plot
+spag.plot(e13a_bet_n_02_s_short, zfac=0.01) #creates a spaghetti plot
 title(main = "e13abetn02s", adj = 0.48, line = 5.5, font.main = 2, cex.main = 1.2) #add title
 
 ##Analysis####

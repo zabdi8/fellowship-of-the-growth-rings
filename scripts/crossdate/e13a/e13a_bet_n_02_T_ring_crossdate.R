@@ -7,16 +7,11 @@ e13a_bet_n_02_t03 <- csv2rwl("data/ring_data/raw/e13a/e13a.bet.n/e13a_bet_n_02/t
 e13a_bet_n_02_t05 <- csv2rwl("data/ring_data/raw/e13a/e13a.bet.n/e13a_bet_n_02/t/E13A.Bet.n.02.t05.csv")
 e13a_bet_n_02_t08 <- csv2rwl("data/ring_data/raw/e13a/e13a.bet.n/e13a_bet_n_02/t/E13A.Bet.n.02.t08.csv")
 
-
-
 #remove the core year
-
 e13a_bet_n_02_t01 <- e13a_bet_n_02_t01[-1, ]
 e13a_bet_n_02_t03 <- e13a_bet_n_02_t03[-1, ]
 e13a_bet_n_02_t05 <- e13a_bet_n_02_t05[-1, ]
 e13a_bet_n_02_t08 <- e13a_bet_n_02_t08[-1, ]
-
-
 
 #merge in a single data frame:####
 
@@ -50,7 +45,7 @@ write.rwl(e13a_bet_n_02_t, "data/ring_data/aligned/e13a/e13a.bet.n/e13a_bet_n_02
           e13c_bet_n_01_rwl.hdr,
           append = FALSE,
           prec = 0.001
-)
+          )
 
 #Data Analysis####
 ##Statistics####

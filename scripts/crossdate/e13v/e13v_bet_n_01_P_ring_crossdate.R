@@ -1,7 +1,5 @@
 #Load packages####
 library(dplR)
-library(treeclim)
-library(ggplot2)
 
 #Load the data####
 e13v_bet_n_01_p01 <- csv2rwl("data/ring_data/raw/e13v/e13v.bet.n/e13v_bet_n_01/p/E13V.Bet.n.01.p01.csv")
@@ -54,7 +52,7 @@ write.rwl(e13v_bet_n_01_p, "data/ring_data/aligned/e13v/e13v.bet.n/e13v_bet_n_01
           e13c_bet_n_01_rwl.hdr,
           append = FALSE,
           prec = 0.001
-)
+          )
 
 #Data Analysis####
 ##Statistics####
@@ -93,7 +91,7 @@ print(e13v_bet_n_01_p_inter)
 
 ###General correlation####
 
-corr.rwl.seg(rwl = e13v_bet_n_01_p_short, seg.length = 6, bin.floor = 0, n = NULL, prewhiten = FALSE, pcrit = 0.05, 
+corr.rwl.seg(rwl = e13v_bet_n_01_p_short, seg.length = 4, bin.floor = 0, n = NULL, prewhiten = FALSE, pcrit = 0.05, 
              biweight = FALSE, method = c("spearman"), 
              make.plot = TRUE, label.cex = 1, floor.plus1 = FALSE, master = NULL)
 

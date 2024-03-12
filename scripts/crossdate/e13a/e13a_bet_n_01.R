@@ -6,12 +6,7 @@ e13a_bet_n_01_R <- read.rwl("data/ring_data/aligned/e13a/e13a.bet.n/e13a_bet_n_0
 e13a_bet_n_01_S <- read.rwl("data/ring_data/aligned/e13a/e13a.bet.n/e13a_bet_n_01/e13a_bet_n_01_s.rwl")
 e13a_bet_n_01_T <- read.rwl("data/ring_data/aligned/e13a/e13a.bet.n/e13a_bet_n_01/e13a_bet_n_01_t.rwl")
 
-
-
-
 # merge the data
-
-
 # Specify the common column for merging
 common_column <- "row_names"
 
@@ -19,9 +14,6 @@ common_column <- "row_names"
 e13a_bet_n_01_R$row_names <- rownames(e13a_bet_n_01_R)
 e13a_bet_n_01_S$row_names <- rownames(e13a_bet_n_01_S)
 e13a_bet_n_01_T$row_names <- rownames(e13a_bet_n_01_T)
-
-
-
 
 # Merge the data frames using Reduce and merge
 e13a_bet_n_01 <- Reduce(function(x, y) merge(x, y, by = common_column, all = TRUE),
@@ -43,14 +35,13 @@ colnames(e13a_bet_n_01) #check that there is no columns with .x or .y
 # View the resulting data frame
 View(e13a_bet_n_01)
 colnames(e13a_bet_n_01)
-head(e13a_bet_n_01)
 
 write.rwl(e13a_bet_n_01, "data/ring_data/aligned/e13a/e13a.bet.n/e13a_bet_n_01.rwl", 
           format = "compact",
           e13c_bet_n_01_rwl.hdr,
           append = FALSE,
           prec = 0.001
-)
+          )
 
 #reduce the names for easy view
 e13a_bet_n_01_short <- e13a_bet_n_01
@@ -64,14 +55,15 @@ head(e13a_bet_n_01_short)
 colnames(e13a_bet_n_01_short)
 
 #Data Analysis####
+e13a_bet_n_01_filtered <- subset(e13a_bet_n_01_short, rownames(e13a_bet_n_01_short) > 1999)
 ##Statistics####
-e13a_bet_n_01_stats <- rwl.stats(e13a_bet_n_01) #summary and stats
+e13a_bet_n_01_stats <- rwl.stats(e13a_bet_n_01_filtered) #summary and stats
 print(e13a_bet_n_01_stats)
 
-e13a_bet_n_01_ms <- sens2(e13a_bet_n_01) #calculates the mean sensitivity
+e13a_bet_n_01_ms <- sens2(e13a_bet_n_01_filtered) #calculates the mean sensitivity
 print(e13a_bet_n_01_ms)
 
-e13a_bet_n_01_report <- rwl.report(e13a_bet_n_01)  #report on rwl
+e13a_bet_n_01_report <- rwl.report(e13a_bet_n_01_filtered)  #report on rwl
 print(e13a_bet_n_01_report)
 
 ##Cross-dating and alignment####
@@ -85,7 +77,6 @@ spag.plot(e13a_bet_n_01_short, zfac=0.02, cex = 0.3) #creates a spaghetti plot
 title(main = "e13abetn01", adj = 0.48, line = 5.2, font.main = 2, cex.main = 1.2) #add title
 
 # remove all data previous to 2000s
-e13a_bet_n_01_filtered <- subset(e13a_bet_n_01_short, rownames(e13a_bet_n_01_short) > 1999)
 spag.plot(e13a_bet_n_01_filtered, zfac=0.04, cex = 0.3) #creates a spaghetti plot
 title(main = "e13abetn01", adj = 0.48, line = 5.2, font.main = 2, cex.main = 1.2) #add title
 
@@ -234,7 +225,7 @@ write.rwl(e13a_bet_n_01_average, "data/ring_data/aligned/e13a/e13c.bet.n/e13a_be
           e13c_bet_n_01_rwl.hdr,
           append = FALSE,
           prec = 0.001
-)
+          )
 
 #analysis####
 ##Statistics####
@@ -262,7 +253,6 @@ title(main = "e13abetn01", adj = 0.48, line = 5.2, font.main = 2, cex.main = 1.2
 e13a_bet_n_01_average_filtered <- subset(e13a_bet_n_01_average, rownames(e13a_bet_n_01_average) > 1999)
 spag.plot(e13a_bet_n_01_average_filtered, zfac=0.01, cex = 0.3) #creates a spaghetti plot
 title(main = "e13abetn01", adj = 0.48, line = 5.2, font.main = 2, cex.main = 1.2) #add title
-
 
 e13a_bet_n_01_ave_short <- e13a_bet_n_01_average
 

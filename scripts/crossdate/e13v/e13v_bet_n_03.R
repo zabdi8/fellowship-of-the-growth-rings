@@ -14,7 +14,6 @@ e13v_bet_n_03_U <- read.rwl("data/ring_data/aligned/e13v/e13v.bet.n/e13v_bet_n_0
 
 # Specify the common column for merging
 common_column <- "row_names"
-
 # Add row names as a column for each data frame
 e13v_bet_n_03_O$row_names <- rownames(e13v_bet_n_03_O)
 e13v_bet_n_03_P$row_names <- rownames(e13v_bet_n_03_P)
@@ -33,7 +32,7 @@ e13v_bet_n_03 <- Reduce(function(x, y) merge(x, y, by = common_column, all = TRU
                              e13v_bet_n_03_S, 
                              e13v_bet_n_03_T,
                              e13v_bet_n_03_U)
-)
+                        )
 
 # Set row names and remove the extra column
 rownames(e13v_bet_n_03) <- e13v_bet_n_03[[common_column]]
@@ -82,8 +81,23 @@ print(e13v_bet_n_03_stats)
 e13v_bet_n_03_ms <- sens2(e13v_bet_n_03) #calculates the mean sensitivity
 print(e13v_bet_n_03_ms)
 
+#remove columns with only one value to create a rwl report
+# Count non-NA values in each column
+non_na_count <- colSums(!is.na(e13v_bet_n_03))
+
+# Find columns with only one non-NA value
+single_non_na_columns <- names(non_na_count[non_na_count == 1])
+
+# Remove columns with only one non-NA value
+e13v_bet_n_03_filtered <- e13v_bet_n_03[, !(names(e13v_bet_n_03) %in% single_non_na_columns)]
+
+# Now you can perform the desired command
+rwl.report(e13v_bet_n_03_filtered)
+
 e13v_bet_n_03_report <- rwl.report(e13v_bet_n_03)  #report on rwl
 print(e13v_bet_n_03_report)
+
+head(E13VBetn03r02r4)
 
 ##Cross-dating and alignment####
 
@@ -453,7 +467,7 @@ write.rwl(e13v_bet_n_03_average, "data/ring_data/aligned/e13v/e13v.bet.n/e13v_be
           e13c_bet_n_01_rwl.hdr,
           append = FALSE,
           prec = 0.001
-)
+          )
 
 #analysis####
 ##Statistics####

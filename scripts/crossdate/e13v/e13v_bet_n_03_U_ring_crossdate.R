@@ -11,7 +11,6 @@ e13v_bet_n_03_u06 <- csv2rwl("data/ring_data/raw/e13v/e13v.bet.n/e13v_bet_n_03/u
 e13v_bet_n_03_u07 <- csv2rwl("data/ring_data/raw/e13v/e13v.bet.n/e13v_bet_n_03/u/E13V.Bet.n.03.u07.csv")
 e13v_bet_n_03_u08 <- csv2rwl("data/ring_data/raw/e13v/e13v.bet.n/e13v_bet_n_03/u/E13V.Bet.n.03.u08.csv")
 
-
 #remove the core year
 e13v_bet_n_03_u01 <- e13v_bet_n_03_u01[-1, ]
 e13v_bet_n_03_u02 <- e13v_bet_n_03_u02[-1, ]
@@ -21,8 +20,6 @@ e13v_bet_n_03_u05 <- e13v_bet_n_03_u05[-1, ]
 e13v_bet_n_03_u06 <- e13v_bet_n_03_u06[-1, ]
 e13v_bet_n_03_u07 <- e13v_bet_n_03_u07[-1, ]
 e13v_bet_n_03_u08 <- e13v_bet_n_03_u08[-1, ]
-
-
 
 #merge in a single data frame:####
 # Specify the common column for merging

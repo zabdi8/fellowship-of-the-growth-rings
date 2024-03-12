@@ -1,7 +1,5 @@
 #Load packages####
 library(dplR)
-library(treeclim)
-library(ggplot2)
 
 #Load the data####
 e13v_bet_n_01_t01 <- csv2rwl("data/ring_data/raw/e13v/e13v.bet.n/e13v_bet_n_01/t/E13V.Bet.n.01.t01.csv")
@@ -10,7 +8,6 @@ e13v_bet_n_01_t03 <- csv2rwl("data/ring_data/raw/e13v/e13v.bet.n/e13v_bet_n_01/t
 e13v_bet_n_01_t04 <- csv2rwl("data/ring_data/raw/e13v/e13v.bet.n/e13v_bet_n_01/t/E13V.Bet.n.01.t04.csv")
 e13v_bet_n_01_t05 <- csv2rwl("data/ring_data/raw/e13v/e13v.bet.n/e13v_bet_n_01/t/E13V.Bet.n.01.t05.csv")
 e13v_bet_n_01_t06 <- csv2rwl("data/ring_data/raw/e13v/e13v.bet.n/e13v_bet_n_01/t/E13V.Bet.n.01.t06.csv")
-
 
 #remove the core year
 e13v_bet_n_01_t01 <- e13v_bet_n_01_t01[-1, ]
@@ -40,7 +37,7 @@ e13v_bet_n_01_t <- Reduce(function(x, y) merge(x, y, by = common_column, all = T
                                e13v_bet_n_01_t04,
                                e13v_bet_n_01_t05,
                                e13v_bet_n_01_t06)
-)
+                          )
 
 # Set row names and remove the extra column
 rownames(e13v_bet_n_01_t) <- e13v_bet_n_01_t[[common_column]]
@@ -55,7 +52,7 @@ write.rwl(e13v_bet_n_01_t, "data/ring_data/aligned/e13v/e13v.bet.n/e13v_bet_n_01
           e13c_bet_n_01_rwl.hdr,
           append = FALSE,
           prec = 0.001
-)
+          )
 
 #Data Analysis####
 ##Statistics####

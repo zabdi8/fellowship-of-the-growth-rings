@@ -1,7 +1,5 @@
 #Load packages####
 library(dplR)
-library(treeclim)
-library(ggplot2)
 
 #Load the data####
 e13v_bet_n_02_t01 <- csv2rwl("data/ring_data/raw/e13v/e13v.bet.n/e13v_bet_n_02/t/E13V.Bet.n.02.t01.csv")
@@ -11,7 +9,6 @@ e13v_bet_n_02_t04 <- csv2rwl("data/ring_data/raw/e13v/e13v.bet.n/e13v_bet_n_02/t
 e13v_bet_n_02_t05 <- csv2rwl("data/ring_data/raw/e13v/e13v.bet.n/e13v_bet_n_02/t/E13V.Bet.n.02.t05.csv")
 e13v_bet_n_02_t06 <- csv2rwl("data/ring_data/raw/e13v/e13v.bet.n/e13v_bet_n_02/t/E13V.Bet.n.02.t06.csv")
 
-
 #remove the core year
 e13v_bet_n_02_t01 <- e13v_bet_n_02_t01[-1, ]
 e13v_bet_n_02_t02 <- e13v_bet_n_02_t02[-1, ]
@@ -19,8 +16,6 @@ e13v_bet_n_02_t03 <- e13v_bet_n_02_t03[-1, ]
 e13v_bet_n_02_t04 <- e13v_bet_n_02_t04[-1, ]
 e13v_bet_n_02_t05 <- e13v_bet_n_02_t05[-1, ]
 e13v_bet_n_02_t06 <- e13v_bet_n_02_t06[-1, ]
-
-
 
 #merge in a single data frame:####
 # Specify the common column for merging
@@ -34,8 +29,6 @@ e13v_bet_n_02_t04$row_names <- rownames(e13v_bet_n_02_t04)
 e13v_bet_n_02_t05$row_names <- rownames(e13v_bet_n_02_t05)
 e13v_bet_n_02_t06$row_names <- rownames(e13v_bet_n_02_t06)
 
-
-
 # Merge the data frames using Reduce and merge
 e13v_bet_n_02_t <- Reduce(function(x, y) merge(x, y, by = common_column, all = TRUE),
                           list(e13v_bet_n_02_t01,
@@ -44,7 +37,7 @@ e13v_bet_n_02_t <- Reduce(function(x, y) merge(x, y, by = common_column, all = T
                                e13v_bet_n_02_t04,
                                e13v_bet_n_02_t05,
                                e13v_bet_n_02_t06)
-)
+                          )
 
 # Set row names and remove the extra column
 rownames(e13v_bet_n_02_t) <- e13v_bet_n_02_t[[common_column]]
@@ -59,7 +52,7 @@ write.rwl(e13v_bet_n_02_t, "data/ring_data/aligned/e13v/e13v.bet.n/e13v_bet_n_02
           e13c_bet_n_01_rwl.hdr,
           append = FALSE,
           prec = 0.001
-)
+          )
 
 #Data Analysis####
 ##Statistics####

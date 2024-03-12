@@ -1,7 +1,5 @@
 #Load packages####
 library(dplR)
-library(treeclim)
-library(ggplot2)
 
 #Load the data####
 e13v_bet_n_02_r01 <- csv2rwl("data/ring_data/raw/e13v/e13v.bet.n/e13v_bet_n_02/r/E13V.Bet.n.02.r01.csv")
@@ -14,8 +12,6 @@ e13v_bet_n_02_r01 <- e13v_bet_n_02_r01[-1, ]
 e13v_bet_n_02_r03 <- e13v_bet_n_02_r03[-1, ]
 e13v_bet_n_02_r04 <- e13v_bet_n_02_r04[-1, ]
 
-
-
 #merge in a single data frame:####
 # Specify the common column for merging
 common_column <- "row_names"
@@ -24,8 +20,6 @@ common_column <- "row_names"
 e13v_bet_n_02_r01$row_names <- rownames(e13v_bet_n_02_r01)
 e13v_bet_n_02_r03$row_names <- rownames(e13v_bet_n_02_r03)
 e13v_bet_n_02_r04$row_names <- rownames(e13v_bet_n_02_r04)
-
-
 
 # Merge the data frames using Reduce and merge
 e13v_bet_n_02_r <- Reduce(function(x, y) merge(x, y, by = common_column, all = TRUE),
@@ -47,7 +41,7 @@ write.rwl(e13v_bet_n_02_r, "data/ring_data/aligned/e13v/e13v.bet.n/e13v_bet_n_02
           e13c_bet_n_01_rwl.hdr,
           append = FALSE,
           prec = 0.001
-)
+          )
 
 #Data Analysis####
 ##Statistics####
