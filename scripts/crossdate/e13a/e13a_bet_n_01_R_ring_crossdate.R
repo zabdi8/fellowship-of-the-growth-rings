@@ -55,7 +55,7 @@ e13a_bet_n_01_r <- Reduce(function(x, y) merge(x, y, by = common_column, all = T
                                e13a_bet_n_01_r07,
                                e13a_bet_n_01_r08,
                                e13a_bet_n_01_r09)
-)
+                          )
 
 # Set row names and remove the extra column
 rownames(e13a_bet_n_01_r) <- e13a_bet_n_01_r[[common_column]]
@@ -82,7 +82,7 @@ print(e13a_bet_n_01_r_ms)
 
 e13a_bet_n_01_r_report <- rwl.report(e13a_bet_n_01_r)  #report on rwl
 print(e13a_bet_n_01_r_report)
-summary(e13a_bet_n_01_r_report)
+
 ##Cross-dating and alignment####
 
 #shorten the name
@@ -94,12 +94,13 @@ new_colnames <- sub("^E13ABetn01", "", colnames(e13a_bet_n_01_r_short))
 colnames(e13a_bet_n_01_r_short) <- new_colnames
 
 head(e13a_bet_n_01_r_short)
-colnames(e13a_bet_n_01_r_short)
+View(e13a_bet_n_01_r_short)
 
 #graphs
 seg.plot(e13a_bet_n_01_r_short) #creates a segment plot
 title(main = "e13abetn01r", adj = 0.48, line = 5.2, font.main = 2, cex.main = 1.2) #add title
-spag.plot(e13a_bet_n_01_r_short, zfac=0.009,) #creates a spaghetti plot
+
+spag.plot(e13a_bet_n_01_r_short[27:47,], zfac=0.009) #creates a spaghetti plot
 title(main = "e13abetn01r", adj = 0.48, line = 5.2, font.main = 2, cex.main = 1.2) #add title
 
 ##Analysis####
@@ -109,6 +110,6 @@ print(e13a_bet_n_01_r_inter)
 
 ###General correlation####
 
-corr.rwl.seg(rwl = e13a_bet_n_01_r, seg.length = 10, bin.floor = 0, n = NULL, prewhiten = FALSE, pcrit = 0.05, biweight = FALSE, method = c("spearman"), make.plot = TRUE, label.cex = 1, floor.plus1 = FALSE, master = NULL) #coorelation analysis #too few observations! 
+e13a_bet_n_01_r_corr_seg <- corr.rwl.seg(rwl = e13a_bet_n_01_r, seg.length = 10, bin.floor = 0, n = NULL, prewhiten = FALSE, pcrit = 0.05, biweight = FALSE, method = c("spearman"), make.plot = TRUE, label.cex = 1, floor.plus1 = FALSE, master = NULL) #coorelation analysis #too few observations! 
 
 title(main = "e13abetn01r", adj = 0.48, line = 4, font.main = 2, cex.main = 1.6) #add title

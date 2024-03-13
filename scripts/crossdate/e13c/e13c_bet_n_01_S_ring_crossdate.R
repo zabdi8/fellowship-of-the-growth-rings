@@ -87,7 +87,7 @@ title(main = "e13cbetn01s", adj = 0.48, line = 4, font.main = 2, cex.main = 1.6)
 ####E13CBetn01S####
 #e13c_bet_n_01_s01 
 rwl <- e13c_bet_n_01_s_filter
-serie <- "E13CBetn01s01_r1"
+serie <- "E13CBetn01s02r4"
 e13c_bet_n_01_s01_r1_serie <- series.rwl.plot(rwl, series = serie, 
                                             series.yrs = as.numeric(names(series)),
                                             seg.length = 2, bin.floor = 0, n=NULL,
