@@ -1,19 +1,10 @@
 #Load packages####
 library(dplR)
-library(ggplot2)
-library(tidyverse)
-library(wesanderson)
-library(signal)
-library(shiny)
-library(treeclim)
-library(ggplot2)
-library(reshape2)
-library(dplyr)
 
 #Load the data####
-e13c_bet_n_07_s01 <- csv2rwl("data/ring_data/raw/e13c/e13c.bet.n/e13c_bet_n_07/S/E13C.Bet.n.07.s01.csv")
-e13c_bet_n_07_s04 <- csv2rwl("data/ring_data/raw/e13c/e13c.bet.n/e13c_bet_n_07/S/E13C.Bet.n.07.s04.csv")
-e13c_bet_n_07_s06 <- csv2rwl("data/ring_data/raw/e13c/e13c.bet.n/e13c_bet_n_07/S/E13C.Bet.n.07.s06.csv")
+e13c_bet_n_07_s01 <- csv2rwl("data/ring_data/wedging_rings/e13c/e13c.bet.n/e13c_bet_n_07/S/E13C.Bet.n.07.s01.csv")
+e13c_bet_n_07_s04 <- csv2rwl("data/ring_data/wedging_rings/e13c/e13c.bet.n/e13c_bet_n_07/S/E13C.Bet.n.07.s04.csv")
+e13c_bet_n_07_s06 <- csv2rwl("data/ring_data/wedging_rings/e13c/e13c.bet.n/e13c_bet_n_07/S/E13C.Bet.n.07.s06.csv")
 
 
 #remove the core year
@@ -21,7 +12,6 @@ e13c_bet_n_07_s06 <- csv2rwl("data/ring_data/raw/e13c/e13c.bet.n/e13c_bet_n_07/S
 e13c_bet_n_07_s01 <- e13c_bet_n_07_s01[-1, ]
 e13c_bet_n_07_s04 <- e13c_bet_n_07_s04[-1, ]
 e13c_bet_n_07_s06 <- e13c_bet_n_07_s06[-1, ]
-
 
 #merge in a single data frame:####
 
@@ -33,14 +23,12 @@ e13c_bet_n_07_s01$row_names <- rownames(e13c_bet_n_07_s01)
 e13c_bet_n_07_s04$row_names <- rownames(e13c_bet_n_07_s04)
 e13c_bet_n_07_s06$row_names <- rownames(e13c_bet_n_07_s06)
 
-
-
 # Merge the data frames using Reduce and merge
 e13c_bet_n_07_s <- Reduce(function(x, y) merge(x, y, by = common_column, all = TRUE),
                           list(e13c_bet_n_07_s01, 
                                e13c_bet_n_07_s04, 
                                e13c_bet_n_07_s06)
-)
+                          )
 
 # Set row names and remove the extra column
 rownames(e13c_bet_n_07_s) <- e13c_bet_n_07_s[[common_column]]
@@ -55,7 +43,7 @@ write.rwl(e13c_bet_n_07_s, "data/ring_data/aligned/e13c/e13c.bet.n/e13c_bet_n_07
           e13c_bet_n_01_rwl.hdr,
           append = FALSE,
           prec = 0.001
-)
+          )
 
 #Data Analysis####
 ##Statistics####
@@ -74,7 +62,7 @@ print(e13c_bet_n_07_s_report)
 #graphs
 seg.plot(e13c_bet_n_07_s) #creates a segment plot
 spag.plot(e13c_bet_n_07_s, zfac=0.007,) #creates a spaghetti plot
-title(main = "e13cbetn07r", adj = 0.48, line = 5.5, font.main = 2, cex.main = 1.6) #add title
+title(main = "e13cbetn07s", adj = 0.48, line = 5.5, font.main = 2, cex.main = 1.6) #add title
 
 ##Analysis####
 
@@ -85,5 +73,4 @@ print(e13c_bet_n_07_s_inter)
 
 corr.rwl.seg(rwl = e13c_bet_n_07_s, seg.length = 8, bin.floor = 0, n = NULL, prewhiten = FALSE, pcrit = 0.05, biweight = FALSE, method = c("spearman"), make.plot = TRUE, label.cex = 1, floor.plus1 = FALSE, master = NULL) #coorelation analysis #too few observations! 
 
-title(main = "e13cbetn07r", adj = 0.48, line = 4, font.main = 2, cex.main = 1.6) #add title
-
+title(main = "e13cbetn07s", adj = 0.48, line = 4, font.main = 2, cex.main = 1.6) #add title

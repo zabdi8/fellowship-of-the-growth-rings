@@ -2,18 +2,18 @@
 library(dplR)
 
 #Load the data####
-e13a_bet_n_02_s00 <- csv2rwl("data/ring_data/raw/e13a/e13a.bet.n/e13a_bet_n_02/s/E13A.Bet.n.02.s00.csv")
-e13a_bet_n_02_s01 <- csv2rwl("data/ring_data/raw/e13a/e13a.bet.n/e13a_bet_n_02/s/E13A.Bet.n.02.s01.csv")
-e13a_bet_n_02_s02 <- csv2rwl("data/ring_data/raw/e13a/e13a.bet.n/e13a_bet_n_02/s/E13A.Bet.n.02.s02.csv")
-e13a_bet_n_02_s03 <- csv2rwl("data/ring_data/raw/e13a/e13a.bet.n/e13a_bet_n_02/s/E13A.Bet.n.02.s03.csv")
-e13a_bet_n_02_s04 <- csv2rwl("data/ring_data/raw/e13a/e13a.bet.n/e13a_bet_n_02/s/E13A.Bet.n.02.s04.csv")
-e13a_bet_n_02_s05 <- csv2rwl("data/ring_data/raw/e13a/e13a.bet.n/e13a_bet_n_02/s/E13A.Bet.n.02.s05.csv")
-e13a_bet_n_02_s06 <- csv2rwl("data/ring_data/raw/e13a/e13a.bet.n/e13a_bet_n_02/s/E13A.Bet.n.02.s06.csv")
-e13a_bet_n_02_s07 <- csv2rwl("data/ring_data/raw/e13a/e13a.bet.n/e13a_bet_n_02/s/E13A.Bet.n.02.s07.csv")
-e13a_bet_n_02_s08 <- csv2rwl("data/ring_data/raw/e13a/e13a.bet.n/e13a_bet_n_02/s/E13A.Bet.n.02.s08.csv")
-e13a_bet_n_02_s09 <- csv2rwl("data/ring_data/raw/e13a/e13a.bet.n/e13a_bet_n_02/s/E13A.Bet.n.02.s09.csv")
-e13a_bet_n_02_s10 <- csv2rwl("data/ring_data/raw/e13a/e13a.bet.n/e13a_bet_n_02/s/E13A.Bet.n.02.s10.csv")
-e13a_bet_n_02_s20 <- csv2rwl("data/ring_data/raw/e13a/e13a.bet.n/e13a_bet_n_02/s/E13A.Bet.n.02.s20.csv")
+e13a_bet_n_02_s00 <- csv2rwl("data/ring_data/wedging_rings/e13a/e13a.bet.n/e13a_bet_n_02/s/E13A.Bet.n.02.s00.csv")
+e13a_bet_n_02_s01 <- csv2rwl("data/ring_data/wedging_rings/e13a/e13a.bet.n/e13a_bet_n_02/s/E13A.Bet.n.02.s01.csv")
+e13a_bet_n_02_s02 <- csv2rwl("data/ring_data/wedging_rings/e13a/e13a.bet.n/e13a_bet_n_02/s/E13A.Bet.n.02.s02.csv")
+e13a_bet_n_02_s03 <- csv2rwl("data/ring_data/wedging_rings/e13a/e13a.bet.n/e13a_bet_n_02/s/E13A.Bet.n.02.s03.csv")
+e13a_bet_n_02_s04 <- csv2rwl("data/ring_data/wedging_rings/e13a/e13a.bet.n/e13a_bet_n_02/s/E13A.Bet.n.02.s04.csv")
+e13a_bet_n_02_s05 <- csv2rwl("data/ring_data/wedging_rings/e13a/e13a.bet.n/e13a_bet_n_02/s/E13A.Bet.n.02.s05.csv")
+e13a_bet_n_02_s06 <- csv2rwl("data/ring_data/wedging_rings/e13a/e13a.bet.n/e13a_bet_n_02/s/E13A.Bet.n.02.s06.csv")
+e13a_bet_n_02_s07 <- csv2rwl("data/ring_data/wedging_rings/e13a/e13a.bet.n/e13a_bet_n_02/s/E13A.Bet.n.02.s07.csv")
+e13a_bet_n_02_s08 <- csv2rwl("data/ring_data/wedging_rings/e13a/e13a.bet.n/e13a_bet_n_02/s/E13A.Bet.n.02.s08.csv")
+e13a_bet_n_02_s09 <- csv2rwl("data/ring_data/wedging_rings/e13a/e13a.bet.n/e13a_bet_n_02/s/E13A.Bet.n.02.s09.csv")
+e13a_bet_n_02_s10 <- csv2rwl("data/ring_data/wedging_rings/e13a/e13a.bet.n/e13a_bet_n_02/s/E13A.Bet.n.02.s10.csv")
+e13a_bet_n_02_s20 <- csv2rwl("data/ring_data/wedging_rings/e13a/e13a.bet.n/e13a_bet_n_02/s/E13A.Bet.n.02.s20.csv")
 
 #remove the core year
 e13a_bet_n_02_s00 <- e13a_bet_n_02_s00[-1, ]
@@ -116,8 +116,8 @@ print(e13a_bet_n_02_s_inter)
 ###General correlation####
 
 corr.rwl.seg(rwl = e13a_bet_n_02_s, seg.length = 8, bin.floor = 0, n = NULL, prewhiten = FALSE, pcrit = 0.05, 
-             biweight = FALSE, method = c("spearman"), 
-             make.plot = TRUE, label.cex = 1, floor.plus1 = FALSE, master = NULL) #coorelation analysis #too few observations! 
+              biweight = FALSE, method = c("spearman"), 
+              make.plot = TRUE, label.cex = 1, floor.plus1 = FALSE, master = NULL) #coorelation analysis #too few observations! 
 
 title(main = "e13abetn02s", adj = 0.48, line = 4, font.main = 2, cex.main = 1.6) #add title
 

@@ -362,7 +362,7 @@ write.rwl(e13c_bet_n_07_average, "data/ring_data/aligned/e13c/e13c.bet.n/e13c_be
           e13c_bet_n_01_rwl.hdr,
           append = FALSE,
           prec = 0.001
-)
+          )
 
 #analysis####
 ##Statistics####

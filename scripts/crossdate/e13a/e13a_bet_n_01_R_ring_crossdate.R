@@ -2,15 +2,15 @@
 library(dplR)
 
 #Load the data####
-e13a_bet_n_01_r01 <- csv2rwl("data/ring_data/raw/e13a/e13a.bet.n/e13a_bet_n_01/r/E13A.Bet.n.01.r01.csv")
-e13a_bet_n_01_r02 <- csv2rwl("data/ring_data/raw/e13a/e13a.bet.n/e13a_bet_n_01/r/E13A.Bet.n.01.r02.csv")
-e13a_bet_n_01_r03 <- csv2rwl("data/ring_data/raw/e13a/e13a.bet.n/e13a_bet_n_01/r/E13A.Bet.n.01.r03.csv")
-e13a_bet_n_01_r04 <- csv2rwl("data/ring_data/raw/e13a/e13a.bet.n/e13a_bet_n_01/r/E13A.Bet.n.01.r04.csv")
-e13a_bet_n_01_r05 <- csv2rwl("data/ring_data/raw/e13a/e13a.bet.n/e13a_bet_n_01/r/E13A.Bet.n.01.r05.csv")
-e13a_bet_n_01_r06 <- csv2rwl("data/ring_data/raw/e13a/e13a.bet.n/e13a_bet_n_01/r/E13A.Bet.n.01.r06.csv")
-e13a_bet_n_01_r07 <- csv2rwl("data/ring_data/raw/e13a/e13a.bet.n/e13a_bet_n_01/r/E13A.Bet.n.01.r07.csv")
-e13a_bet_n_01_r08 <- csv2rwl("data/ring_data/raw/e13a/e13a.bet.n/e13a_bet_n_01/r/E13A.Bet.n.01.r08.csv")
-e13a_bet_n_01_r09 <- csv2rwl("data/ring_data/raw/e13a/e13a.bet.n/e13a_bet_n_01/r/E13A.Bet.n.01.r09.csv")
+e13a_bet_n_01_r01 <- csv2rwl("data/ring_data/wedging_rings/e13a/e13a.bet.n/e13a_bet_n_01/r/E13A.Bet.n.01.r01.csv")
+e13a_bet_n_01_r02 <- csv2rwl("data/ring_data/wedging_rings/e13a/e13a.bet.n/e13a_bet_n_01/r/E13A.Bet.n.01.r02.csv")
+e13a_bet_n_01_r03 <- csv2rwl("data/ring_data/wedging_rings/e13a/e13a.bet.n/e13a_bet_n_01/r/E13A.Bet.n.01.r03.csv")
+e13a_bet_n_01_r04 <- csv2rwl("data/ring_data/wedging_rings/e13a/e13a.bet.n/e13a_bet_n_01/r/E13A.Bet.n.01.r04.csv")
+e13a_bet_n_01_r05 <- csv2rwl("data/ring_data/wedging_rings/e13a/e13a.bet.n/e13a_bet_n_01/r/E13A.Bet.n.01.r05.csv")
+e13a_bet_n_01_r06 <- csv2rwl("data/ring_data/wedging_rings/e13a/e13a.bet.n/e13a_bet_n_01/r/E13A.Bet.n.01.r06.csv")
+e13a_bet_n_01_r07 <- csv2rwl("data/ring_data/wedging_rings/e13a/e13a.bet.n/e13a_bet_n_01/r/E13A.Bet.n.01.r07.csv")
+e13a_bet_n_01_r08 <- csv2rwl("data/ring_data/wedging_rings/e13a/e13a.bet.n/e13a_bet_n_01/r/E13A.Bet.n.01.r08.csv")
+e13a_bet_n_01_r09 <- csv2rwl("data/ring_data/wedging_rings/e13a/e13a.bet.n/e13a_bet_n_01/r/E13A.Bet.n.01.r09.csv")
 
 
 #remove the core year
@@ -100,7 +100,7 @@ View(e13a_bet_n_01_r_short)
 seg.plot(e13a_bet_n_01_r_short) #creates a segment plot
 title(main = "e13abetn01r", adj = 0.48, line = 5.2, font.main = 2, cex.main = 1.2) #add title
 
-spag.plot(e13a_bet_n_01_r_short[27:47,], zfac=0.009) #creates a spaghetti plot
+spag.plot(e13a_bet_n_01_r_short, zfac=0.01) #creates a spaghetti plot
 title(main = "e13abetn01r", adj = 0.48, line = 5.2, font.main = 2, cex.main = 1.2) #add title
 
 ##Analysis####
@@ -113,3 +113,4 @@ print(e13a_bet_n_01_r_inter)
 e13a_bet_n_01_r_corr_seg <- corr.rwl.seg(rwl = e13a_bet_n_01_r, seg.length = 10, bin.floor = 0, n = NULL, prewhiten = FALSE, pcrit = 0.05, biweight = FALSE, method = c("spearman"), make.plot = TRUE, label.cex = 1, floor.plus1 = FALSE, master = NULL) #coorelation analysis #too few observations! 
 
 title(main = "e13abetn01r", adj = 0.48, line = 4, font.main = 2, cex.main = 1.6) #add title
+

@@ -6,7 +6,6 @@ e13c_bet_n_03_R <- read.rwl("data/ring_data/aligned/e13c/e13c.bet.n/e13c_bet_n_0
 e13c_bet_n_03_S <- read.rwl("data/ring_data/aligned/e13c/e13c.bet.n/e13c_bet_n_03/s/e13c_bet_n_03_s")
 e13c_bet_n_03_T <- read.rwl("data/ring_data/aligned/e13c/e13c.bet.n/e13c_bet_n_03/t/e13c_bet_n_03_t")
 
-
 # merge the data
 
 
@@ -18,11 +17,11 @@ e13c_bet_n_03_R$row_names <- rownames(e13c_bet_n_03_R)
 e13c_bet_n_03_S$row_names <- rownames(e13c_bet_n_03_S)
 e13c_bet_n_03_T$row_names <- rownames(e13c_bet_n_03_T)
 
-
-
 # Merge the data frames using Reduce and merge
 e13c_bet_n_03 <- Reduce(function(x, y) merge(x, y, by = common_column, all = TRUE),
-                        list(e13c_bet_n_03_R, e13c_bet_n_03_S, e13c_bet_n_03_T))
+                        list(e13c_bet_n_03_R, 
+                             e13c_bet_n_03_S, 
+                             e13c_bet_n_03_T))
 
 # Set row names and remove the extra column
 rownames(e13c_bet_n_03) <- e13c_bet_n_03[[common_column]]
@@ -42,7 +41,7 @@ write.rwl(e13c_bet_n_03, "data/ring_data/aligned/e13c/e13c.bet.n/e13c_bet_n_03/e
           e13c_bet_n_01_rwl.hdr,
           append = FALSE,
           prec = 0.001
-)
+          )
 
 
 #reduce the names for easy view
@@ -207,7 +206,7 @@ write.rwl(e13c_bet_n_03_average, "data/ring_data/aligned/e13c/e13c.bet.n/e13c_be
           e13c_bet_n_01_rwl.hdr,
           append = FALSE,
           prec = 0.001
-)
+          )
 
 #analysis####
 ##Statistics####

@@ -2,12 +2,12 @@
 library(dplR)
 
 #Load the data####
-e13c_bet_n_07_v01 <- csv2rwl("data/ring_data/raw/e13c/e13c.bet.n/e13c_bet_n_07/V/E13C.Bet.n.07.v01.csv")
-e13c_bet_n_07_v02 <- csv2rwl("data/ring_data/raw/e13c/e13c.bet.n/e13c_bet_n_07/V/E13C.Bet.n.07.v02.csv")
-e13c_bet_n_07_v03 <- csv2rwl("data/ring_data/raw/e13c/e13c.bet.n/e13c_bet_n_07/V/E13C.Bet.n.07.v03.csv")
-e13c_bet_n_07_v04 <- csv2rwl("data/ring_data/raw/e13c/e13c.bet.n/e13c_bet_n_07/V/E13C.Bet.n.07.v04.csv")
-e13c_bet_n_07_v05 <- csv2rwl("data/ring_data/raw/e13c/e13c.bet.n/e13c_bet_n_07/V/E13C.Bet.n.07.v05.csv")
-e13c_bet_n_07_v06 <- csv2rwl("data/ring_data/raw/e13c/e13c.bet.n/e13c_bet_n_07/V/E13C.Bet.n.07.v06.csv")
+e13c_bet_n_07_v01 <- csv2rwl("data/ring_data/wedging_rings/e13c/e13c.bet.n/e13c_bet_n_07/V/E13C.Bet.n.07.v01.csv")
+e13c_bet_n_07_v02 <- csv2rwl("data/ring_data/wedging_rings/e13c/e13c.bet.n/e13c_bet_n_07/V/E13C.Bet.n.07.v02.csv")
+e13c_bet_n_07_v03 <- csv2rwl("data/ring_data/wedging_rings/e13c/e13c.bet.n/e13c_bet_n_07/V/E13C.Bet.n.07.v03.csv")
+e13c_bet_n_07_v04 <- csv2rwl("data/ring_data/wedging_rings/e13c/e13c.bet.n/e13c_bet_n_07/V/E13C.Bet.n.07.v04.csv")
+e13c_bet_n_07_v05 <- csv2rwl("data/ring_data/wedging_rings/e13c/e13c.bet.n/e13c_bet_n_07/V/E13C.Bet.n.07.v05.csv")
+e13c_bet_n_07_v06 <- csv2rwl("data/ring_data/wedging_rings/e13c/e13c.bet.n/e13c_bet_n_07/V/E13C.Bet.n.07.v06.csv")
 
 
 #remove the core year
@@ -18,7 +18,6 @@ e13c_bet_n_07_v03 <- e13c_bet_n_07_v03[-1, ]
 e13c_bet_n_07_v04 <- e13c_bet_n_07_v04[-1, ]
 e13c_bet_n_07_v05 <- e13c_bet_n_07_v05[-1, ]
 e13c_bet_n_07_v06 <- e13c_bet_n_07_v06[-1, ]
-
 
 #merge in a single data frame:####
 
@@ -33,8 +32,6 @@ e13c_bet_n_07_v04$row_names <- rownames(e13c_bet_n_07_v04)
 e13c_bet_n_07_v05$row_names <- rownames(e13c_bet_n_07_v05)
 e13c_bet_n_07_v06$row_names <- rownames(e13c_bet_n_07_v06)
 
-
-
 # Merge the data frames using Reduce and merge
 e13c_bet_n_07_v <- Reduce(function(x, y) merge(x, y, by = common_column, all = TRUE),
                           list(e13c_bet_n_07_v01,
@@ -43,7 +40,7 @@ e13c_bet_n_07_v <- Reduce(function(x, y) merge(x, y, by = common_column, all = T
                                e13c_bet_n_07_v04,
                                e13c_bet_n_07_v05, 
                                e13c_bet_n_07_v06)
-)
+                          )
 
 # Set row names and remove the extra column
 rownames(e13c_bet_n_07_v) <- e13c_bet_n_07_v[[common_column]]
@@ -58,7 +55,7 @@ write.rwl(e13c_bet_n_07_v, "data/ring_data/aligned/e13c/e13c.bet.n/e13c_bet_n_07
           e13c_bet_n_01_rwl.hdr,
           append = FALSE,
           prec = 0.001
-)
+          )
 
 #Data Analysis####
 ##Statistics####
@@ -89,4 +86,3 @@ print(e13c_bet_n_07_v_inter)
 corr.rwl.seg(rwl = e13c_bet_n_07_v, seg.length = 6, bin.floor = 0, n = NULL, prewhiten = FALSE, pcrit = 0.05, biweight = FALSE, method = c("spearman"), make.plot = TRUE, label.cex = 1, floor.plus1 = FALSE, master = NULL) #coorelation analysis #too few observations! 
 
 title(main = "e13cbetn07v", adj = 0.48, line = 4, font.main = 2, cex.main = 1.6) #add title
-

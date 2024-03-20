@@ -2,9 +2,9 @@
 library(dplR)
 
 #Load the data####
-e13a_bet_n_02_v01 <- csv2rwl("data/ring_data/raw/e13a/e13a.bet.n/e13a_bet_n_02/v/E13A.Bet.n.02.v01.csv")
-e13a_bet_n_02_v02 <- csv2rwl("data/ring_data/raw/e13a/e13a.bet.n/e13a_bet_n_02/v/E13A.Bet.n.02.v02.csv")
-e13a_bet_n_02_v04 <- csv2rwl("data/ring_data/raw/e13a/e13a.bet.n/e13a_bet_n_02/v/E13A.Bet.n.02.v04.csv")
+e13a_bet_n_02_v01 <- csv2rwl("data/ring_data/wedging_rings/e13a/e13a.bet.n/e13a_bet_n_02/v/E13A.Bet.n.02.v01.csv")
+e13a_bet_n_02_v02 <- csv2rwl("data/ring_data/wedging_rings/e13a/e13a.bet.n/e13a_bet_n_02/v/E13A.Bet.n.02.v02.csv")
+e13a_bet_n_02_v04 <- csv2rwl("data/ring_data/wedging_rings/e13a/e13a.bet.n/e13a_bet_n_02/v/E13A.Bet.n.02.v04.csv")
 
 #remove the core year
 
@@ -37,7 +37,7 @@ View(e13a_bet_n_02_v)
 
 #export rwl
 
-write.rwl(e13a_bet_n_02_v, "data/ring_data/aligned/e13a/e13c.bet.n/e13a_bet_n_02/e13a_bet_n_02_v.rwl", 
+write.rwl(e13a_bet_n_02_v, "data/ring_data/aligned/e13a/e13a.bet.n/e13a_bet_n_02/e13a_bet_n_02_v.rwl", 
           format = "compact",
           e13c_bet_n_01_rwl.hdr,
           append = FALSE,

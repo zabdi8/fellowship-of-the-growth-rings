@@ -2,11 +2,11 @@
 library(dplR)
 
 #Load the data####
-e13a_bet_n_03_u01 <- csv2rwl("data/ring_data/raw/e13a/e13a.bet.n/e13a_bet_n_03/u/E13A.Bet.n.03.u01.csv")
-e13a_bet_n_03_u02 <- csv2rwl("data/ring_data/raw/e13a/e13a.bet.n/e13a_bet_n_03/u/E13A.Bet.n.03.u02.csv")
-e13a_bet_n_03_u03 <- csv2rwl("data/ring_data/raw/e13a/e13a.bet.n/e13a_bet_n_03/u/E13A.Bet.n.03.u03.csv")
-e13a_bet_n_03_u04 <- csv2rwl("data/ring_data/raw/e13a/e13a.bet.n/e13a_bet_n_03/u/E13A.Bet.n.03.u04.csv")
-e13a_bet_n_03_u05 <- csv2rwl("data/ring_data/raw/e13a/e13a.bet.n/e13a_bet_n_03/u/E13A.Bet.n.03.u05.csv")
+e13a_bet_n_03_u01 <- csv2rwl("data/ring_data/wedging_rings/e13a/e13a.bet.n/e13a_bet_n_03/u/E13A.Bet.n.03.u01.csv")
+e13a_bet_n_03_u02 <- csv2rwl("data/ring_data/wedging_rings/e13a/e13a.bet.n/e13a_bet_n_03/u/E13A.Bet.n.03.u02.csv")
+e13a_bet_n_03_u03 <- csv2rwl("data/ring_data/wedging_rings/e13a/e13a.bet.n/e13a_bet_n_03/u/E13A.Bet.n.03.u03.csv")
+e13a_bet_n_03_u04 <- csv2rwl("data/ring_data/wedging_rings/e13a/e13a.bet.n/e13a_bet_n_03/u/E13A.Bet.n.03.u04.csv")
+e13a_bet_n_03_u05 <- csv2rwl("data/ring_data/wedging_rings/e13a/e13a.bet.n/e13a_bet_n_03/u/E13A.Bet.n.03.u05.csv")
 
 #remove the core year
 e13a_bet_n_03_u01 <- e13a_bet_n_03_u01[-1, ]
@@ -77,7 +77,7 @@ colnames(e13a_bet_n_03_u_short)
 #graphs
 seg.plot(e13a_bet_n_03_u_short) #creates a segment plot
 spag.plot(e13a_bet_n_03_u_short, zfac=0.009,) #creates a spaghetti plot
-title(main = "e13abetn03s", adj = 0.48, line = 5.5, font.main = 2, cex.main = 1.2) #add title
+title(main = "e13abetn03u", adj = 0.48, line = 5.5, font.main = 2, cex.main = 1.2) #add title
 
 ##Analysis####
 
@@ -91,4 +91,3 @@ corr.rwl.seg(rwl = e13a_bet_n_03_u, seg.length = 6, bin.floor = 0, n = NULL, pre
              make.plot = TRUE, label.cex = 1, floor.plus1 = FALSE, master = NULL) #coorelation analysis #too few observations! 
 
 title(main = "e13abetn03s", adj = 0.48, line = 4, font.main = 2, cex.main = 1.6) #add title
-

@@ -46,7 +46,7 @@ write.rwl(e13c_bet_n, "data/ring_data/aligned/e13c/e13c.bet.n/e13c_bet_n.rwl",
           e13c_bet_n_01_rwl.hdr,
           append = FALSE,
           prec = 0.001
-)
+          )
 
 #reduce the names for easy view
 e13c_short <- e13c_bet_n
@@ -124,7 +124,7 @@ write.rwl(e13c_bet_n_ave, "data/ring_data/aligned/e13c/e13c.bet.n/e13c_bet_n_ave
           e13c_bet_n_01_rwl.hdr,
           append = FALSE,
           prec = 0.001
-)
+          )
 
 #reduce the names for easy view
 e13c_bet_n_ave_short <- e13c_bet_n_ave

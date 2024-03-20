@@ -2,12 +2,12 @@
 library(dplR)
 
 #Load the data####
-e13a_bet_n_03_s01 <- csv2rwl("data/ring_data/raw/e13a/e13a.bet.n/e13a_bet_n_03/s/E13A.Bet.n.03.s01.csv")
-e13a_bet_n_03_s02 <- csv2rwl("data/ring_data/raw/e13a/e13a.bet.n/e13a_bet_n_03/s/E13A.Bet.n.03.s02.csv")
-e13a_bet_n_03_s03 <- csv2rwl("data/ring_data/raw/e13a/e13a.bet.n/e13a_bet_n_03/s/E13A.Bet.n.03.s03.csv")
-e13a_bet_n_03_s04 <- csv2rwl("data/ring_data/raw/e13a/e13a.bet.n/e13a_bet_n_03/s/E13A.Bet.n.03.s04.csv")
-e13a_bet_n_03_s05 <- csv2rwl("data/ring_data/raw/e13a/e13a.bet.n/e13a_bet_n_03/s/E13A.Bet.n.03.s05.csv")
-e13a_bet_n_03_s06 <- csv2rwl("data/ring_data/raw/e13a/e13a.bet.n/e13a_bet_n_03/s/E13A.Bet.n.03.s06.csv")
+e13a_bet_n_03_s01 <- csv2rwl("data/ring_data/wedging_rings/e13a/e13a.bet.n/e13a_bet_n_03/s/E13A.Bet.n.03.s01.csv")
+e13a_bet_n_03_s02 <- csv2rwl("data/ring_data/wedging_rings/e13a/e13a.bet.n/e13a_bet_n_03/s/E13A.Bet.n.03.s02.csv")
+e13a_bet_n_03_s03 <- csv2rwl("data/ring_data/wedging_rings/e13a/e13a.bet.n/e13a_bet_n_03/s/E13A.Bet.n.03.s03.csv")
+e13a_bet_n_03_s04 <- csv2rwl("data/ring_data/wedging_rings/e13a/e13a.bet.n/e13a_bet_n_03/s/E13A.Bet.n.03.s04.csv")
+e13a_bet_n_03_s05 <- csv2rwl("data/ring_data/wedging_rings/e13a/e13a.bet.n/e13a_bet_n_03/s/E13A.Bet.n.03.s05.csv")
+e13a_bet_n_03_s06 <- csv2rwl("data/ring_data/wedging_rings/e13a/e13a.bet.n/e13a_bet_n_03/s/E13A.Bet.n.03.s06.csv")
 
 #remove the core year
 e13a_bet_n_03_s01 <- e13a_bet_n_03_s01[-1, ]

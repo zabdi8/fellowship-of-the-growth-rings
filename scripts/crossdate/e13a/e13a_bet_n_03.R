@@ -325,7 +325,7 @@ write.rwl(e13a_bet_n_03_average, "data/ring_data/aligned/e13a/e13a.bet.n/e13a_be
           e13c_bet_n_01_rwl.hdr,
           append = FALSE,
           prec = 0.001
-)
+          )
 
 #analysis####
 ##Statistics####
@@ -360,4 +360,3 @@ colnames(e13a_bet_n_03_ave_short)
 
 spag.plot(e13a_bet_n_03_ave_short, zfac=0.018,) #creates a spaghetti plot
 title(main = "E13ABetn03 (Average)", adj = 0.48, line = 5.2, font.main = 2, cex.main = 1.2) #add title
-

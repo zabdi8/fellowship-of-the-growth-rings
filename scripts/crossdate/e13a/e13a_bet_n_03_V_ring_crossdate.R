@@ -2,12 +2,12 @@
 library(dplR)
 
 #Load the data####
-e13a_bet_n_03_v01 <- csv2rwl("data/ring_data/raw/e13a/e13a.bet.n/e13a_bet_n_03/v/E13A.Bet.n.03.v01.csv")
-e13a_bet_n_03_v02 <- csv2rwl("data/ring_data/raw/e13a/e13a.bet.n/e13a_bet_n_03/v/E13A.Bet.n.03.v02.csv")
-e13a_bet_n_03_v03 <- csv2rwl("data/ring_data/raw/e13a/e13a.bet.n/e13a_bet_n_03/v/E13A.Bet.n.03.v03.csv")
-e13a_bet_n_03_v04 <- csv2rwl("data/ring_data/raw/e13a/e13a.bet.n/e13a_bet_n_03/v/E13A.Bet.n.03.v04.csv")
-e13a_bet_n_03_v05 <- csv2rwl("data/ring_data/raw/e13a/e13a.bet.n/e13a_bet_n_03/v/E13A.Bet.n.03.v05.csv")
-e13a_bet_n_03_v06 <- csv2rwl("data/ring_data/raw/e13a/e13a.bet.n/e13a_bet_n_03/v/E13A.Bet.n.03.v06.csv")
+e13a_bet_n_03_v01 <- csv2rwl("data/ring_data/wedging_rings/e13a/e13a.bet.n/e13a_bet_n_03/v/E13A.Bet.n.03.v01.csv")
+e13a_bet_n_03_v02 <- csv2rwl("data/ring_data/wedging_rings/e13a/e13a.bet.n/e13a_bet_n_03/v/E13A.Bet.n.03.v02.csv")
+e13a_bet_n_03_v03 <- csv2rwl("data/ring_data/wedging_rings/e13a/e13a.bet.n/e13a_bet_n_03/v/E13A.Bet.n.03.v03.csv")
+e13a_bet_n_03_v04 <- csv2rwl("data/ring_data/wedging_rings/e13a/e13a.bet.n/e13a_bet_n_03/v/E13A.Bet.n.03.v04.csv")
+e13a_bet_n_03_v05 <- csv2rwl("data/ring_data/wedging_rings/e13a/e13a.bet.n/e13a_bet_n_03/v/E13A.Bet.n.03.v05.csv")
+e13a_bet_n_03_v06 <- csv2rwl("data/ring_data/wedging_rings/e13a/e13a.bet.n/e13a_bet_n_03/v/E13A.Bet.n.03.v06.csv")
 
 #remove the core year
 e13a_bet_n_03_v01 <- e13a_bet_n_03_v01[-1, ]
@@ -95,4 +95,3 @@ corr.rwl.seg(rwl = e13a_bet_n_03_v, seg.length = 6, bin.floor = 0, n = NULL, pre
              make.plot = TRUE, label.cex = 1, floor.plus1 = FALSE, master = NULL) #coorelation analysis #too few observations! 
 
 title(main = "e13abetn03s", adj = 0.48, line = 4, font.main = 2, cex.main = 1.6) #add title
-

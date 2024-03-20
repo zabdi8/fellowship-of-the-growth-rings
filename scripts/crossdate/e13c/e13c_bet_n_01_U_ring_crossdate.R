@@ -1,20 +1,11 @@
 #Load packages####
 library(dplR)
-library(ggplot2)
-library(tidyverse)
-library(wesanderson)
-library(signal)
-library(shiny)
-library(treeclim)
-library(ggplot2)
-library(reshape2)
-library(dplyr)
 
 #Load the data####
-e13c_bet_n_01_u01 <- csv2rwl("data/ring_data/raw/e13c/e13c.bet.n/e13c_bet_n_01_/U/E13C.Bet.n.01.u01.csv")
-e13c_bet_n_01_u02 <- csv2rwl("data/ring_data/raw/e13c/e13c.bet.n/e13c_bet_n_01_/U/E13C.Bet.n.01.u02.csv")
-e13c_bet_n_01_u03 <- csv2rwl("data/ring_data/raw/e13c/e13c.bet.n/e13c_bet_n_01_/U/E13C.Bet.n.01.u03.csv")
-e13c_bet_n_01_u04 <- csv2rwl("data/ring_data/raw/e13c/e13c.bet.n/e13c_bet_n_01_/U/E13C.Bet.n.01.u04.csv")
+e13c_bet_n_01_u01 <- csv2rwl("data/ring_data/wedging_rings/e13c/e13c.bet.n/e13c_bet_n_01/U/E13C.Bet.n.01.u01.csv")
+e13c_bet_n_01_u02 <- csv2rwl("data/ring_data/wedging_rings/e13c/e13c.bet.n/e13c_bet_n_01/U/E13C.Bet.n.01.u02.csv")
+e13c_bet_n_01_u03 <- csv2rwl("data/ring_data/wedging_rings/e13c/e13c.bet.n/e13c_bet_n_01/U/E13C.Bet.n.01.u03.csv")
+e13c_bet_n_01_u04 <- csv2rwl("data/ring_data/wedging_rings/e13c/e13c.bet.n/e13c_bet_n_01/U/E13C.Bet.n.01.u04.csv")
 
 
 #remove the core year
@@ -59,7 +50,7 @@ write.rwl(e13c_bet_n_01_u, "data/ring_data/aligned/e13c/e13c.bet.n/e13c_bet_n_01
           e13c_bet_n_01_rwl.hdr,
           append = FALSE,
           prec = 0.001
-)
+          )
 
 #Data Analysis####
 ##Statistics####
@@ -86,7 +77,7 @@ print(e13c_bet_n_01_u_inter)
 
 ###General correlation####
 
-corr.rwl.seg(rwl = e13c_bet_n_01_u, seg.length = 1, bin.floor = 0, n = NULL, prewhiten = FALSE, pcrit = 0.05, biweight = FALSE, method = c("spearman"), make.plot = TRUE, label.cex = 1, floor.plus1 = FALSE, master = NULL) #coorelation analysis
+corr.rwl.seg(rwl = e13c_bet_n_01_u, seg.length = 2, bin.floor = 0, n = NULL, prewhiten = FALSE, pcrit = 0.05, biweight = FALSE, method = c("spearman"), make.plot = TRUE, label.cex = 1, floor.plus1 = FALSE, master = NULL) #coorelation analysis
 
 title(main = "e13cbetn01u", adj = 0.48, line = 4, font.main = 2, cex.main = 1.6) #add title
 

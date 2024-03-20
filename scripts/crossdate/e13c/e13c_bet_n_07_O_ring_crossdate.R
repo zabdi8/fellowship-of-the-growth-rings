@@ -2,14 +2,14 @@
 library(dplR)
 
 #Load the data####
-e13c_bet_n_07_o01 <- csv2rwl("data/ring_data/raw/e13c/e13c.bet.n/e13c_bet_n_07/O/E13C.Bet.n.07.o01.csv")
-e13c_bet_n_07_o02 <- csv2rwl("data/ring_data/raw/e13c/e13c.bet.n/e13c_bet_n_07/O/E13C.Bet.n.07.o02.csv")
-e13c_bet_n_07_o03 <- csv2rwl("data/ring_data/raw/e13c/e13c.bet.n/e13c_bet_n_07/O/E13C.Bet.n.07.o03.csv")
-e13c_bet_n_07_o04 <- csv2rwl("data/ring_data/raw/e13c/e13c.bet.n/e13c_bet_n_07/O/E13C.Bet.n.07.o04.csv")
-e13c_bet_n_07_o05 <- csv2rwl("data/ring_data/raw/e13c/e13c.bet.n/e13c_bet_n_07/O/E13C.Bet.n.07.o05.csv")
-e13c_bet_n_07_o06 <- csv2rwl("data/ring_data/raw/e13c/e13c.bet.n/e13c_bet_n_07/O/E13C.Bet.n.07.o06.csv")
-e13c_bet_n_07_o07 <- csv2rwl("data/ring_data/raw/e13c/e13c.bet.n/e13c_bet_n_07/O/E13C.Bet.n.07.o07.csv")
-e13c_bet_n_07_o08 <- csv2rwl("data/ring_data/raw/e13c/e13c.bet.n/e13c_bet_n_07/O/E13C.Bet.n.07.o08.csv")
+e13c_bet_n_07_o01 <- csv2rwl("data/ring_data/wedging_rings/e13c/e13c.bet.n/e13c_bet_n_07/O/E13C.Bet.n.07.o01.csv")
+e13c_bet_n_07_o02 <- csv2rwl("data/ring_data/wedging_rings/e13c/e13c.bet.n/e13c_bet_n_07/O/E13C.Bet.n.07.o02.csv")
+e13c_bet_n_07_o03 <- csv2rwl("data/ring_data/wedging_rings/e13c/e13c.bet.n/e13c_bet_n_07/O/E13C.Bet.n.07.o03.csv")
+e13c_bet_n_07_o04 <- csv2rwl("data/ring_data/wedging_rings/e13c/e13c.bet.n/e13c_bet_n_07/O/E13C.Bet.n.07.o04.csv")
+e13c_bet_n_07_o05 <- csv2rwl("data/ring_data/wedging_rings/e13c/e13c.bet.n/e13c_bet_n_07/O/E13C.Bet.n.07.o05.csv")
+e13c_bet_n_07_o06 <- csv2rwl("data/ring_data/wedging_rings/e13c/e13c.bet.n/e13c_bet_n_07/O/E13C.Bet.n.07.o06.csv")
+e13c_bet_n_07_o07 <- csv2rwl("data/ring_data/wedging_rings/e13c/e13c.bet.n/e13c_bet_n_07/O/E13C.Bet.n.07.o07.csv")
+e13c_bet_n_07_o08 <- csv2rwl("data/ring_data/wedging_rings/e13c/e13c.bet.n/e13c_bet_n_07/O/E13C.Bet.n.07.o08.csv")
 
 
 #remove the core year
@@ -66,7 +66,7 @@ write.rwl(e13c_bet_n_07_o, "data/ring_data/aligned/e13c/e13c.bet.n/e13c_bet_n_07
           e13c_bet_n_01_rwl.hdr,
           append = FALSE,
           prec = 0.001
-)
+          )
 
 #Data Analysis####
 ##Statistics####
@@ -84,7 +84,7 @@ print(e13c_bet_n_07_o_report)
 #Check the alignment of the series
 #graphs
 seg.plot(e13c_bet_n_07_o) #creates a segment plot
-spag.plot(e13c_bet_n_07_o, zfac=0.007,) #creates a spaghetti plot
+spag.plot(e13c_bet_n_07_o, zfac=0.02,) #creates a spaghetti plot
 title(main = "e13cbetn07o", adj = 0.48, line = 4, font.main = 2, cex.main = 1.6) #add title
 
 ##Analysis####
@@ -97,4 +97,3 @@ print(e13c_bet_n_07_o_inter)
 corr.rwl.seg(rwl = e13c_bet_n_07_o, seg.length = 8, bin.floor = 0, n = NULL, prewhiten = FALSE, pcrit = 0.05, biweight = FALSE, method = c("spearman"), make.plot = TRUE, label.cex = 1, floor.plus1 = FALSE, master = NULL) #coorelation analysis #too few observations! 
 
 title(main = "e13cbetn07o", adj = 0.48, line = 4, font.main = 2, cex.main = 1.6) #add title
-

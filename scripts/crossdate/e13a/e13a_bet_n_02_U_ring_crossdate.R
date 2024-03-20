@@ -2,10 +2,10 @@
 library(dplR)
 
 #Load the data####
-e13a_bet_n_02_u01 <- csv2rwl("data/ring_data/raw/e13a/e13a.bet.n/e13a_bet_n_02/u/E13A.Bet.n.02.u01.csv")
-e13a_bet_n_02_u03 <- csv2rwl("data/ring_data/raw/e13a/e13a.bet.n/e13a_bet_n_02/u/E13A.Bet.n.02.u03.csv")
-e13a_bet_n_02_u08 <- csv2rwl("data/ring_data/raw/e13a/e13a.bet.n/e13a_bet_n_02/u/E13A.Bet.n.02.u08.csv")
-e13a_bet_n_02_u14 <- csv2rwl("data/ring_data/raw/e13a/e13a.bet.n/e13a_bet_n_02/u/E13A.Bet.n.02.u14.csv")
+e13a_bet_n_02_u01 <- csv2rwl("data/ring_data/wedging_rings/e13a/e13a.bet.n/e13a_bet_n_02/u/E13A.Bet.n.02.u01.csv")
+e13a_bet_n_02_u03 <- csv2rwl("data/ring_data/wedging_rings/e13a/e13a.bet.n/e13a_bet_n_02/u/E13A.Bet.n.02.u03.csv")
+e13a_bet_n_02_u08 <- csv2rwl("data/ring_data/wedging_rings/e13a/e13a.bet.n/e13a_bet_n_02/u/E13A.Bet.n.02.u08.csv")
+e13a_bet_n_02_u14 <- csv2rwl("data/ring_data/wedging_rings/e13a/e13a.bet.n/e13a_bet_n_02/u/E13A.Bet.n.02.u14.csv")
 
 #remove the core year
 
@@ -88,5 +88,5 @@ corr.rwl.seg(rwl = e13a_bet_n_02_u, seg.length = 8, bin.floor = 0, n = NULL, pre
              biweight = FALSE, method = c("spearman"), 
              make.plot = TRUE, label.cex = 1, floor.plus1 = FALSE, master = NULL) #coorelation analysis #too few observations! 
 
-title(main = "e13abetn02s", adj = 0.48, line = 4, font.main = 2, cex.main = 1.6) #add title
+title(main = "e13abetn02u", adj = 0.48, line = 4, font.main = 2, cex.main = 1.6) #add title
 

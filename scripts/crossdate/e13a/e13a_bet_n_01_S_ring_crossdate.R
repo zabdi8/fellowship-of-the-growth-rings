@@ -1,13 +1,12 @@
 #Load packages####
 library(dplR)
 
-
 #Load the data####
-e13a_bet_n_01_s01 <- csv2rwl("data/ring_data/raw/e13a/e13a.bet.n/e13a_bet_n_01/s/E13A.Bet.n.01.s01.csv")
-e13a_bet_n_01_s02 <- csv2rwl("data/ring_data/raw/e13a/e13a.bet.n/e13a_bet_n_01/s/E13A.Bet.n.01.s02.csv")
-e13a_bet_n_01_s03 <- csv2rwl("data/ring_data/raw/e13a/e13a.bet.n/e13a_bet_n_01/s/E13A.Bet.n.01.s03.csv")
-e13a_bet_n_01_s04 <- csv2rwl("data/ring_data/raw/e13a/e13a.bet.n/e13a_bet_n_01/s/E13A.Bet.n.01.s04.csv")
-e13a_bet_n_01_s06 <- csv2rwl("data/ring_data/raw/e13a/e13a.bet.n/e13a_bet_n_01/s/E13A.Bet.n.01.s06.csv")
+e13a_bet_n_01_s01 <- csv2rwl("data/ring_data/wedging_rings/e13a/e13a.bet.n/e13a_bet_n_01/s/E13A.Bet.n.01.s01.csv")
+e13a_bet_n_01_s02 <- csv2rwl("data/ring_data/wedging_rings/e13a/e13a.bet.n/e13a_bet_n_01/s/E13A.Bet.n.01.s02.csv")
+e13a_bet_n_01_s03 <- csv2rwl("data/ring_data/wedging_rings/e13a/e13a.bet.n/e13a_bet_n_01/s/E13A.Bet.n.01.s03.csv")
+e13a_bet_n_01_s04 <- csv2rwl("data/ring_data/wedging_rings/e13a/e13a.bet.n/e13a_bet_n_01/s/E13A.Bet.n.01.s04.csv")
+e13a_bet_n_01_s06 <- csv2rwl("data/ring_data/wedging_rings/e13a/e13a.bet.n/e13a_bet_n_01/s/E13A.Bet.n.01.s06.csv")
 
 
 #remove the core year
@@ -17,8 +16,6 @@ e13a_bet_n_01_s02 <- e13a_bet_n_01_s02[-1, ]
 e13a_bet_n_01_s03 <- e13a_bet_n_01_s03[-1, ]
 e13a_bet_n_01_s04 <- e13a_bet_n_01_s04[-1, ]
 e13a_bet_n_01_s06 <- e13a_bet_n_01_s06[-1, ]
-
-
 
 #merge in a single data frame:####
 
@@ -32,9 +29,6 @@ e13a_bet_n_01_s03$row_names <- rownames(e13a_bet_n_01_s03)
 e13a_bet_n_01_s04$row_names <- rownames(e13a_bet_n_01_s04)
 e13a_bet_n_01_s06$row_names <- rownames(e13a_bet_n_01_s06)
 
-
-
-
 # Merge the data frames using Reduce and merge
 e13a_bet_n_01_s <- Reduce(function(x, y) merge(x, y, by = common_column, all = TRUE),
                           list(e13a_bet_n_01_s01, 
@@ -42,7 +36,7 @@ e13a_bet_n_01_s <- Reduce(function(x, y) merge(x, y, by = common_column, all = T
                                e13a_bet_n_01_s03,
                                e13a_bet_n_01_s04,
                                e13a_bet_n_01_s06)
-)
+                          )
 
 # Set row names and remove the extra column
 rownames(e13a_bet_n_01_s) <- e13a_bet_n_01_s[[common_column]]
@@ -90,12 +84,12 @@ title(main = "e13abetn01s", adj = 0.48, line = 5.5, font.main = 2, cex.main = 1.
 
 ##Analysis####
 
-e13a_bet_n_01_s_inter <- interseries.cor(e13a_bet_n_01_s, n = NULL, prewhiten = FALSE, biweight = FALSE, method = "spearman")        #correlation between series and master
-print(e13a_bet_n_01_s_inter)
+ e13a_bet_n_01_s_inter <- interseries.cor(e13a_bet_n_01_s, n = NULL, prewhiten = FALSE, biweight = FALSE, method = "spearman")        #correlation between series and master
+ print(e13a_bet_n_01_s_inter)
 
 ###General correlation####
 
-corr.rwl.seg(rwl = e13a_bet_n_01_s, seg.length = 8, bin.floor = 0, n = NULL, prewhiten = FALSE, pcrit = 0.05, biweight = FALSE, method = c("spearman"), make.plot = TRUE, label.cex = 1, floor.plus1 = FALSE, master = NULL) #coorelation analysis #too few observations! 
-
-title(main = "e13abetn01s", adj = 0.48, line = 4, font.main = 2, cex.main = 1.6) #add title
+ corr.rwl.seg(rwl = e13a_bet_n_01_s, seg.length = 8, bin.floor = 0, n = NULL, prewhiten = FALSE, pcrit = 0.05, biweight = FALSE, method = c("spearman"), make.plot = TRUE, label.cex = 1, floor.plus1 = FALSE, master = NULL) #coorelation analysis #too few observations! 
+ 
+ title(main = "e13abetn01s", adj = 0.48, line = 4, font.main = 2, cex.main = 1.6) #add title
 

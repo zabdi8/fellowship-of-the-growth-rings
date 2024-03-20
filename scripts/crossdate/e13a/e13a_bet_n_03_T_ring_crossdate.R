@@ -2,11 +2,11 @@
 library(dplR)
 
 #Load the data####
-e13a_bet_n_03_t01 <- csv2rwl("data/ring_data/raw/e13a/e13a.bet.n/e13a_bet_n_03/t/E13A.Bet.n.03.t01.csv")
-e13a_bet_n_03_t02 <- csv2rwl("data/ring_data/raw/e13a/e13a.bet.n/e13a_bet_n_03/t/E13A.Bet.n.03.t02.csv")
-e13a_bet_n_03_t03 <- csv2rwl("data/ring_data/raw/e13a/e13a.bet.n/e13a_bet_n_03/t/E13A.Bet.n.03.t03.csv")
-e13a_bet_n_03_t04 <- csv2rwl("data/ring_data/raw/e13a/e13a.bet.n/e13a_bet_n_03/t/E13A.Bet.n.03.t04.csv")
-e13a_bet_n_03_t05 <- csv2rwl("data/ring_data/raw/e13a/e13a.bet.n/e13a_bet_n_03/t/E13A.Bet.n.03.t05.csv")
+e13a_bet_n_03_t01 <- csv2rwl("data/ring_data/wedging_rings/e13a/e13a.bet.n/e13a_bet_n_03/t/E13A.Bet.n.03.t01.csv")
+e13a_bet_n_03_t02 <- csv2rwl("data/ring_data/wedging_rings/e13a/e13a.bet.n/e13a_bet_n_03/t/E13A.Bet.n.03.t02.csv")
+e13a_bet_n_03_t03 <- csv2rwl("data/ring_data/wedging_rings/e13a/e13a.bet.n/e13a_bet_n_03/t/E13A.Bet.n.03.t03.csv")
+e13a_bet_n_03_t04 <- csv2rwl("data/ring_data/wedging_rings/e13a/e13a.bet.n/e13a_bet_n_03/t/E13A.Bet.n.03.t04.csv")
+e13a_bet_n_03_t05 <- csv2rwl("data/ring_data/wedging_rings/e13a/e13a.bet.n/e13a_bet_n_03/t/E13A.Bet.n.03.t05.csv")
 
 #remove the core year
 e13a_bet_n_03_t01 <- e13a_bet_n_03_t01[-1, ]
@@ -86,9 +86,8 @@ print(e13a_bet_n_03_t_inter)
 
 ###General correlation####
 
-corr.rwl.seg(rwl = e13a_bet_n_03_t, seg.length = 8, bin.floor = 0, n = NULL, prewhiten = FALSE, pcrit = 0.05, 
+corr.rwl.seg(rwl = e13a_bet_n_03_t, seg.length = 6, bin.floor = 0, n = NULL, prewhiten = FALSE, pcrit = 0.05, 
              biweight = FALSE, method = c("spearman"), 
              make.plot = TRUE, label.cex = 1, floor.plus1 = FALSE, master = NULL) #coorelation analysis #too few observations! 
 
 title(main = "e13abetn03s", adj = 0.48, line = 4, font.main = 2, cex.main = 1.6) #add title
-

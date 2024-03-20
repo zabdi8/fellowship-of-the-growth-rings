@@ -1,14 +1,11 @@
 #Load packages####
 library(dplR)
-library(treeclim)
-library(reshape2)
-library(dplyr)
 
 #Load the data####
-e13c_bet_n_07_p01 <- csv2rwl("data/ring_data/raw/e13c/e13c.bet.n/e13c_bet_n_07/P/E13C.Bet.n.07.p01.csv")
-e13c_bet_n_07_p02 <- csv2rwl("data/ring_data/raw/e13c/e13c.bet.n/e13c_bet_n_07/P/E13C.Bet.n.07.p02.csv")
-e13c_bet_n_07_p03 <- csv2rwl("data/ring_data/raw/e13c/e13c.bet.n/e13c_bet_n_07/P/E13C.Bet.n.07.p03.csv")
-e13c_bet_n_07_p04 <- csv2rwl("data/ring_data/raw/e13c/e13c.bet.n/e13c_bet_n_07/P/E13C.Bet.n.07.p04.csv")
+e13c_bet_n_07_p01 <- csv2rwl("data/ring_data/wedging_rings/e13c/e13c.bet.n/e13c_bet_n_07/P/E13C.Bet.n.07.p01.csv")
+e13c_bet_n_07_p02 <- csv2rwl("data/ring_data/wedging_rings/e13c/e13c.bet.n/e13c_bet_n_07/P/E13C.Bet.n.07.p02.csv")
+e13c_bet_n_07_p03 <- csv2rwl("data/ring_data/wedging_rings/e13c/e13c.bet.n/e13c_bet_n_07/P/E13C.Bet.n.07.p03.csv")
+e13c_bet_n_07_p04 <- csv2rwl("data/ring_data/wedging_rings/e13c/e13c.bet.n/e13c_bet_n_07/P/E13C.Bet.n.07.p04.csv")
 
 
 #remove the core year
@@ -30,15 +27,13 @@ e13c_bet_n_07_p02$row_names <- rownames(e13c_bet_n_07_p02)
 e13c_bet_n_07_p03$row_names <- rownames(e13c_bet_n_07_p03)
 e13c_bet_n_07_p04$row_names <- rownames(e13c_bet_n_07_p04)
 
-
-
 # Merge the data frames using Reduce and merge
 e13c_bet_n_07_p <- Reduce(function(x, y) merge(x, y, by = common_column, all = TRUE),
                           list(e13c_bet_n_07_p01,
                                e13c_bet_n_07_p02, 
                                e13c_bet_n_07_p03, 
                                e13c_bet_n_07_p04)
-)
+                          )
 
 # Set row names and remove the extra column
 rownames(e13c_bet_n_07_p) <- e13c_bet_n_07_p[[common_column]]
@@ -53,7 +48,7 @@ write.rwl(e13c_bet_n_07_p, "data/ring_data/aligned/e13c/e13c.bet.n/e13c_bet_n_07
           e13c_bet_n_01_rwl.hdr,
           append = FALSE,
           prec = 0.001
-)
+          )
 
 #Data Analysis####
 ##Statistics####
@@ -63,7 +58,7 @@ print(e13c_bet_n_07_p_stats)
 e13c_bet_n_07_p_ms <- sens2(e13c_bet_n_07_p) #calculates the mean sensitivity
 print(e13c_bet_n_07_p_ms)
 
-e13c_bet_n_07_p_report <- rwl.report(e13c_bet_n_07_p)  #report on rwl #there's too few observations to make the analysis
+e13c_bet_n_07_p_report <- rwl.report(e13c_bet_n_07_p)  #report on rwl 
 print(e13c_bet_n_07_p_report)
 
 ##Cross-dating and alignment####
@@ -71,7 +66,7 @@ print(e13c_bet_n_07_p_report)
 #Check the alignment of the series
 #graphs
 seg.plot(e13c_bet_n_07_p) #creates a segment plot
-spag.plot(e13c_bet_n_07_p, zfac=0.007,) #creates a spaghetti plot
+spag.plot(e13c_bet_n_07_p, zfac=0.01) #creates a spaghetti plot
 title(main = "e13cbetn07p", adj = 0.48, line = 5.5, font.main = 2, cex.main = 1.6) #add title
 
 ##Analysis####

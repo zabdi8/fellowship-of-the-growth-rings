@@ -55,15 +55,16 @@ head(e13a_bet_n_01_short)
 colnames(e13a_bet_n_01_short)
 
 #Data Analysis####
-e13a_bet_n_01_filtered <- subset(e13a_bet_n_01_short, rownames(e13a_bet_n_01_short) > 1999)
 ##Statistics####
-e13a_bet_n_01_stats <- rwl.stats(e13a_bet_n_01_filtered) #summary and stats
+
+e13a_bet_n_01_stats <- rwl.stats(e13a_bet_n_01) #summary and stats
 print(e13a_bet_n_01_stats)
 
-e13a_bet_n_01_ms <- sens2(e13a_bet_n_01_filtered) #calculates the mean sensitivity
+e13a_bet_n_01_ms <- sens2(e13a_bet_n_01) #calculates the mean sensitivity
 print(e13a_bet_n_01_ms)
 
-e13a_bet_n_01_report <- rwl.report(e13a_bet_n_01_filtered)  #report on rwl
+e13a_bet_n_01_report <- rwl.report(e13a_bet_n_01)
+  #report on rwl
 print(e13a_bet_n_01_report)
 
 ##Cross-dating and alignment####
@@ -248,12 +249,7 @@ title(main = "e13abetn01", adj = 0.48, line = 5.2, font.main = 2, cex.main = 1.2
 spag.plot(e13a_bet_n_01_average, zfac=0.009,) #creates a spaghetti plot
 title(main = "e13abetn01", adj = 0.48, line = 5.2, font.main = 2, cex.main = 1.2) #add title
 
-#filter data for 2000s
-
-e13a_bet_n_01_average_filtered <- subset(e13a_bet_n_01_average, rownames(e13a_bet_n_01_average) > 1999)
-spag.plot(e13a_bet_n_01_average_filtered, zfac=0.01, cex = 0.3) #creates a spaghetti plot
-title(main = "e13abetn01", adj = 0.48, line = 5.2, font.main = 2, cex.main = 1.2) #add title
-
+#short names
 e13a_bet_n_01_ave_short <- e13a_bet_n_01_average
 
 new_colnames <- sub("^E13ABetn01", "", colnames(e13a_bet_n_01_ave_short))
@@ -267,8 +263,3 @@ colnames(e13a_bet_n_01_ave_short)
 spag.plot(e13a_bet_n_01_ave_short, zfac=0.01,) #creates a spaghetti plot
 title(main = "e13abetn01 (Average)", adj = 0.48, line = 5.2, font.main = 2, cex.main = 1.2) #add title
 
-
-#filter data for 2000s
-e13a_bet_n_01_average_short_filtered <- subset(e13a_bet_n_01_ave_short, rownames(e13a_bet_n_01_ave_short) > 1999)
-spag.plot(e13a_bet_n_01_average_short_filtered, zfac=0.01, cex = 0.3) #creates a spaghetti plot
-title(main = "e13abetn01 (Average)", adj = 0.48, line = 5.2, font.main = 2, cex.main = 1.2) #add title

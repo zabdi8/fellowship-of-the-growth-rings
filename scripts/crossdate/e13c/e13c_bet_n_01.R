@@ -1,10 +1,5 @@
 #loading packages
 library(dplR)
-library(dplyr)
-library(ggplot2)
-library(ggvis)
-library(gridExtra)  ## required to arrange ggplot2 plots in a grid
-
 
 #load rwl files
 e13c_bet_n_01_R <- read.rwl("data/ring_data/aligned/e13c/e13c.bet.n/e13c_bet_n_01/r/e13c_bet_n_01_R_aligned")
@@ -13,7 +8,6 @@ e13c_bet_n_01_T <- read.rwl("data/ring_data/aligned/e13c/e13c.bet.n/e13c_bet_n_0
 e13c_bet_n_01_U <- read.rwl("data/ring_data/aligned/e13c/e13c.bet.n/e13c_bet_n_01/u/e13c_bet_n_01_U")
 
 # merge the data
-
 
 # Specify the common column for merging
 common_column <- "row_names"
@@ -27,15 +21,14 @@ e13c_bet_n_01_U$row_names <- rownames(e13c_bet_n_01_U)
 
 # Merge the data frames using Reduce and merge
 e13c_bet_n_01 <- Reduce(function(x, y) merge(x, y, by = common_column, all = TRUE),
-                          list(e13c_bet_n_01_R, e13c_bet_n_01_S, e13c_bet_n_01_T,e13c_bet_n_01_U))
+                          list(e13c_bet_n_01_R, 
+                               e13c_bet_n_01_S, 
+                               e13c_bet_n_01_T,
+                               e13c_bet_n_01_U))
 
 # Set row names and remove the extra column
 rownames(e13c_bet_n_01) <- e13c_bet_n_01[[common_column]]
 e13c_bet_n_01[[common_column]] <- NULL
-
-# Remove columns with suffixes .x and .y
-e13c_bet_n_01 <- e13c_bet_n_01 %>%
-  select(-matches("\\.x$"), -matches("\\.y$"))
 
 # View the resulting data frame
 View(e13c_bet_n_01)
@@ -186,7 +179,7 @@ write.rwl(e13c_bet_n_01_average, "data/ring_data/aligned/e13c/e13c.bet.n/e13c_be
           e13c_bet_n_01_rwl.hdr,
           append = FALSE,
           prec = 0.001
-)
+          )
 
 #analysis####
 ##Statistics####

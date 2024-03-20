@@ -13,6 +13,8 @@ extract_a13a_01_roots <- grep("^E13ABetn01[o0o1p0p1q0q1r0r1]", names(e13a_bet_n_
 e13a_01_roots <- e13a_bet_n_01[, extract_a13a_01_roots]
 colnames(e13a_01_roots)
 
+head(e13a_01_roots)
+
 #Stem##
 extract_a13a_01_stem <- grep("^E13ABetn01[s0s1]", names(e13a_bet_n_01), value = TRUE)
 e13a_01_stem <- e13a_bet_n_01[, extract_a13a_01_stem]

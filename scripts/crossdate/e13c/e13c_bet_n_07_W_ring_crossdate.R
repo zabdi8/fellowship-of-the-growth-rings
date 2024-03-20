@@ -2,9 +2,9 @@
 library(dplR)
 
 #Load the data####
-e13c_bet_n_07_w01 <- csv2rwl("data/ring_data/raw/e13c/e13c.bet.n/e13c_bet_n_07/W/E13C.Bet.n.07.w01.csv")
-e13c_bet_n_07_w02 <- csv2rwl("data/ring_data/raw/e13c/e13c.bet.n/e13c_bet_n_07/W/E13C.Bet.n.07.w02.csv")
-e13c_bet_n_07_w04 <- csv2rwl("data/ring_data/raw/e13c/e13c.bet.n/e13c_bet_n_07/W/E13C.Bet.n.07.w04.csv")
+e13c_bet_n_07_w01 <- csv2rwl("data/ring_data/wedging_rings/e13c/e13c.bet.n/e13c_bet_n_07/W/E13C.Bet.n.07.w01.csv")
+e13c_bet_n_07_w02 <- csv2rwl("data/ring_data/wedging_rings/e13c/e13c.bet.n/e13c_bet_n_07/W/E13C.Bet.n.07.w02.csv")
+e13c_bet_n_07_w04 <- csv2rwl("data/ring_data/wedging_rings/e13c/e13c.bet.n/e13c_bet_n_07/W/E13C.Bet.n.07.w04.csv")
 
 
 #remove the core year
@@ -31,7 +31,7 @@ e13c_bet_n_07_w <- Reduce(function(x, y) merge(x, y, by = common_column, all = T
                           list(e13c_bet_n_07_w01, 
                                e13c_bet_n_07_w02, 
                                e13c_bet_n_07_w04)
-)
+                          )
 
 # Set row names and remove the extra column
 rownames(e13c_bet_n_07_w) <- e13c_bet_n_07_w[[common_column]]
@@ -46,7 +46,7 @@ write.rwl(e13c_bet_n_07_w, "data/ring_data/aligned/e13c/e13c.bet.n/e13c_bet_n_07
           e13c_bet_n_01_rwl.hdr,
           append = FALSE,
           prec = 0.001
-)
+          )
 
 #Data Analysis####
 ##Statistics####

@@ -1,21 +1,12 @@
 #Load packages####
 library(dplR)
-library(ggplot2)
-library(tidyverse)
-library(wesanderson)
-library(signal)
-library(shiny)
-library(treeclim)
-library(ggplot2)
-library(reshape2)
-library(dplyr)
 
 #Load the data####
-e13c_bet_n_01_t01 <- csv2rwl("data/ring_data/raw/e13c/e13c.bet.n/e13c_bet_n_01_/T/E13C.Bet.n.01.t01.csv")
-e13c_bet_n_01_t02 <- csv2rwl("data/ring_data/raw/e13c/e13c.bet.n/e13c_bet_n_01_/T/E13C.Bet.n.01.t02.csv")
-e13c_bet_n_01_t03 <- csv2rwl("data/ring_data/raw/e13c/e13c.bet.n/e13c_bet_n_01_/T/E13C.Bet.n.01.t03.csv")
-e13c_bet_n_01_t04 <- csv2rwl("data/ring_data/raw/e13c/e13c.bet.n/e13c_bet_n_01_/T/E13C.Bet.n.01.t04.csv")
-e13c_bet_n_01_t05 <- csv2rwl("data/ring_data/raw/e13c/e13c.bet.n/e13c_bet_n_01_/T/E13C.Bet.n.01.t05.csv", fill = TRUE)
+e13c_bet_n_01_t01 <- csv2rwl("data/ring_data/wedging_rings/e13c/e13c.bet.n/e13c_bet_n_01/T/E13C.Bet.n.01.t01.csv")
+e13c_bet_n_01_t02 <- csv2rwl("data/ring_data/wedging_rings/e13c/e13c.bet.n/e13c_bet_n_01/T/E13C.Bet.n.01.t02.csv")
+e13c_bet_n_01_t03 <- csv2rwl("data/ring_data/wedging_rings/e13c/e13c.bet.n/e13c_bet_n_01/T/E13C.Bet.n.01.t03.csv")
+e13c_bet_n_01_t04 <- csv2rwl("data/ring_data/wedging_rings/e13c/e13c.bet.n/e13c_bet_n_01/T/E13C.Bet.n.01.t04.csv")
+e13c_bet_n_01_t05 <- csv2rwl("data/ring_data/wedging_rings/e13c/e13c.bet.n/e13c_bet_n_01/T/E13C.Bet.n.01.t05.csv")
 
 #remove the core year
 
@@ -40,7 +31,12 @@ e13c_bet_n_01_t05$row_names <- rownames(e13c_bet_n_01_t05)
 
 # Merge the data frames using Reduce and merge
 e13c_bet_n_01_t <- Reduce(function(x, y) merge(x, y, by = common_column, all = TRUE),
-                          list(e13c_bet_n_01_t01, e13c_bet_n_01_t02, e13c_bet_n_01_t03, e13c_bet_n_01_t04,e13c_bet_n_01_t05))
+                          list(e13c_bet_n_01_t01,
+                               e13c_bet_n_01_t02,
+                               e13c_bet_n_01_t03,
+                               e13c_bet_n_01_t04,
+                               e13c_bet_n_01_t05)
+                          )
 
 # Set row names and remove the extra column
 rownames(e13c_bet_n_01_t) <- e13c_bet_n_01_t[[common_column]]
@@ -55,7 +51,7 @@ write.rwl(e13c_bet_n_01_t, "data/ring_data/aligned/e13c/e13c.bet.n/e13c_bet_n_01
           e13c_bet_n_01_rwl.hdr,
           append = FALSE,
           prec = 0.001
-)
+          )
 
 #Data Analysis####
 ##Statistics####
@@ -85,7 +81,3 @@ print(e13c_bet_n_01_t_inter)
 corr.rwl.seg(rwl = e13c_bet_n_01_t, seg.length = 4, bin.floor = 0, n = NULL, prewhiten = FALSE, pcrit = 0.05, biweight = FALSE, method = c("spearman"), make.plot = TRUE, label.cex = 1, floor.plus1 = FALSE, master = NULL) #coorelation analysis
 
 title(main = "e13cbetn01t", adj = 0.48, line = 4, font.main = 2, cex.main = 1.6) #add title
-
-
-
-
