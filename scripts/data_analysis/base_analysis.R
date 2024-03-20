@@ -104,7 +104,6 @@ ggplot(base_e13a, aes(x=x, y=correlation, color = category)) +
   labs(x = "Individuals (E13a)", y = "Base correlation to body parts") +
   theme_minimal()+
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
-  # facet_wrap(~x, scales="free_x")
 
 ggsave("figures/rings/base_correlation/base_to_e13a.jpg", width = 7, height = 4)
 

@@ -161,7 +161,7 @@ ggplot(e13_temperatures_air_long, aes(x = mean, y = site)) +
 ggsave("figures/climate/mean_comparison.jpg", width = 7, height = 5)
 
 #plotting minimum temperature
-ggplot(e13_temperatures_air_long, aes(x = min, y = site)) +
+ggplot(e13_temperatures_air_long, aes(x = day_of_year, y = min)) +
   geom_density_ridges_gradient(scale = 2.5, rel_min_height = 0.01, fill = viridis(2048)) +
   scale_fill_viridis_c(name = "Temperature [°C]", option = "C") +
   labs(y = 'Sites', x = "Minimum Temperature (°C)") +
@@ -185,6 +185,5 @@ ggplot(e13_temperatures_air_long, aes(x = max, y = site)) +
     panel.spacing = unit(0.1, "lines"),
     axis.text.y = element_text(size = 8)
   )
-
+head(e13_temperatures_air_long)
 ggsave("figures/climate/max_comparison.jpg", width = 7, height = 4)
-
