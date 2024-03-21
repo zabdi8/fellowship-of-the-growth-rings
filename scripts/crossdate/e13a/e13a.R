@@ -43,7 +43,7 @@ write.rwl(e13a, "data/ring_data/aligned/e13a/e13a.rwl",
           e13c_bet_n_01_rwl.hdr,
           append = FALSE,
           prec = 0.001
-)
+          )
 
 #reduce the names for easy view
 e13a_short <- e13a

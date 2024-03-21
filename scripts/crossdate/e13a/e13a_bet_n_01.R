@@ -221,7 +221,7 @@ e13a_bet_n_01_average <- round(e13a_bet_n_01_average, digits = 3) #round to 3 di
 
 View(e13a_bet_n_01_average)
 
-write.rwl(e13a_bet_n_01_average, "data/ring_data/aligned/e13a/e13c.bet.n/e13a_bet_n_01_average.rwl", 
+write.rwl(e13a_bet_n_01_average, "data/ring_data/aligned/e13a/e13a.bet.n/e13a_bet_n_01_average.rwl", 
           format = "compact",
           e13c_bet_n_01_rwl.hdr,
           append = FALSE,
@@ -262,4 +262,3 @@ colnames(e13a_bet_n_01_ave_short)
 
 spag.plot(e13a_bet_n_01_ave_short, zfac=0.01,) #creates a spaghetti plot
 title(main = "e13abetn01 (Average)", adj = 0.48, line = 5.2, font.main = 2, cex.main = 1.2) #add title
-

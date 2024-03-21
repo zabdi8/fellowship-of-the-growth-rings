@@ -137,7 +137,7 @@ write.rwl(e13v_average, "data/ring_data/aligned/e13v/e13v_average.rwl",
           e13c_bet_n_01_rwl.hdr,
           append = FALSE,
           prec = 0.001
-)
+          )
 
 #reduce the names for easy view
 e13v_ave_short <- e13v_average
