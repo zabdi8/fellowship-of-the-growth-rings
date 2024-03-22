@@ -99,13 +99,14 @@ category_palette <- c("below_ground" = "#F1BB7B", "above_ground" = "#0B775E")
 
 ggplot(base_e13a, aes(x=x, y=correlation, color = category)) +
   geom_boxplot(width=.2, fill = "white", color = "black") +
-  geom_jitter(width=0.1) +
+  geom_jitter(width=0.1, alpha = 0.6) +
   scale_color_manual(values = category_palette) +
-  labs(x = "Individuals (E13a)", y = "Base correlation to body parts") +
+  labs(x = "Individuals (E13A)", y = "Base correlation to body parts", color = "Position") +
   theme_minimal()+
-  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+  #theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
+  coord_cartesian(ylim = c(-1,1))
 
-ggsave("figures/rings/base_correlation/base_to_e13a.jpg", width = 7, height = 4)
+ggsave("figures/rings/base_correlation/all_sections/base_to_e13a.jpg", width = 7, height = 4)
 
 #E13C####
 ##E13C_01####
@@ -205,12 +206,13 @@ base_e13c <- rbind(
 
 ggplot(base_e13c, aes(x=x, y=correlation, color = category)) +
   geom_boxplot(width=.2, fill = "white", color = "black") +
-  geom_jitter(width=0.1) +
+  geom_jitter(width=0.1, alpha = 0.6) +
   scale_color_manual(values = category_palette) +
-  labs(x = "Individuals (E13C)", y = "Base correlation to body parts") +
-  theme_minimal() 
+  labs(x = "Individuals (E13C)", y = "Base correlation to body parts", color = "Position") +
+  theme_minimal()+
+  coord_cartesian(ylim = c(-1,1))
 
-ggsave("figures/rings/base_correlation/base_to_e13c.jpg", width = 7, height = 4)
+ggsave("figures/rings/base_correlation/all_sections/base_to_e13c.jpg", width = 7, height = 4)
 
 #E13D####
 ##E13D_01####
@@ -253,7 +255,7 @@ E13D_02_cor_df_long <- pivot_longer(E13D_02_cor_df, -variable, names_to = "secti
 E13D_02_cor_df_long$category <- ifelse(grepl("^E13DBetn02[oprq]", E13D_02_cor_df_long$section), 
                                        "below_ground", "above_ground")
 
-##E13C_03####
+##E13D_03####
 e13d_bet_n_03_average <- read.rwl("data/ring_data/aligned/e13d/e13d.bet.n/e13d_bet_n_03_average.rwl")
 E13D03base_cor_rest <- cor(e13d_bet_n_03_average$E13DBetn03s01, e13d_bet_n_03_average, 
                            use = "pairwise.complete.obs", method = "spearman")
@@ -308,12 +310,13 @@ base_e13d <- rbind(
 #plot the df in boxplots
 ggplot(base_e13d, aes(x=x, y=correlation, color = category)) +
   geom_boxplot(width=.2, fill = "white", color = "black") +
-  geom_jitter(width=0.1) +
+  geom_jitter(width=0.1, alpha = 0.6) +
   scale_color_manual(values = category_palette) +
-  labs(x = "Individuals (E13C)", y = "Base correlation to body parts") +
-  theme_minimal() 
+  labs(x = "Individuals (E13D)", y = "Base correlation to body parts", color = "Position") +
+  theme_minimal()+
+  coord_cartesian(ylim = c(-1,1))
 
-ggsave("figures/rings/base_correlation/base_to_e13d.jpg", width = 7, height = 4)
+ggsave("figures/rings/base_correlation/all_sections/base_to_e13d.jpg", width = 7, height = 4)
 
 #E13V####
 ##E13V_01####
@@ -412,11 +415,13 @@ base_e13v <- rbind(
 #plot the df in boxplots
 ggplot(base_e13v, aes(x=x, y=correlation, color = category)) +
   geom_boxplot(width=.2, fill = "white", color = "black") +
-  geom_jitter(width=0.1) +
+  geom_jitter(width=0.1, alpha = 0.6) +
   scale_color_manual(values = category_palette) +
-  labs(x = "Individuals (E13V)", y = "Base correlation to body parts") +
-  theme_minimal() 
-ggsave("figures/rings/base_correlation/base_to_e13v.jpg", width = 7, height = 4)
+  labs(x = "Individuals (E13V)", y = "Base correlation to body parts", color = "Position") +
+  theme_minimal()+
+  coord_cartesian(ylim = c(-1,1))
+
+ggsave("figures/rings/base_correlation/all_sections/base_to_e13v.jpg", width = 7, height = 4)
 
 #All areas####
 
@@ -433,10 +438,11 @@ ggplot(base_e13_site, aes(x=x, y=correlation, color = category)) +
   geom_boxplot(width=.2, fill = "white", color = "black") +
   geom_jitter(width=0.1, alpha = 0.6) +
   scale_color_manual(values = category_palette) +
-  labs(x = "Sites", y = "Base correlation to body parts") +
-  theme_minimal() 
+  labs(x = "Sites", y = "Base correlation to body parts", color = "Position") +
+  theme_minimal()+
+  coord_cartesian(ylim = c(-1,1))
 
-ggsave("figures/rings/base_correlation/base_to_sites.jpg", width = 7, height = 4)
+ggsave("figures/rings/base_correlation/all_sections/base_to_sites.jpg", width = 7, height = 4)
 
 #individual per area
 base_e13_all <- rbind(
@@ -449,13 +455,14 @@ base_e13_all <- rbind(
 #plot the df in boxplots
 ggplot(base_e13_all, aes(x=x, y=correlation, color = category)) +
   geom_boxplot(width=.2, fill = "white", color = "black") +
-  geom_jitter(width=0.1) +
+  geom_jitter(width=0.1, alpha = 0.6) +
   scale_color_manual(values = category_palette) +
-  labs(x = "Sites", y = "Base correlation to body parts") +
+  labs(x = "Sites", y = "Base correlation to body parts", color = "Position") +
   theme_minimal() +
-  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
+  coord_cartesian(ylim = c(-1,1))
 
-ggsave("figures/rings/base_correlation/base_to_sites_individuals.jpg", width = 7, height = 4)
+ggsave("figures/rings/base_correlation/all_sections/base_to_sites_individuals.jpg", width = 7, height = 4)
 
 
 #Analysis of above and below correlations####
@@ -499,9 +506,10 @@ ggplot(base_e13a, aes(x=category, y=correlation, color = x)) +
   #scale_color_manual(values = site_palette) +
   #scale_shape_manual(values = as.factor(base_e13a$shape))+
   labs(x = "Position from ground", y = "Base correlation to body parts", color = "Individual") +
-  theme_minimal()
+  theme_minimal()+
+  coord_cartesian(ylim = c(-1,1))
 
-ggsave("figures/rings/base_correlation/base_to_positon_e13a.jpg", width = 7, height = 4)
+ggsave("figures/rings/base_correlation/all_sections/base_to_positon_e13a.jpg", width = 7, height = 4)
 
 #E13c
 ggplot(base_e13c, aes(x=category, y=correlation, color = x)) +
@@ -509,10 +517,11 @@ ggplot(base_e13c, aes(x=category, y=correlation, color = x)) +
   geom_jitter(width=0.09, alpha = 0.5) +
   #scale_color_manual(values = category_palette) +
   #scale_shape_manual(values = as.factor(base_e13a$shape))+
-  labs(x = "Individuals (E13A)", y = "Base correlation to body parts", color = "Individual") +
-  theme_minimal()
+  labs(x = "Position from ground", y = "Base correlation to body parts", color = "Individual") +
+  theme_minimal()+
+  coord_cartesian(ylim = c(-1,1))
 
-ggsave("figures/rings/base_correlation/base_to_positon_e13c.jpg", width = 7, height = 4)
+ggsave("figures/rings/base_correlation/all_sections/base_to_positon_e13c.jpg", width = 7, height = 4)
 
 #E13d
 ggplot(base_e13d, aes(x=category, y=correlation, color = x)) +
@@ -520,10 +529,11 @@ ggplot(base_e13d, aes(x=category, y=correlation, color = x)) +
   geom_jitter(width=0.09, alpha = 0.5) +
   #scale_color_manual(values = category_palette) +
   #scale_shape_manual(values = as.factor(base_e13a$shape))+
-  labs(x = "Individuals (E13A)", y = "Base correlation to body parts", color = "Individual") +
-  theme_minimal()
+  labs(x = "Position from ground", y = "Base correlation to body parts", color = "Individual") +
+  theme_minimal()+
+  coord_cartesian(ylim = c(-1,1))
 
-ggsave("figures/rings/base_correlation/base_to_positon_e13d.jpg", width = 7, height = 4)
+ggsave("figures/rings/base_correlation/all_sections/base_to_positon_e13d.jpg", width = 7, height = 4)
 
 #E13v
 ggplot(base_e13v, aes(x=category, y=correlation, color = x)) +
@@ -531,10 +541,11 @@ ggplot(base_e13v, aes(x=category, y=correlation, color = x)) +
   geom_jitter(width=0.09, alpha = 0.5) +
   #scale_color_manual(values = category_palette) +
   #scale_shape_manual(values = as.factor(base_e13a$shape))+
-  labs(x = "Individuals (E13A)", y = "Base correlation to body parts", color = "Individual") +
-  theme_minimal()
+  labs(x = "Position from ground", y = "Base correlation to body parts", color = "Individual") +
+  theme_minimal()+
+  coord_cartesian(ylim = c(-1,1))
 
-ggsave("figures/rings/base_correlation/base_to_positon_e13v.jpg", width = 7, height = 4)
+ggsave("figures/rings/base_correlation/all_sections/base_to_positon_e13v.jpg", width = 7, height = 4)
 
 #all sites
 #category (all sites comparing above vs below)
@@ -544,9 +555,10 @@ ggplot(base_e13_site, aes(x=category, y=correlation, color = x)) +
   scale_color_manual(values = site_palette) +
   #scale_shape_manual(values = as.factor(base_e13a$shape))+
   labs(x = "Position from ground", y = "Base correlation to body parts", color = "Individual") +
-  theme_minimal()
+  theme_minimal()+
+  coord_cartesian(ylim = c(-1,1))
 
-ggsave("figures/rings/base_correlation/base_to_positon.jpg", width = 7, height = 4)
+ggsave("figures/rings/base_correlation/all_sections/base_to_positon.jpg", width = 7, height = 4)
 
 #above
 
@@ -556,9 +568,11 @@ ggplot(base_e13_site[base_e13_site$category == "above_ground", ],
   geom_jitter(width=0.1, alpha= 0.5) +
   scale_color_manual(values = site_palette) +
   labs(x = "Sites", y = "Base correlation to body parts above ground", color = "Sites") +
-  theme_minimal() 
+  guides(color = F) +
+  theme_minimal()+
+  coord_cartesian(ylim = c(-1,1))
 
-ggsave("figures/rings/base_correlation/base_to_positon_above.jpg", width = 7, height = 4)
+ggsave("figures/rings/base_correlation/all_sections/base_to_positon_above.jpg", width = 7, height = 4)
 
 #below
 
@@ -568,9 +582,11 @@ ggplot(base_e13_site[base_e13_site$category == "below_ground", ],
   geom_jitter(width=0.1, alpha= 0.5) +
   scale_color_manual(values = site_palette) +
   labs(x = "Sites", y = "Base correlation to body parts below ground", color = "Sites") +
-  theme_minimal() 
+  guides(color = F)+
+  theme_minimal()+
+  coord_cartesian(ylim = c(-1,1))
 
-ggsave("figures/rings/base_correlation/base_to_positon_below.jpg", width = 7, height = 4)
+ggsave("figures/rings/base_correlation/all_sections/base_to_positon_below.jpg", width = 7, height = 4)
 
 #all above
 ggplot(base_e13_all[base_e13_site$category == "above_ground", ],
@@ -580,9 +596,11 @@ ggplot(base_e13_all[base_e13_site$category == "above_ground", ],
   scale_color_manual(values = site_palette) +
   labs(x = "Sites", y = "Base correlation to body parts above ground", color = "Sites") +
   theme_minimal()+
-  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
+  guides(color = F)+
+  coord_cartesian(ylim = c(-1,1))
 
-ggsave("figures/rings/base_correlation/base_to_positon_above_individuals.jpg", width = 7, height = 4)
+ggsave("figures/rings/base_correlation/all_sections/base_to_positon_above_individuals.jpg", width = 7, height = 4)
 
 #all below
 ggplot(base_e13_all[base_e13_site$category == "below_ground", ],
@@ -592,6 +610,8 @@ ggplot(base_e13_all[base_e13_site$category == "below_ground", ],
   scale_color_manual(values = site_palette) +
   labs(x = "Sites", y = "Base correlation to body parts below ground", color = "Sites") +
   theme_minimal()+
-  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
+  guides(color = F)+
+  coord_cartesian(ylim = c(-1,1))
 
-ggsave("figures/rings/base_correlation/base_to_positon_below_individuals.jpg", width = 7, height = 4)
+ggsave("figures/rings/base_correlation/all_sections/base_to_positon_below_individuals.jpg", width = 7, height = 4)
