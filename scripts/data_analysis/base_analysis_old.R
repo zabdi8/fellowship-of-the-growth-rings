@@ -780,3 +780,268 @@ ggplot(base_e13_old_all[base_e13_old_all$category == "below_ground", ],
 
 ggsave("figures/rings/base_correlation/old_sections/base_to_position_below_individuals_old.jpg", 
        width = 7, height = 4)
+
+#Summary table####
+#E13A####
+correlations_E13A_01 <- merge(E13A_01_cor_df_long, E13A_01_old_cor_df_long, 
+                              by = "section", 
+                              all = TRUE,
+                              suffixes = c("_cor", "_old"))
+
+correlations_E13A_01$variable_cor <- NULL
+correlations_E13A_01$variable_old <- NULL
+correlations_E13A_01$category_cor <- NULL
+colnames(correlations_E13A_01)[colnames(correlations_E13A_01) == "e13a01_correlation_cor"] <- "corr_full"
+colnames(correlations_E13A_01)[colnames(correlations_E13A_01) == "e13a01_correlation_old"] <- "corr_old"
+
+correlations_E13A_02 <- merge(E13A_02_cor_df_long, E13A_02_old_cor_df_long, 
+                              by = "section", 
+                              all = TRUE,
+                              suffixes = c("_cor", "_old"))
+
+correlations_E13A_02$variable_cor <- NULL
+correlations_E13A_02$variable_old <- NULL
+correlations_E13A_02$category_cor <- NULL
+colnames(correlations_E13A_02)[colnames(correlations_E13A_02) == "e13a02_correlation_cor"] <- "corr_full"
+colnames(correlations_E13A_02)[colnames(correlations_E13A_02) == "e13a02_correlation_old"] <- "corr_old"
+
+correlations_E13A_03 <- merge(E13A_03_cor_df_long, E13A_03_old_cor_df_long, 
+                              by = "section", 
+                              all = TRUE,
+                              suffixes = c("_cor", "_old"))
+
+correlations_E13A_03$variable_cor <- NULL
+correlations_E13A_03$variable_old <- NULL
+correlations_E13A_03$category_cor <- NULL
+colnames(correlations_E13A_03)[colnames(correlations_E13A_03) == "e13a03_correlation_cor"] <- "corr_full"
+colnames(correlations_E13A_03)[colnames(correlations_E13A_03) == "e13a03_correlation_old"] <- "corr_old"
+
+correlations_E13A <- rbind(data.frame(correlations_E13A_01),
+                           data.frame(correlations_E13A_02),
+                           data.frame(correlations_E13A_03)
+                           )
+correlations_E13A$corr_rec <- NA
+
+colnames(correlations_E13A)
+view(correlations_E13A)
+
+#E13C####
+correlations_E13C_01 <- merge(x = merge(E13C_01_cor_df_long,
+                                        E13C_01_old_cor_df_long, 
+                                        by = "section",
+                                        all = TRUE,
+                                        suffixes = c("_cor", "_old")),
+                              y = E13C_01_recent_cor_df_long, 
+                              by = "section", 
+                              all = TRUE, 
+                              suffixes = "_rec")
+
+correlations_E13C_01$variable_cor <- NULL
+correlations_E13C_01$variable_old <- NULL
+correlations_E13C_01$variable <- NULL
+correlations_E13C_01$category_old <- NULL
+correlations_E13C_01$category <- NULL
+colnames(correlations_E13C_01)[colnames(correlations_E13C_01) == "e13c01_correlation_cor"] <- "corr_full"
+colnames(correlations_E13C_01)[colnames(correlations_E13C_01) == "e13c01_correlation_old"] <- "corr_old"
+colnames(correlations_E13C_01)[colnames(correlations_E13C_01) == "e13c01_correlation"] <- "corr_rec"
+
+correlations_E13C_03 <- merge(x = merge(E13C_03_cor_df_long,
+                                        E13C_03_old_cor_df_long, 
+                                        by = "section",
+                                        all = TRUE,
+                                        suffixes = c("_cor", "_old")),
+                              y = E13C_03_recent_cor_df_long, 
+                              by = "section", 
+                              all = TRUE, 
+                              suffixes = "_rec")
+
+colnames(correlations_E13C_01)
+correlations_E13C_03$variable_cor <- NULL
+correlations_E13C_03$variable_old <- NULL
+correlations_E13C_03$variable <- NULL
+correlations_E13C_03$category_old <- NULL
+correlations_E13C_03$category <- NULL
+colnames(correlations_E13C_03)[colnames(correlations_E13C_03) == "e13c03_correlation_cor"] <- "corr_full"
+colnames(correlations_E13C_03)[colnames(correlations_E13C_03) == "e13c03_correlation_old"] <- "corr_old"
+colnames(correlations_E13C_03)[colnames(correlations_E13C_03) == "e13c03_correlation"] <- "corr_rec"
+
+correlations_E13C_07 <- merge(E13C_07_cor_df_long, E13C_07_old_cor_df_long, 
+                              by = "section", 
+                              all = TRUE,
+                              suffixes = c("_cor", "_old"))
+view(correlations_E13C_07)
+correlations_E13C_07$variable_cor <- NULL
+correlations_E13C_07$variable_old <- NULL
+correlations_E13C_07$category_old <- NULL
+colnames(correlations_E13C_07)[colnames(correlations_E13C_07) == "e13c07_correlation_cor"] <- "corr_full"
+colnames(correlations_E13C_07)[colnames(correlations_E13C_07) == "e13c07_correlation_old"] <- "corr_old"
+
+correlations_E13C <- rbind(data.frame(section = correlations_E13C_01$section, 
+                                      category = correlations_E13C_01$category_cor,
+                                      corr_full = correlations_E13C_01$corr_full,
+                                      corr_old = correlations_E13C_01$corr_old,
+                                      corr_rec = correlations_E13C_01$corr_rec),
+                           data.frame(section = correlations_E13C_03$section,
+                                      category = correlations_E13C_03$category_cor,
+                                      corr_full =correlations_E13C_03$corr_full,
+                                      corr_old = correlations_E13C_03$corr_old,
+                                      corr_rec = correlations_E13C_03$corr_rec),
+                           data.frame(section = correlations_E13C_07$section,
+                                      category = correlations_E13C_07$category_cor,
+                                      corr_full = correlations_E13C_07$corr_full,
+                                      corr_old = correlations_E13C_07$corr_old,
+                                      corr_rec = NA)
+                           )
+
+colnames(correlations_E13C)
+view(correlations_E13C)
+
+#E13D####
+correlations_E13D_01 <- merge(E13D_01_cor_df_long, E13D_01_old_cor_df_long, 
+                              by = "section", 
+                              all = TRUE,
+                              suffixes = c("_cor", "_old"))
+
+correlations_E13D_01$variable_cor <- NULL
+correlations_E13D_01$variable_old <- NULL
+correlations_E13D_01$category_cor <- NULL
+colnames(correlations_E13D_01)[colnames(correlations_E13D_01) == "e13d01_correlation_cor"] <- "corr_full"
+colnames(correlations_E13D_01)[colnames(correlations_E13D_01) == "e13d01_correlation_old"] <- "corr_old"
+
+correlations_E13D_02 <- merge(E13D_02_cor_df_long, E13D_02_old_cor_df_long, 
+                              by = "section", 
+                              all = TRUE,
+                              suffixes = c("_cor", "_old"))
+
+correlations_E13D_02$variable_cor <- NULL
+correlations_E13D_02$variable_old <- NULL
+correlations_E13D_02$category_cor <- NULL
+colnames(correlations_E13D_02)[colnames(correlations_E13D_02) == "e13d02_correlation_cor"] <- "corr_full"
+colnames(correlations_E13D_02)[colnames(correlations_E13D_02) == "e13d02_correlation_old"] <- "corr_old"
+
+correlations_E13D_03 <- merge(E13D_03_cor_df_long, E13D_03_old_cor_df_long, 
+                              by = "section", 
+                              all = TRUE,
+                              suffixes = c("_cor", "_old"))
+
+correlations_E13D_03$variable_cor <- NULL
+correlations_E13D_03$variable_old <- NULL
+correlations_E13D_03$category_cor <- NULL
+colnames(correlations_E13D_03)[colnames(correlations_E13D_03) == "e13d03_correlation_cor"] <- "corr_full"
+colnames(correlations_E13D_03)[colnames(correlations_E13D_03) == "e13d03_correlation_old"] <- "corr_old"
+
+correlations_E13D <- rbind(data.frame(correlations_E13D_01),
+                           data.frame(correlations_E13D_02),
+                           data.frame(correlations_E13D_03)
+                           )
+correlations_E13D$corr_rec <- NA
+
+colnames(correlations_E13D)
+view(correlations_E13D)
+
+#E13V####
+correlations_E13V_01 <- merge(x = merge(E13V_01_cor_df_long,
+                                        E13V_01_old_cor_df_long, 
+                                        by = "section",
+                                        all = TRUE,
+                                        suffixes = c("_cor", "_old")),
+                              y = E13V_01_recent_cor_df_long, 
+                              by = "section", 
+                              all = TRUE, 
+                              suffixes = "_rec")
+
+correlations_E13V_01$variable_cor <- NULL
+correlations_E13V_01$variable_old <- NULL
+correlations_E13V_01$variable <- NULL
+correlations_E13V_01$category_old <- NULL
+correlations_E13V_01$category <- NULL
+colnames(correlations_E13V_01)[colnames(correlations_E13V_01) == "e13v01_correlation_cor"] <- "corr_full"
+colnames(correlations_E13V_01)[colnames(correlations_E13V_01) == "e13v01_correlation_old"] <- "corr_old"
+colnames(correlations_E13V_01)[colnames(correlations_E13V_01) == "e13v01_correlation"] <- "corr_rec"
+
+correlations_E13V_02 <- merge(x = merge(E13V_02_cor_df_long,
+                                        E13V_02_old_cor_df_long, 
+                                        by = "section",
+                                        all = TRUE,
+                                        suffixes = c("_cor", "_old")),
+                              y = E13V_02_recent_cor_df_long, 
+                              by = "section", 
+                              all = TRUE, 
+                              suffixes = "_rec")
+
+view(correlations_E13V_02)
+correlations_E13V_02$variable_cor <- NULL
+correlations_E13V_02$variable_old <- NULL
+correlations_E13V_02$variable <- NULL
+correlations_E13V_02$category_old <- NULL
+correlations_E13V_02$category <- NULL
+colnames(correlations_E13V_02)[colnames(correlations_E13V_02) == "e13v02_correlation_cor"] <- "corr_full"
+colnames(correlations_E13V_02)[colnames(correlations_E13V_02) == "e13v02_correlation_old"] <- "corr_old"
+colnames(correlations_E13V_02)[colnames(correlations_E13V_02) == "e13v02_correlation"] <- "corr_rec"
+
+correlations_E13V_03 <- merge(x = merge(E13V_03_cor_df_long,
+                                        E13V_03_old_cor_df_long, 
+                                        by = "section",
+                                        all = TRUE,
+                                        suffixes = c("_cor", "_old")),
+                              y = E13V_03_recent_cor_df_long, 
+                              by = "section", 
+                              all = TRUE, 
+                              suffixes = "_rec")
+
+view(correlations_E13V_03)
+correlations_E13V_03$variable_cor <- NULL
+correlations_E13V_03$variable_old <- NULL
+correlations_E13V_03$variable <- NULL
+correlations_E13V_03$category_old <- NULL
+correlations_E13V_03$category <- NULL
+colnames(correlations_E13V_03)[colnames(correlations_E13V_03) == "e13v03_correlation_cor"] <- "corr_full"
+colnames(correlations_E13V_03)[colnames(correlations_E13V_03) == "e13v03_correlation_old"] <- "corr_old"
+colnames(correlations_E13V_03)[colnames(correlations_E13V_03) == "e13v03_correlation"] <- "corr_rec"
+
+
+correlations_E13V <- rbind(data.frame(section = correlations_E13V_01$section, 
+                                      category = correlations_E13V_01$category_cor,
+                                      corr_full = correlations_E13V_01$corr_full,
+                                      corr_old = correlations_E13V_01$corr_old,
+                                      corr_rec = correlations_E13V_01$corr_rec),
+                           data.frame(section = correlations_E13V_02$section,
+                                      category = correlations_E13V_02$category_cor,
+                                      corr_full =correlations_E13V_02$corr_full,
+                                      corr_old = correlations_E13V_02$corr_old,
+                                      corr_rec = correlations_E13V_02$corr_rec),
+                           data.frame(section = correlations_E13V_03$section,
+                                      category = correlations_E13V_03$category_cor,
+                                      corr_full = correlations_E13V_03$corr_full,
+                                      corr_old = correlations_E13V_03$corr_old,
+                                      corr_rec = correlations_E13V_03$corr_rec)
+                           )
+
+colnames(correlations_E13V)
+view(correlations_E13V)
+
+base_correlations_summary <- rbind(data.frame(section = correlations_E13A$section,
+                                              category = correlations_E13A$category_old,
+                                              corr_full = correlations_E13A$corr_full,
+                                              corr_old = correlations_E13A$corr_old,
+                                              corr_rec = correlations_E13A$corr_rec),
+                                   data.frame(section = correlations_E13C$section,
+                                              category = correlations_E13C$category,
+                                              corr_full = correlations_E13C$corr_full,
+                                              corr_old = correlations_E13C$corr_old,
+                                              corr_rec = correlations_E13C$corr_rec),
+                                   data.frame(section = correlations_E13D$section,
+                                              category = correlations_E13D$category_old,
+                                              corr_full = correlations_E13D$corr_full,
+                                              corr_old = correlations_E13D$corr_old,
+                                              corr_rec = correlations_E13D$corr_rec),
+                                   data.frame(section = correlations_E13V$section,
+                                              category = correlations_E13V$category,
+                                              corr_full = correlations_E13V$corr_full,
+                                              corr_old = correlations_E13V$corr_old,
+                                              corr_rec = correlations_E13V$corr_rec)
+                                   )
+
+view(base_correlations_summary)
+
+write.csv(x = base_correlations_summary, file = "data/ring_data/base_correlations_summary.csv")
