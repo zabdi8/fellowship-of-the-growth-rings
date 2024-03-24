@@ -473,7 +473,7 @@ E13V_01_recent_cor_df_long <- pivot_longer(E13V_01_recent_cor_df, -variable, nam
 #Extract the category from variable2
 E13V_01_recent_cor_df_long$category <- ifelse(grepl("^E13VBetn01[opqr]", E13V_01_recent_cor_df_long$section), 
                                        "below_ground", "above_ground")
-E13C_01_recent_cor_df_long$section <- "E13VBetn01u04"
+E13V_01_recent_cor_df_long$section <- "E13VBetn01u04"
 ##E13V_02 YES####
 e13v_bet_n_02_average <- read.rwl("data/ring_data/aligned/e13v/e13v.bet.n/e13v_bet_n_02_average.rwl")
 #Extract only the columns that have more than 3 years
