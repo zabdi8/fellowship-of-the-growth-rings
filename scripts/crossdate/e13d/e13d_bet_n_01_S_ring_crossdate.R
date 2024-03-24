@@ -4,11 +4,9 @@ library(treeclim)
 library(ggplot2)
 
 #Load the data####
-e13d_bet_n_01_s01 <- csv2rwl("data/ring_data/raw/e13d/e13d.bet.n/e13d_bet_n_01/s/E13D.Bet.n.01.s01.csv")
-e13d_bet_n_01_s04 <- csv2rwl("data/ring_data/raw/e13d/e13d.bet.n/e13d_bet_n_01/s/E13D.Bet.n.01.s04.csv")
-e13d_bet_n_01_s08 <- csv2rwl("data/ring_data/raw/e13d/e13d.bet.n/e13d_bet_n_01/s/E13D.Bet.n.01.s08.csv")
-
-
+e13d_bet_n_01_s01 <- csv2rwl("data/ring_data/wedging_rings/e13d/e13d.bet.n/e13d_bet_n_01/s/E13D.Bet.n.01.s01.csv")
+e13d_bet_n_01_s04 <- csv2rwl("data/ring_data/wedging_rings/e13d/e13d.bet.n/e13d_bet_n_01/s/E13D.Bet.n.01.s04.csv")
+e13d_bet_n_01_s08 <- csv2rwl("data/ring_data/wedging_rings/e13d/e13d.bet.n/e13d_bet_n_01/s/E13D.Bet.n.01.s08.csv")
 
 #remove the core year
 e13d_bet_n_01_s01 <- e13d_bet_n_01_s01[-1, ]

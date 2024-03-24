@@ -4,9 +4,9 @@ library(treeclim)
 library(ggplot2)
 
 #Load the data####
-e13d_bet_n_01_v01 <- csv2rwl("data/ring_data/raw/e13d/e13d.bet.n/e13d_bet_n_01/v/E13D.Bet.n.01.v01.csv")
-e13d_bet_n_01_v04 <- csv2rwl("data/ring_data/raw/e13d/e13d.bet.n/e13d_bet_n_01/v/E13D.Bet.n.01.v04.csv")
-e13d_bet_n_01_v08 <- csv2rwl("data/ring_data/raw/e13d/e13d.bet.n/e13d_bet_n_01/v/E13D.Bet.n.01.v08.csv")
+e13d_bet_n_01_v01 <- csv2rwl("data/ring_data/wedging_rings/e13d/e13d.bet.n/e13d_bet_n_01/v/E13D.Bet.n.01.v01.csv")
+e13d_bet_n_01_v04 <- csv2rwl("data/ring_data/wedging_rings/e13d/e13d.bet.n/e13d_bet_n_01/v/E13D.Bet.n.01.v04.csv")
+e13d_bet_n_01_v08 <- csv2rwl("data/ring_data/wedging_rings/e13d/e13d.bet.n/e13d_bet_n_01/v/E13D.Bet.n.01.v08.csv")
 
 
 

@@ -2,12 +2,12 @@
 library(dplR)
 
 #Load the data####
-e13d_bet_n_01_u01 <- csv2rwl("data/ring_data/raw/e13d/e13d.bet.n/e13d_bet_n_01/u/E13D.Bet.n.01.u01.csv")
-e13d_bet_n_01_u02 <- csv2rwl("data/ring_data/raw/e13d/e13d.bet.n/e13d_bet_n_01/u/E13D.Bet.n.01.u02.csv")
-e13d_bet_n_01_u03 <- csv2rwl("data/ring_data/raw/e13d/e13d.bet.n/e13d_bet_n_01/u/E13D.Bet.n.01.u03.csv")
-e13d_bet_n_01_u04 <- csv2rwl("data/ring_data/raw/e13d/e13d.bet.n/e13d_bet_n_01/u/E13D.Bet.n.01.u04.csv")
-e13d_bet_n_01_u05 <- csv2rwl("data/ring_data/raw/e13d/e13d.bet.n/e13d_bet_n_01/u/E13D.Bet.n.01.u05.csv")
-e13d_bet_n_01_u06 <- csv2rwl("data/ring_data/raw/e13d/e13d.bet.n/e13d_bet_n_01/u/E13D.Bet.n.01.u06.csv")
+e13d_bet_n_01_u01 <- csv2rwl("data/ring_data/wedging_rings/e13d/e13d.bet.n/e13d_bet_n_01/u/E13D.Bet.n.01.u01.csv")
+e13d_bet_n_01_u02 <- csv2rwl("data/ring_data/wedging_rings/e13d/e13d.bet.n/e13d_bet_n_01/u/E13D.Bet.n.01.u02.csv")
+e13d_bet_n_01_u03 <- csv2rwl("data/ring_data/wedging_rings/e13d/e13d.bet.n/e13d_bet_n_01/u/E13D.Bet.n.01.u03.csv")
+e13d_bet_n_01_u04 <- csv2rwl("data/ring_data/wedging_rings/e13d/e13d.bet.n/e13d_bet_n_01/u/E13D.Bet.n.01.u04.csv")
+e13d_bet_n_01_u05 <- csv2rwl("data/ring_data/wedging_rings/e13d/e13d.bet.n/e13d_bet_n_01/u/E13D.Bet.n.01.u05.csv")
+e13d_bet_n_01_u06 <- csv2rwl("data/ring_data/wedging_rings/e13d/e13d.bet.n/e13d_bet_n_01/u/E13D.Bet.n.01.u06.csv")
 
 
 

@@ -176,10 +176,11 @@ E13C_01_recent_cor_df$variable <- rownames(E13C_01_recent_cor_df)
 
 # Reshape the data frame to long format for plotting
 E13C_01_recent_cor_df_long <- pivot_longer(E13C_01_recent_cor_df, -variable, names_to = "section", values_to = "e13c01_correlation")
-
+E13C_01_recent_cor_df_long$section <- "E13CBetn01t05"
 #Extract the category from variable2
-E13C_01_recent_cor_df_long$category <- ifelse(grepl("^E13CBetn01[opqr]", E13C_01_recent_cor_df_long$section),
-                                       "below_ground", "above_ground")
+E13C_01_recent_cor_df_long$category <- ifelse(grepl("^E13CBetn01[opqr]",
+                                                    E13C_01_recent_cor_df_long$section),
+                                              "below_ground", "above_ground")
 ##E13C_03 YES####
 e13c_bet_n_03_average <- read.rwl("data/ring_data/aligned/e13c/e13c.bet.n/e13c_bet_n_03/e13c_bet_n_03_average.rwl")
 #Extract only the columns that have more than 3 years
@@ -456,6 +457,7 @@ E13V01_recent_base_cor_rest <- cor(e13v_bet_n_01_average$E13VBetn01s01,
                                    e13v_bet_n_01_average$E13VBetn01u04,
                                 use = "pairwise.complete.obs", method = "spearman")
 
+
 #Check correlations
 mean(E13V01_recent_base_cor_rest)
 
@@ -471,6 +473,7 @@ E13V_01_recent_cor_df_long <- pivot_longer(E13V_01_recent_cor_df, -variable, nam
 #Extract the category from variable2
 E13V_01_recent_cor_df_long$category <- ifelse(grepl("^E13VBetn01[opqr]", E13V_01_recent_cor_df_long$section), 
                                        "below_ground", "above_ground")
+E13C_01_recent_cor_df_long$section <- "E13VBetn01u04"
 ##E13V_02 YES####
 e13v_bet_n_02_average <- read.rwl("data/ring_data/aligned/e13v/e13v.bet.n/e13v_bet_n_02_average.rwl")
 #Extract only the columns that have more than 3 years

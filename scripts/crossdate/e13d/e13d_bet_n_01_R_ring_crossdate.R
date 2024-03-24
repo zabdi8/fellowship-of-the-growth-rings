@@ -2,9 +2,9 @@
 library(dplR)
 
 #Load the data####
-e13d_bet_n_01_r01 <- csv2rwl("data/ring_data/raw/e13d/e13d.bet.n/e13d_bet_n_01/r/E13D.Bet.n.01.r01.csv")
-e13d_bet_n_01_r07 <- csv2rwl("data/ring_data/raw/e13d/e13d.bet.n/e13d_bet_n_01/r/E13D.Bet.n.01.r07.csv")
-e13d_bet_n_01_r12 <- csv2rwl("data/ring_data/raw/e13d/e13d.bet.n/e13d_bet_n_01/r/E13D.Bet.n.01.r12.csv")
+e13d_bet_n_01_r01 <- csv2rwl("data/ring_data/wedging_rings/e13d/e13d.bet.n/e13d_bet_n_01/r/E13D.Bet.n.01.r01.csv")
+e13d_bet_n_01_r07 <- csv2rwl("data/ring_data/wedging_rings/e13d/e13d.bet.n/e13d_bet_n_01/r/E13D.Bet.n.01.r07.csv")
+e13d_bet_n_01_r12 <- csv2rwl("data/ring_data/wedging_rings/e13d/e13d.bet.n/e13d_bet_n_01/r/E13D.Bet.n.01.r12.csv")
 
 
 
