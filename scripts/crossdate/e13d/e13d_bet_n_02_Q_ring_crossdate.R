@@ -1,16 +1,12 @@
 #Load packages####
 library(dplR)
-library(treeclim)
-library(ggplot2)
 
 #Load the data####
-e13d_bet_n_02_q01 <- csv2rwl("data/ring_data/raw/e13d/e13d.bet.n/e13d_bet_n_02/q/E13D.Bet.n.02.q01.csv")
-e13d_bet_n_02_q02 <- csv2rwl("data/ring_data/raw/e13d/e13d.bet.n/e13d_bet_n_02/q/E13D.Bet.n.02.q02.csv")
-e13d_bet_n_02_q03 <- csv2rwl("data/ring_data/raw/e13d/e13d.bet.n/e13d_bet_n_02/q/E13D.Bet.n.02.q03.csv")
-e13d_bet_n_02_q04 <- csv2rwl("data/ring_data/raw/e13d/e13d.bet.n/e13d_bet_n_02/q/E13D.Bet.n.02.q04.csv")
-e13d_bet_n_02_q05 <- csv2rwl("data/ring_data/raw/e13d/e13d.bet.n/e13d_bet_n_02/q/E13D.Bet.n.02.q05.csv")
-
-
+e13d_bet_n_02_q01 <- csv2rwl("data/ring_data/wedging_rings/e13d/e13d.bet.n/e13d_bet_n_02/q/E13D.Bet.n.02.q01.csv")
+e13d_bet_n_02_q02 <- csv2rwl("data/ring_data/wedging_rings/e13d/e13d.bet.n/e13d_bet_n_02/q/E13D.Bet.n.02.q02.csv")
+e13d_bet_n_02_q03 <- csv2rwl("data/ring_data/wedging_rings/e13d/e13d.bet.n/e13d_bet_n_02/q/E13D.Bet.n.02.q03.csv")
+e13d_bet_n_02_q04 <- csv2rwl("data/ring_data/wedging_rings/e13d/e13d.bet.n/e13d_bet_n_02/q/E13D.Bet.n.02.q04.csv")
+e13d_bet_n_02_q05 <- csv2rwl("data/ring_data/wedging_rings/e13d/e13d.bet.n/e13d_bet_n_02/q/E13D.Bet.n.02.q05.csv")
 
 #remove the core year
 e13d_bet_n_02_q01 <- e13d_bet_n_02_q01[-1, ]
@@ -37,7 +33,7 @@ e13d_bet_n_02_q <- Reduce(function(x, y) merge(x, y, by = common_column, all = T
                                e13d_bet_n_02_q03,
                                e13d_bet_n_02_q04,
                                e13d_bet_n_02_q05)
-)
+                          )
 
 # Set row names and remove the extra column
 rownames(e13d_bet_n_02_q) <- e13d_bet_n_02_q[[common_column]]
@@ -52,7 +48,7 @@ write.rwl(e13d_bet_n_02_q, "data/ring_data/aligned/e13d/e13d.bet.n/e13d_bet_n_02
           e13c_bet_n_01_rwl.hdr,
           append = FALSE,
           prec = 0.001
-)
+          )
 
 #Data Analysis####
 ##Statistics####
@@ -96,4 +92,3 @@ corr.rwl.seg(rwl = e13d_bet_n_02_q_short, seg.length = 4, bin.floor = 0, n = NUL
              make.plot = TRUE, label.cex = 1, floor.plus1 = FALSE, master = NULL)
 
 title(main = "E13DBetn02q", adj = 0.48, line = 4, font.main = 2, cex.main = 1.6) #add title
-

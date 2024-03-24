@@ -2,12 +2,10 @@
 library(dplR)
 
 #Load the data####
-e13d_bet_n_02_p01 <- csv2rwl("data/ring_data/raw/e13d/e13d.bet.n/e13d_bet_n_02/p/E13D.Bet.n.02.p01.csv")
-e13d_bet_n_02_p02 <- csv2rwl("data/ring_data/raw/e13d/e13d.bet.n/e13d_bet_n_02/p/E13D.Bet.n.02.p02.csv")
-e13d_bet_n_02_p03 <- csv2rwl("data/ring_data/raw/e13d/e13d.bet.n/e13d_bet_n_02/p/E13D.Bet.n.02.p03.csv")
-e13d_bet_n_02_p04 <- csv2rwl("data/ring_data/raw/e13d/e13d.bet.n/e13d_bet_n_02/p/E13D.Bet.n.02.p04.csv")
-
-
+e13d_bet_n_02_p01 <- csv2rwl("data/ring_data/wedging_rings/e13d/e13d.bet.n/e13d_bet_n_02/p/E13D.Bet.n.02.p01.csv")
+e13d_bet_n_02_p02 <- csv2rwl("data/ring_data/wedging_rings/e13d/e13d.bet.n/e13d_bet_n_02/p/E13D.Bet.n.02.p02.csv")
+e13d_bet_n_02_p03 <- csv2rwl("data/ring_data/wedging_rings/e13d/e13d.bet.n/e13d_bet_n_02/p/E13D.Bet.n.02.p03.csv")
+e13d_bet_n_02_p04 <- csv2rwl("data/ring_data/wedging_rings/e13d/e13d.bet.n/e13d_bet_n_02/p/E13D.Bet.n.02.p04.csv")
 
 #remove the core year
 e13d_bet_n_02_p01 <- e13d_bet_n_02_p01[-1, ]
@@ -31,7 +29,7 @@ e13d_bet_n_02_p <- Reduce(function(x, y) merge(x, y, by = common_column, all = T
                                e13d_bet_n_02_p02,
                                e13d_bet_n_02_p03,
                                e13d_bet_n_02_p04)
-)
+                          )
 
 # Set row names and remove the extra column
 rownames(e13d_bet_n_02_p) <- e13d_bet_n_02_p[[common_column]]
@@ -46,7 +44,7 @@ write.rwl(e13d_bet_n_02_p, "data/ring_data/aligned/e13d/e13d.bet.n/e13d_bet_n_02
           e13c_bet_n_01_rwl.hdr,
           append = FALSE,
           prec = 0.001
-)
+          )
 
 #Data Analysis####
 ##Statistics####
@@ -90,4 +88,3 @@ corr.rwl.seg(rwl = e13d_bet_n_02_p_short, seg.length = 6, bin.floor = 0, n = NUL
              make.plot = TRUE, label.cex = 1, floor.plus1 = FALSE, master = NULL)
 
 title(main = "E13DBetn02p", adj = 0.48, line = 4, font.main = 2, cex.main = 1.6) #add title
-

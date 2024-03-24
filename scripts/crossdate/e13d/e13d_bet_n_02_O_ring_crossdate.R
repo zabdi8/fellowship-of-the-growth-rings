@@ -4,12 +4,10 @@ library(treeclim)
 library(ggplot2)
 
 #Load the data####
-e13d_bet_n_02_o01 <- csv2rwl("data/ring_data/raw/e13d/e13d.bet.n/e13d_bet_n_02/O/E13D.Bet.n.02.o01.csv")
-e13d_bet_n_02_o02 <- csv2rwl("data/ring_data/raw/e13d/e13d.bet.n/e13d_bet_n_02/O/E13D.Bet.n.02.o02.csv")
-e13d_bet_n_02_o03 <- csv2rwl("data/ring_data/raw/e13d/e13d.bet.n/e13d_bet_n_02/O/E13D.Bet.n.02.o03.csv")
-e13d_bet_n_02_o04 <- csv2rwl("data/ring_data/raw/e13d/e13d.bet.n/e13d_bet_n_02/O/E13D.Bet.n.02.o04.csv")
-
-
+e13d_bet_n_02_o01 <- csv2rwl("data/ring_data/wedging_rings/e13d/e13d.bet.n/e13d_bet_n_02/O/E13D.Bet.n.02.o01.csv")
+e13d_bet_n_02_o02 <- csv2rwl("data/ring_data/wedging_rings/e13d/e13d.bet.n/e13d_bet_n_02/O/E13D.Bet.n.02.o02.csv")
+e13d_bet_n_02_o03 <- csv2rwl("data/ring_data/wedging_rings/e13d/e13d.bet.n/e13d_bet_n_02/O/E13D.Bet.n.02.o03.csv")
+e13d_bet_n_02_o04 <- csv2rwl("data/ring_data/wedging_rings/e13d/e13d.bet.n/e13d_bet_n_02/O/E13D.Bet.n.02.o04.csv")
 
 #remove the core year
 e13d_bet_n_02_o01 <- e13d_bet_n_02_o01[-1, ]
@@ -48,7 +46,7 @@ write.rwl(e13d_bet_n_02_o, "data/ring_data/aligned/e13d/e13d.bet.n/e13d_bet_n_02
           e13c_bet_n_01_rwl.hdr,
           append = FALSE,
           prec = 0.001
-)
+          )
 
 #Data Analysis####
 ##Statistics####

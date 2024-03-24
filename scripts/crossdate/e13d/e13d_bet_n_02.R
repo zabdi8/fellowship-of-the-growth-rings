@@ -39,11 +39,7 @@ e13d_bet_n_02 <- Reduce(function(x, y) merge(x, y, by = common_column, all = TRU
 rownames(e13d_bet_n_02) <- e13d_bet_n_02[[common_column]]
 e13d_bet_n_02[[common_column]] <- NULL
 
-colnames(e13d_bet_n_02) #check that there is no columns with .x or .y
-
-# # # Remove columns with suffixes .x and .y
-#  e13d_bet_n_02 <- e13d_bet_n_02 %>%
-#    select(-matches("\\.x$"), -matches("\\.y$"))
+colnames(e13d_bet_n_02) #check that there is no columns with .x or .y If there is .x or .y re check the merge there's something wrong.
 
 # View the resulting data frame
 View(e13d_bet_n_02)
@@ -55,7 +51,7 @@ write.rwl(e13d_bet_n_02, "data/ring_data/aligned/e13d/e13d.bet.n/e13d_bet_n_02.r
           e13c_bet_n_01_rwl.hdr,
           append = FALSE,
           prec = 0.001
-)
+          )
 
 #reduce the names for easy view
 e13d_bet_n_02_short <- e13d_bet_n_02
@@ -309,7 +305,6 @@ rownames(e13d_bet_n_02_average) <- e13d_bet_n_02_average$RowNames
 e13d_bet_n_02_average <- e13d_bet_n_02_average[, -1]
 e13d_bet_n_02_average <- round(e13d_bet_n_02_average, digits = 3) #round to 3 digits
 
-
 View(e13d_bet_n_02_average)
 
 write.rwl(e13d_bet_n_02_average, "data/ring_data/aligned/e13d/e13d.bet.n/e13d_bet_n_02_average.rwl", 
@@ -317,7 +312,7 @@ write.rwl(e13d_bet_n_02_average, "data/ring_data/aligned/e13d/e13d.bet.n/e13d_be
           e13c_bet_n_01_rwl.hdr,
           append = FALSE,
           prec = 0.001
-)
+          )
 
 #analysis####
 ##Statistics####
