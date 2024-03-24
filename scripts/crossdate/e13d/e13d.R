@@ -1,7 +1,5 @@
 #loading packages
 library(dplR)
-library(dplyr)
-
 
 #load rwl files
 e13d_bet_n_01 <- read.rwl("data/ring_data/aligned/e13d/e13d.bet.n/e13d_bet_n_01.rwl")
@@ -23,7 +21,7 @@ e13d <- Reduce(function(x, y) merge(x, y, by = common_column, all = TRUE),
                list(e13d_bet_n_01,
                     e13d_bet_n_02,
                     e13d_bet_n_03)
-)
+               )
 
 # Set row names and remove the extra column
 rownames(e13d) <- e13d[[common_column]]
@@ -45,7 +43,7 @@ write.rwl(e13d, "data/ring_data/aligned/e13d/e13d.rwl",
           e13c_bet_n_01_rwl.hdr,
           append = FALSE,
           prec = 0.001
-)
+          )
 
 #reduce the names for easy view
 e13d_short <- e13d
@@ -109,29 +107,22 @@ e13d_average <- Reduce(function(x, y) merge(x, y, by = common_column, all = TRUE
                        list(e13d_bet_n_01_average,
                             e13d_bet_n_02_average,
                             e13d_bet_n_03_average)
-)
+                       )
 
 # Set row names and remove the extra column
 rownames(e13d_average) <- e13d_average[[common_column]]
 e13d_average[[common_column]] <- NULL
 
-colnames(e13d_average) #check that there is no columns with .x or .y
+colnames(e13d_average) #check that there is no columns with .x or .y if there is any column like that recheck the original dfs
 
-# # # Remove columns with suffixes .x and .y
-#  e13d <- e13d %>%
-#    select(-matches("\\.x$"), -matches("\\.y$"))
-
-# View the resulting data frame
 View(e13d_average)
-colnames(e13d_average)
-head(e13d_average)
 
 write.rwl(e13d_average, "data/ring_data/aligned/e13d/e13d_average.rwl", 
           format = "compact",
           e13c_bet_n_01_rwl.hdr,
           append = FALSE,
           prec = 0.001
-)
+          )
 
 #reduce the names for easy view
 e13d_ave_short <- e13d_average
@@ -171,4 +162,3 @@ title(main = "E13DBetn (Average)", adj = 0.48, line = 5.2, font.main = 2, cex.ma
 
 spag.plot(e13d_ave_short, zfac=0.01, cex = 0.3) #creates a spaghetti plot
 title(main = "E13DBetn (Average)", adj = 0.48, line = 5.2, font.main = 2, cex.main = 1.2) #add title
-

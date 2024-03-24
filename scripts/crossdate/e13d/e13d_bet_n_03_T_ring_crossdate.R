@@ -1,15 +1,10 @@
 #Load packages####
 library(dplR)
-library(treeclim)
-library(ggplot2)
 
 #Load the data####
-e13d_bet_n_03_t01 <- csv2rwl("data/ring_data/raw/e13d/e13d.bet.n/e13d_bet_n_03/t/E13D.Bet.n.03.t01.csv")
-e13d_bet_n_03_t03 <- csv2rwl("data/ring_data/raw/e13d/e13d.bet.n/e13d_bet_n_03/t/E13D.Bet.n.03.t03.csv")
-e13d_bet_n_03_t05 <- csv2rwl("data/ring_data/raw/e13d/e13d.bet.n/e13d_bet_n_03/t/E13D.Bet.n.03.t05.csv")
-
-
-
+e13d_bet_n_03_t01 <- csv2rwl("data/ring_data/wedging_rings/e13d/e13d.bet.n/e13d_bet_n_03/t/E13D.Bet.n.03.t01.csv")
+e13d_bet_n_03_t03 <- csv2rwl("data/ring_data/wedging_rings/e13d/e13d.bet.n/e13d_bet_n_03/t/E13D.Bet.n.03.t03.csv")
+e13d_bet_n_03_t05 <- csv2rwl("data/ring_data/wedging_rings/e13d/e13d.bet.n/e13d_bet_n_03/t/E13D.Bet.n.03.t05.csv")
 
 #remove the core year
 e13d_bet_n_03_t01 <- e13d_bet_n_03_t01[-1, ]
@@ -30,7 +25,7 @@ e13d_bet_n_03_t <- Reduce(function(x, y) merge(x, y, by = common_column, all = T
                           list(e13d_bet_n_03_t01, 
                                e13d_bet_n_03_t03,
                                e13d_bet_n_03_t05)
-)
+                          )
 
 # Set row names and remove the extra column
 rownames(e13d_bet_n_03_t) <- e13d_bet_n_03_t[[common_column]]
@@ -45,7 +40,7 @@ write.rwl(e13d_bet_n_03_t, "data/ring_data/aligned/e13d/e13d.bet.n/e13d_bet_n_03
           e13c_bet_n_01_rwl.hdr,
           append = FALSE,
           prec = 0.001
-)
+          )
 
 #Data Analysis####
 ##Statistics####
@@ -89,4 +84,3 @@ corr.rwl.seg(rwl = e13d_bet_n_03_t_short, seg.length = 8, bin.floor = 0, n = NUL
              make.plot = TRUE, label.cex = 1, floor.plus1 = FALSE, master = NULL)
 
 title(main = "E13DBetn03t", adj = 0.48, line = 4, font.main = 2, cex.main = 1.6) #add title
-

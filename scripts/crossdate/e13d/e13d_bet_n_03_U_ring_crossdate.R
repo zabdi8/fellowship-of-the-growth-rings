@@ -2,14 +2,11 @@
 library(dplR)
 
 #Load the data####
-e13d_bet_n_03_u01 <- csv2rwl("data/ring_data/raw/e13d/e13d.bet.n/e13d_bet_n_03/u/E13D.Bet.n.03.u01.csv")
-e13d_bet_n_03_u02 <- csv2rwl("data/ring_data/raw/e13d/e13d.bet.n/e13d_bet_n_03/u/E13D.Bet.n.03.u02.csv")
-e13d_bet_n_03_u03 <- csv2rwl("data/ring_data/raw/e13d/e13d.bet.n/e13d_bet_n_03/u/E13D.Bet.n.03.u03.csv")
-e13d_bet_n_03_u04 <- csv2rwl("data/ring_data/raw/e13d/e13d.bet.n/e13d_bet_n_03/u/E13D.Bet.n.03.u04.csv")
-e13d_bet_n_03_u05 <- csv2rwl("data/ring_data/raw/e13d/e13d.bet.n/e13d_bet_n_03/u/E13D.Bet.n.03.u05.csv")
-
-
-
+e13d_bet_n_03_u01 <- csv2rwl("data/ring_data/wedging_rings/e13d/e13d.bet.n/e13d_bet_n_03/u/E13D.Bet.n.03.u01.csv")
+e13d_bet_n_03_u02 <- csv2rwl("data/ring_data/wedging_rings/e13d/e13d.bet.n/e13d_bet_n_03/u/E13D.Bet.n.03.u02.csv")
+e13d_bet_n_03_u03 <- csv2rwl("data/ring_data/wedging_rings/e13d/e13d.bet.n/e13d_bet_n_03/u/E13D.Bet.n.03.u03.csv")
+e13d_bet_n_03_u04 <- csv2rwl("data/ring_data/wedging_rings/e13d/e13d.bet.n/e13d_bet_n_03/u/E13D.Bet.n.03.u04.csv")
+e13d_bet_n_03_u05 <- csv2rwl("data/ring_data/wedging_rings/e13d/e13d.bet.n/e13d_bet_n_03/u/E13D.Bet.n.03.u05.csv")
 
 #remove the core year
 e13d_bet_n_03_u01 <- e13d_bet_n_03_u01[-1, ]
@@ -36,7 +33,7 @@ e13d_bet_n_03_u <- Reduce(function(x, y) merge(x, y, by = common_column, all = T
                                e13d_bet_n_03_u03,
                                e13d_bet_n_03_u04,
                                e13d_bet_n_03_u05)
-)
+                          )
 
 # Set row names and remove the extra column
 rownames(e13d_bet_n_03_u) <- e13d_bet_n_03_u[[common_column]]
@@ -51,7 +48,7 @@ write.rwl(e13d_bet_n_03_u, "data/ring_data/aligned/e13d/e13d.bet.n/e13d_bet_n_03
           e13c_bet_n_01_rwl.hdr,
           append = FALSE,
           prec = 0.001
-)
+          )
 
 #Data Analysis####
 ##Statistics####
@@ -95,4 +92,3 @@ corr.rwl.seg(rwl = e13d_bet_n_03_u_short, seg.length = 4, bin.floor = 0, n = NUL
              make.plot = TRUE, label.cex = 1, floor.plus1 = FALSE, master = NULL)
 
 title(main = "E13DBetn03u", adj = 0.48, line = 4, font.main = 2, cex.main = 1.6) #add title
-

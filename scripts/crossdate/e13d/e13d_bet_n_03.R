@@ -30,17 +30,13 @@ e13d_bet_n_03 <- Reduce(function(x, y) merge(x, y, by = common_column, all = TRU
                              e13d_bet_n_03_T,
                              e13d_bet_n_03_U,
                              e13d_bet_n_03_V)
-)
+                        )
 
 # Set row names and remove the extra column
 rownames(e13d_bet_n_03) <- e13d_bet_n_03[[common_column]]
 e13d_bet_n_03[[common_column]] <- NULL
 
-colnames(e13d_bet_n_03) #check that there is no columns with .x or .y
-
-# # # Remove columns with suffixes .x and .y
-#  e13d_bet_n_03 <- e13d_bet_n_03 %>%
-#    select(-matches("\\.x$"), -matches("\\.y$"))
+colnames(e13d_bet_n_03) #check that there is no columns with .x or .y If there is any, re check the original dfs 
 
 # View the resulting data frame
 View(e13d_bet_n_03)
@@ -52,7 +48,7 @@ write.rwl(e13d_bet_n_03, "data/ring_data/aligned/e13d/e13d.bet.n/e13d_bet_n_03.r
           e13c_bet_n_01_rwl.hdr,
           append = FALSE,
           prec = 0.001
-)
+          )
 
 #reduce the names for easy view
 e13d_bet_n_03_short <- e13d_bet_n_03
@@ -253,7 +249,7 @@ write.rwl(e13d_bet_n_03_average, "data/ring_data/aligned/e13d/e13d.bet.n/e13d_be
           e13c_bet_n_01_rwl.hdr,
           append = FALSE,
           prec = 0.001
-)
+          )
 
 #analysis####
 ##Statistics####
@@ -289,4 +285,3 @@ colnames(e13d_bet_n_03_ave_short)
 
 spag.plot(e13d_bet_n_03_ave_short, zfac=0.005,) #creates a spaghetti plot
 title(main = "E13DBetn03 (Average)", adj = 0.48, line = 5.2, font.main = 2, cex.main = 1.2) #add title
-
