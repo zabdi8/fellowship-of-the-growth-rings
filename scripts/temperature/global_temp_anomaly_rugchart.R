@@ -12,7 +12,7 @@ zone_data <- read_csv(url) %>%
          zone_position = as.numeric(zone))
 
 current_year <- zone_data %>%
-  filter(year == 2022)
+  filter(year == 2023)
 
 zone_data%>%
   ggplot(aes(x=t_diff, xend= t_diff,
@@ -29,8 +29,8 @@ zone_data%>%
                         midpoint = 0, guide = "none")+
   labs(x = "Temperature anomaly (\u00B0 C)",
        y = NULL,
-       title = "Variation in annual temperature anomaly by latitude (1880-2022)",
-       subtitle = "Bars for 2022 are colored by the size of anomaly")+
+       title = "Variation in annual temperature anomaly by latitude (1880-2023)",
+       subtitle = "Bars for 2023 are colored by the size of anomaly")+
   theme(
     plot.background = element_rect(fill = "white", color = "white"),
     panel.background = element_rect(fill = "white"),
@@ -46,4 +46,6 @@ zone_data%>%
     axis.ticks = element_blank()
   )
 
-ggsave("figures/global_temp_anomaly_rugchart.png", height = 4, width = 6, units = "in")
+ggsave(filename = "global_temp_anomaly_rugchart.pdf", path = "figures/climate/general/" ,device = "pdf",
+       height = 4, width = 6, units = "in",
+       dpi = 320)

@@ -27,7 +27,7 @@ next_jan <- t_diff %>%
 t_data <- bind_rows(last_dec, t_diff, next_jan) %>%
   mutate(month = factor(month, levels = c("last_Dec", month.abb, "next_Jan")),
          month_number = as.numeric(month) -1,
-         this_year = year == 2023)
+         this_year = year == 2024)
 
 annotation <- t_data %>%
   slice_max(year)%>%
@@ -76,6 +76,7 @@ t_data %>%
            color = "white",
            size = 2)
 
-
-ggsave("figures/temperatures_lines_white.png", width = 8, height = 4.5)
+ggsave(filename ="temperatures_lines_white.png", path = "figures/climate/general/", 
+       width = 8, height = 4.5,units = "in",
+       dpi = 320)
   
