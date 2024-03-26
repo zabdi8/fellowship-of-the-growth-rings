@@ -293,6 +293,27 @@ ggplot(e13d_temperatures_air_long, aes(x = day_of_year, y = temperature, color =
 
 ggsave(filename = "e13d_temperatures.jpg", path = "figures/climate/air_temperature/", device = "jpg", 
        width = 15, height = 7, units = "in", dpi = 320)
+
+#all stats / all sites
+ggplot(e13_temperatures_air_long, aes(x = day_of_year, y = temperature, color = temperature_stat)) +
+  geom_hline(yintercept = 0, linetype = "solid", color = "red", size = 0.3) +
+  geom_line(size = 0.2) +
+  geom_point(shape = 21, fill = "white", size = 1) +
+  geom_smooth(se = FALSE, size = 0.7, span = 0.2) +
+  theme_minimal() +
+  scale_colour_manual(values =  c("#E69F00", "#009E73", "#56B4E9"),
+                      labels = c("Minimum", "Maximum", "Mean")) +
+  labs(color = "Temperature", x = "Day of the Year", y = "Air Temperatures (ºC)") +
+  scale_x_continuous(expand = c(0.01, 0)) +
+  scale_y_continuous(limits = c(-20,20), expand = c(0, 0)) +
+  facet_wrap(~ site)
+
+ggsave(filename = "all_sites_all_temps.jpg", path = "figures/climate/air_temperature/", 
+       device = "jpg", 
+       width = 15, height = 10, units = "in", 
+       dpi = 320)
+
+
 #Soil TEMPERATURE###########################
 #extract only temperatures from soil
 e13_temperatures_soil <- e13_temperatures %>%
@@ -330,7 +351,7 @@ ggplot(e13_temperatures_soil_long, aes(x = day_of_year, y = temperature, color =
                                                       mean = "Mean Soil Temperature")))+
   coord_cartesian(ylim = range(e13_temperatures_soil_long$temperature))
 
-ggsave(filename = "temperature_sites.pdf", path = "figures/climate/soil_temperature/", device = "pdf", 
+ggsave(filename = "temperature_sites.jpg", path = "figures/climate/soil_temperature/", device = "jpg", 
        width = 7, height = 10, units = "in", dpi = 320)  
 
 #Mean Temperature####
@@ -537,3 +558,25 @@ ggplot(e13d_temperatures_soil_long, aes(x = day_of_year, y = temperature, color 
 
 ggsave(filename = "e13d_temperatures.jpg", path = "figures/climate/soil_temperature/", device = "jpg", 
        width = 15, height = 7, units = "in", dpi = 320)
+
+
+#all stats / all sites
+ggplot(e13_temperatures_soil_long, aes(x = day_of_year, y = temperature, color = temperature_stat)) +
+  geom_hline(yintercept = 0, linetype = "solid", color = "red", size = 0.3) +
+  #geom_hline(yintercept = -8.8175, linetype = "solid", color = "blue", size = 0.3) +
+  #geom_hline(yintercept = 12.5875, linetype = "solid", color = "red", size = 0.3) +
+  geom_line(size = 0.2) +
+  geom_point(shape = 21, fill = "white", size = 1) +
+  geom_smooth(se = FALSE, size = 0.7, span = 0.2) +
+  theme_minimal() +
+  scale_colour_manual(values =  c("#E69F00", "#009E73", "#56B4E9"),
+                      labels = c("Minimum", "Maximum", "Mean")) +
+  labs(color = "Temperature", x = "Day of the Year", y = "Soil Temperatures (ºC)") +
+  scale_x_continuous(expand = c(0.01, 0)) +
+  scale_y_continuous(limits = c(-10,15), expand = c(0, 0)) +
+  facet_wrap(~ site)
+
+ggsave(filename = "all_sites_all_temps.jpg", path = "figures/climate/soil_temperature/", 
+       device = "jpg", 
+       width = 15, height = 10, units = "in", 
+       dpi = 320)
